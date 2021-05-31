@@ -247,7 +247,10 @@
 <div id="middle">
 	<div id="middle_wrapper">
 		<div ></div>
-		<div id="middle_main"><!-- 여기에 불러오시오 -->	</div>
+		<div id="middle_main">
+			<!-- 여기에 경로를 넣으세요~ -->
+			<jsp:include page="./KJY/board/search.jsp"/>
+		</div>
 		<div ></div>
 	</div>
 </div>
