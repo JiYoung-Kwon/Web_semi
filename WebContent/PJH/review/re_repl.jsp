@@ -5,9 +5,9 @@
 <html lang='ko'>
 <meta charset="UTF-8">
 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-<script src='../../lib/jquery-3.6.0.min.js'></script>
-<script src='../js/review.js'></script>
-<link rel='stylesheet' type='text/css' href='../css/review.css'>
+<script src='/Web_Semi/lib/jquery-3.6.0.min.js'></script>
+<script src='/Web_Semi/PJH/js/review.js'></script>
+<link rel='stylesheet' type='text/css' href='/Web_Semi/PJH/css/review.css'>
 <head>
 <title>Repl_Page</title>
 </head>
