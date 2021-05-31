@@ -250,7 +250,7 @@
 		<div id="middle_main">
 			<!-- 여기에 경로를 넣으세요~ -->
 			<%-- <jsp:include page="./KJY/board/search.jsp"/> --%>
-			<jsp:include page="./PJH/review/re_search.jsp"/>
+			<jsp:include page="./MKY/contact/contact_search.jsp"/>
 		</div>
 		<div ></div>
 	</div>

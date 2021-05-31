@@ -11,6 +11,7 @@
 #wrapper .title{
 	display: flex;
 }
+
 #wrapper .item{
 	display: flex;
 }
@@ -22,20 +23,23 @@
 	border-right: none;
 	padding: 20px 0 20px 0;
 }
+
 #wrapper .items{
 	border-top: none;
 }
+
 #wrapper .item span{
 	text-align: center;
 	padding: 20px 0 20px 0;
 }
+
 #wrapper hr{
 border-top:none;
 border-bottom: 1px dotted black
 }
 
 #wrapper .title .no, #wrapper .item .no{
-	flex: 1;
+	flex: 0.5;
 }
 #wrapper .title .pname, #wrapper .item .pname{
 	flex: 1;
@@ -57,3 +61,58 @@ border-bottom: 1px dotted black
 	text-align: right;
 	margin-top: 20px;
 }
+
+#wrapper .find_zone #btnInsert{
+	margin-top: 20px;
+	padding: 10px 43px;
+    background-color: #fff;
+    border: 1px solid #000;
+    font-size: 12px;
+}
+#wrapper .find_zone #btnInsert, #btnFind:hover{
+	cursor: pointer;
+}
+
+#wrapper .find_zone #btnFind{
+	padding: 5px 10px;
+    background-color: #fff;
+    border: 1px solid #000;
+    font-size: 12px;
+}
+#wrapper #btn_zone{
+	margin: auto;
+	width: 50%;
+	text-align: center;
+	vertical-align: top;
+}
+#wrapper #btn_zone input[type=button]{
+	margin-top: 20px;
+	padding: 25px;
+	border: 0px;
+	background-color: #ffffff;
+	color: #000 !important;
+    font-size: inherit;
+}
+
+#wrapper #btn_zone input[type=button]:hover{
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
