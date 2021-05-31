@@ -160,7 +160,26 @@
 #footer>#footer_middle>div{
 	text-align: center;
 }
-	 	
+
+#middle_wrapper{
+	width:100%;
+	height: 100%;
+    border: 1px solid black;
+    display: inline-flex;
+}
+#middle_wrapper>div{
+	flex:1;
+	border: 1px solid black;
+}
+#middle_wrapper>#middle_main{
+	flex:4;
+	height:100%;
+	border: 1px solid black;
+}
+
+
+
+
 </style>
 </head>
 <body>
@@ -226,16 +245,10 @@
 </div>
 
 <div id="middle">
-	<div id="main_middle"> <!-- 미들창 불러오기. -->
-		<div id="main_image"><!-- <div id="main_img"><img alt="메인사진" src="./image/middle1.jpg" id="middle1"></div> --></div>
-		<div id="main_testA">
-			<div id="testA_1">메뉴1</div>
-			<div id="testA_2">메뉴2</div>
-		</div>
-		<div id="main_testB">
-			<div id="testB_1">메뉴3</div>
-			<div id="testB_2">메뉴4</div>
-		</div>
+	<div id="middle_wrapper">
+		<div ></div>
+		<div id="middle_main"><!-- 여기에 불러오시오 -->	</div>
+		<div ></div>
 	</div>
 </div>
 <div id="footer">
