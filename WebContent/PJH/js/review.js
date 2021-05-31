@@ -12,51 +12,51 @@ rev.init = function(){
 		if(frm.nowPage.value == '') frm.nowPage.value = '1';
 				
 		var param = $(frm).serialize();
-		$('#review').load('re_search.jsp', param);
+		$('#review').load('PJH/review/re_search.jsp', param);
 	})
 	
 	$('#review #btnFind').on('click', function(){
 		var frm = $('#frm_review')[0];
 		frm.nowPage.value = 1;
 		var param = $(frm).serialize();
-		$('#review').load('re_search.jsp', param);
+		$('#review').load('PJH/review/re_search.jsp', param);
 	})
 	
 	$('#review #btnInsert').on('click', function(){
 		var frm = $('#frm_review')[0];
 		var param = $(frm).serialize();
-		$('#review').load('re_register.jsp', param);
+		$('#review').load('PJH/review/re_register.jsp', param);
 	})
 	
 	$('#review #btnModifyR').on('click', function(){
 		var frm = $('#frm_review')[0];
 		var param = $(frm).serialize();
-		$('#review').load('re_modify.jsp', param);
+		$('#review').load('PJH/review/re_modify.jsp', param);
 	})
 	
 	$('#review #btnRepl').on('click', function(){
 		var frm = $('#frm_review')[0];
 		var param = $(frm).serialize();
-		$('#review').load('re_repl.jsp', param);
+		$('#review').load('PJH/review/re_repl.jsp', param);
 	})
 	
 	$('#review #btnModify').on('click', function(){
 		var frm = $('#frm_review')[0];
 		var param = $(frm).serialize();
-		$('#review').load('re_modify.jsp', param);
+		$('#review').load('PJH/review/re_modify.jsp', param);
 	})
 	
 	$('#review #btnModify').on('click', function(){
 		var frm = $('#frm_review')[0];
 		var param = $(frm).serialize();
-		$('#review').load('re_modify.jsp', param);
+		$('#review').load('PJH/review/re_modify.jsp', param);
 	})
 	
 	
 	rev.view = function(){
 	var frm = $('#frm_review')[0];
 	var param = $(frm).serialize();
-	$('#review').load('view.jsp', param);
+	$('#review').load('PJH/review/view.jsp', param);
 	}
 	
 	rev.move = function(nowPage){
