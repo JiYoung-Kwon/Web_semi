@@ -1,0 +1,136 @@
+/*	
+-------------------------
+	게시판과 관련한 스타일
+	작성자 : 박준화
+	작성일 : 2021.04
+-------------------------
+*/
+@charset "UTF-8";
+
+#review{
+	width:100%;
+	padding-right:10px;
+}
+
+#review>h1{
+	font-size:16pt;
+	margin-bottom:20px;
+	margin-top:20px;
+	text-align: center;
+	
+}
+
+
+#review #btn_zone{
+	text-align: center;
+	margin-top:10px;
+	padding-top:10px;
+	border-top:2px dotted #ff80c0;
+	
+}
+
+#review form>label{
+	display:inline-block;
+	width:80px;
+	text-align:left;
+}
+#review form>textarea{
+	width:600px;
+	height:300px;
+	margin-top:3px;
+}
+
+#review form>input[name=subject]{
+	width:314px;
+}
+
+#review #btn_zone>input[type=button], input[type=reset] {
+	border-radius:12px;
+	padding-left:5px;
+	padding-right:5px;
+}
+
+/*----검색 (search)------------- */
+#review .find_zone{
+	display:inline-block;
+	float:right;
+}
+
+#review .title{
+	border-top:2px solid #888;
+	border-bottom:2px solid #888;
+	padding-top:2px;
+	padding-bottom:2px;
+	margin-top:2px;
+	background-color:#ccc;
+}
+
+#review .title>span, #review .item>span{
+	display:inline-block;
+}
+
+#review .item:hover{
+	background-color : #ccc;
+	cursor : pointer;
+}
+
+#review .title>.no, #review .item>.no{ width:60px;}
+#review .title>.subject, #review .item>.subject{ width:450px;}
+#review .title>.date, #review .item>.date{ width:150px;}
+#review .title>.mid, #review .item>.mid{ width:150px;}
+#review .title>.hit, #review .item>.hit{ width:100px;}
+
+
+#review #image_preview #attzone{
+	width:100%;
+	height:160px;
+	padding:0;
+	border:2px dotted #aaa;
+	background-color:rgba(255,255,255,.2);
+}
+	
+#review #image_preview #attzone .item{
+	width:130px;
+	height:150px;
+	margin:5px;
+	position:relative;
+	display:inline-block;
+}
+	
+#review #attzone .del_btn{
+	position:absolute;
+	font-size:24pt;
+	color:#ff0000;
+	right:3px;
+	bottom:3px;
+	background-color:rgba(255,255,255,.2);
+	padding:0;
+	border-width:0;
+	cursor:pointer;
+	}
+	
+#review #attzone img{
+	width:100%;
+	height:100%;
+}
+
+
+#review #passwordZone{
+	position : absolute;
+	top : 0;
+	left : 0;
+	background-color : #0009;
+	width : 100%;
+	height : 100%;
+	display : none;
+}
+
+#review #textZone{
+	width : 350px;
+	height : 120px;
+	margin : 70px auto;
+	background-color : #eee;
+}
+
+
+
