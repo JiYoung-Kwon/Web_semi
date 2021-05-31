@@ -3,7 +3,7 @@
  */
 
 onDisplay = function(n){
-	var num = parseInt(n/4);
+	var num = parseInt((n-1)/4);
 	if($('.detailPage').eq(num).css('display') == 'none'){
 		$('.detailPage').eq(num).show();
 	}else{
