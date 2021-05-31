@@ -8,5 +8,6 @@
 </head>
 <body>
 	<h1>git ignore test page</h1>
+	<h2>test2</h2>
 </body>
 </html>
