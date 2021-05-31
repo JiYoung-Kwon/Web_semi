@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>BoardGame search</title>
-<script src = '../../lib/jquery-3.6.0.min.js'></script>
-<script src = './board.js'></script>
+<script src = '/Web_Semi/lib/jquery-3.6.0.min.js'></script>
+<script src = '/Web_Semi/KJY/board/board.js'></script>
 <style>
 	#board {
 		min-width: 1000px;
@@ -25,7 +25,7 @@
 		height: 280px;
 	}
 	
-	#detailPage img{
+	.detailPage img{
 		margin-right: 30px;
 	    margin-top: 5px;
 	    margin-left: 30px;
@@ -65,16 +65,18 @@
 		<div class = 'items'>
 			<c:forEach var="vo" begin ='1' end ='10' varStatus ="x">
 				<%-- ${x.index } --%>
+		
 				<div class = 'item' onclick = 'onDisplay(${x.index})'>
 					<span class = 'img'>
 						<img src = 'http://placehold.it/150x180'/>
 					</span>
 					<span class = 'kor'>스플렌더</span>
-					<span class = 'eng'>Splendor</span>
-				</div>	
-				<c:if test ="${x.index%4 eq 0 }">				
+					<span class = 'eng'>Splendor</span>		
+				</div>		
+				
+				<c:if test ="${x.index%4 eq 0}">		
+					<hr/>		
 					<div class = 'detailPage'>
-						<hr/>
 						<span class = 'img'>
 							<img src = 'http://placehold.it/180x210' align = 'left'/>
 						</span>
@@ -85,9 +87,21 @@
 						게임시간 <span class = 'time'>45분</span>
 					</div>
 					<hr/>
-				</c:if>
-				
+				</c:if>		
 			</c:forEach>
+			
+			<div class = 'detailPage'>
+				<hr/>
+				<span class = 'img'>
+					<img src = 'http://placehold.it/180x210' align = 'left'/>
+				</span>
+				<span class = 'bName'>스플렌더 (Splendor)</span><hr/>
+				<span class = 'exp'>보석칩으로 카드를 사서 모으는 극강의 두뇌꿀잼게임</span><hr/>
+				난이도 <span class = 'diff'>Hard</span>
+				인원 <span class = 'person'>2-4인</span>
+				게임시간 <span class = 'time'>45분</span>
+			</div>
+			
 		</div>
 	</div>
 </body>
