@@ -43,7 +43,10 @@
 <body>
 	<div id = 'board'>
 		<h2>Search</h2>
-		<form name = 'frm_board' id = 'frm_board' method = 'post' action =''>		
+		<form name = 'frm_board' id = 'frm_board' method = 'post' action =''>	
+			<input type = 'button' value = '작성' id = 'btnRegister'/>
+			
+			<!-- 보드게임 검색 -->
 			<div class = 'find_zone'>
 				<label>게임 이름</label>
 				<input type = 'search' name = 'findStr' placeholder="게임 이름을 입력하세요." value = ''/>
@@ -70,26 +73,26 @@
 		
 		<hr>
 		<div class = 'items'>
-			<c:forEach var="vo" begin ='1' end ='10' varStatus ="x">
-				<%-- ${x.index } --%>
-		
+			<c:forEach var="vo" items= "${list }" varStatus ="x">
+				${x.index }
 				<div class = 'item' onclick = 'onDisplay(${x.index})'>
 					<span class = 'img'>
 						<img src = 'http://placehold.it/150x180'/>
 					</span>
-					<span class = 'kor'>스플렌더</span>
-					<span class = 'eng'>Splendor</span>		
+					<span class = 'bName'>${vo.bName }</span>
+					<span class = 'eName'>${vo.eName }</span>		
 				</div>		
 				
 				<!-- 클릭 시, 세부 정보 div -->
-				<c:if test ="${x.index%4 eq 0}">		
+				<c:if test ="${(x.index+1)%4 eq 0}">		
 					<hr/>		
 					<div class = 'detailPage'>
+						<input type = 'text' id = 'serial' value ='0'/>				
 						<span class = 'img'>
 							<img src = 'http://placehold.it/250x300' align = 'left'/>
 						</span>
-						<span class = 'bName'>스플렌더 (Splendor)</span><hr/>
-						<span class = 'exp'>보석칩으로 카드를 사서 모으는 극강의 두뇌꿀잼게임</span><hr/>
+						<span class = 'TotalName'>${list[0].bName} (Splendor)</span><hr/>
+						<span class = 'expl'>보석칩으로 카드를 사서 모으는 극강의 두뇌꿀잼게임</span><hr/>
 						난이도 <span class = 'diff'>Hard</span>
 						인원 <span class = 'person'>2-4인</span>
 						게임시간 <span class = 'time'>45분</span>
@@ -163,8 +166,18 @@
 						<input type ='button' value ='맨끝'/>
 					</div>
 				</div>
-			</div>
-			
+			</div>	
+		</div>
+		
+		<br/>
+		<div id = 'btn_zone'>
+			<input type ='button' value ='맨첨'/>
+			<input type ='button' value ='이전'/>
+			<input type ='button' value ='1'/>
+			<input type ='button' value ='2'/>
+			<input type ='button' value ='3'/>
+			<input type ='button' value ='다음'/>
+			<input type ='button' value ='맨끝'/>
 		</div>
 	</div>
 </body>

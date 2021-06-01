@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src = '/Web_Semi/lib/jquery-3.6.0.min.js'></script>
 <style>
 *{box-sizing: border-box;
 	padding: 0;
@@ -177,93 +178,100 @@
 	border: 1px solid black;
 }
 
-
-
-
 </style>
 </head>
 <body>
-<div id="top">
-	<div id="wrapper_top"></div>
-	<div id="wrapper_middle">
-		<div id="wm_left">
-			<div id="logo"><img alt="로고" src="https://redbutton.co.kr/wp-content/uploads/2021/03/GNB_logo.png" id="logo_img"></div>
-		</div>
-		<div id="wm_mid">
-			<div></div>
-			<nav id='top_nav'>
-				<span>매장소개</span>
-				<span>보드게임</span>
-				<span>메뉴</span>
-				<span>예약</span>
-				<span>커뮤니티</span>
-				<div id="sub_menu">
-					<div id="sub_top"></div>
-					<div id="sub_bottom">
-						<div></div>
-						<div id="sub_menu_nav">
-							<div>
-								<div>오시는 길</div>
-								<div>서브메뉴 2</div>
-								<div>서브메뉴 3</div>
-								<div>서브메뉴 4</div>
+	<%
+		String boardGame = "./boardGame";
+		
+		request.setAttribute("boardGame", boardGame);
+	%>
+	
+	<div id="top">
+		<div id="wrapper_top"></div>
+		<div id="wrapper_middle">
+			<div id="wm_left">
+				<div id="logo"><img alt="로고" src="https://redbutton.co.kr/wp-content/uploads/2021/03/GNB_logo.png" id="logo_img"></div>
+			</div>
+			<div id="wm_mid">
+				<div></div>
+				<nav id='top_nav'>
+					<span>매장소개</span>
+					<span>보드게임</span>
+					<span>메뉴</span>
+					<span>예약</span>
+					<span>커뮤니티</span>
+					<div id="sub_menu">
+						<div id="sub_top"></div>
+						<div id="sub_bottom">
+							<div></div>
+							<div id="sub_menu_nav">
+								<div>
+									<div>오시는 길</div>
+									<div>서브메뉴 2</div>
+									<div>서브메뉴 3</div>
+									<div>서브메뉴 4</div>
+								</div>
+								<div>
+									<div>서브메뉴 1</div>
+									<div>서브메뉴 2</div>
+									<div>서브메뉴 3</div>
+									<div>서브메뉴 4</div>
+								</div>
+								<div>
+									<div>서브메뉴 1</div>
+									<div>서브메뉴 2</div>
+									<div>서브메뉴 3</div>
+									<div>서브메뉴 4</div>
+									<div>서브메뉴 5</div>
+								</div>
+								<div>
+									<div>서브메뉴 1</div>
+									<div>서브메뉴 2</div>
+									<div>서브메뉴 3</div>
+								</div>
+								<div>
+									<div>공지사항</div>
+									<div>이용 후기</div>
+									<div>고객 의견</div>
+									<div>자유게시판</div>
+								</div>
 							</div>
-							<div>
-								<div>서브메뉴 1</div>
-								<div>서브메뉴 2</div>
-								<div>서브메뉴 3</div>
-								<div>서브메뉴 4</div>
-							</div>
-							<div>
-								<div>서브메뉴 1</div>
-								<div>서브메뉴 2</div>
-								<div>서브메뉴 3</div>
-								<div>서브메뉴 4</div>
-								<div>서브메뉴 5</div>
-							</div>
-							<div>
-								<div>서브메뉴 1</div>
-								<div>서브메뉴 2</div>
-								<div>서브메뉴 3</div>
-							</div>
-							<div>
-								<div>공지사항</div>
-								<div>이용 후기</div>
-								<div>고객 의견</div>
-								<div>자유게시판</div>
-							</div>
+							<div></div>
 						</div>
-						<div></div>
 					</div>
-				</div>
-			</nav>
-			<div></div>
+				</nav>
+				<div></div>
+			</div>
+			<div id="wm_right"></div>
 		</div>
-		<div id="wm_right"></div>
+		<div id="wrapper_bottom"></div>
 	</div>
-	<div id="wrapper_bottom"></div>
-</div>
+	
+	<div id="middle">
+		<div id="middle_wrapper">
+			<div ></div>
+			<div id="middle_main">
+				<!-- 여기에 경로를 넣으세요~ -->
+				<%-- <jsp:include page="./KJY/board/search.jsp"/> --%>
+				<%-- <jsp:include page="./PJH/review/re_search.jsp"/> --%>
+			</div>
+			<div ></div>
+		</div>
+	</div>
+	<div id="footer">
+		<div id="footer_top"></div>
+		<div id="footer_middle">
+			<div>문의전화 1644-0000</div>
+			<div>주소 : 서울특별시 중구 다동88 동아빌딩15층 보드게임카페 | 사업자번호 : 333-22-55555</div>
+			<div>대표자 : 김대표 | e-mail : kimboard@naver.com</div>
+		</div>
+		<div id="footer_bottom"></div>
+	</div>
 
-<div id="middle">
-	<div id="middle_wrapper">
-		<div ></div>
-		<div id="middle_main">
-			<!-- 여기에 경로를 넣으세요~ -->
-			<jsp:include page="./KJY/board/search.jsp"/>
-			<%-- <jsp:include page="./PJH/review/re_search.jsp"/> --%>
-		</div>
-		<div ></div>
-	</div>
-</div>
-<div id="footer">
-	<div id="footer_top"></div>
-	<div id="footer_middle">
-		<div>문의전화 1644-0000</div>
-		<div>주소 : 서울특별시 중구 다동88 동아빌딩15층 보드게임카페 | 사업자번호 : 333-22-55555</div>
-		<div>대표자 : 김대표 | e-mail : kimboard@naver.com</div>
-	</div>
-	<div id="footer_bottom"></div>
-</div>
+	<script>
+		$('#middle_main').load('${boardGame}', 'job=search');
+	</script>
 
 </body>
 </html>

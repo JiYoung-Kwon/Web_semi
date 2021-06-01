@@ -3,12 +3,17 @@
  */
 
 onDisplay = function(n){
-	var num = parseInt((n-1)/4);
+	var num = parseInt(n/4);
 	if($('.detailPage').eq(num).css('display') == 'none'){
+	var serial = document.getElementById("serial");
+	
+	serial.value = n;
+	
 		$('.detailPage').eq(num).show();
 	}else{
 		$('.detailPage').eq(num).hide();
 	}
+	
 }
 
 function funcRegisterOL(){
