@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = "/~~~.do")
+@WebServlet(urlPatterns = "/review.do")
 public class ReViewServlet extends HttpServlet {
 	ReViewDao dao;
 	RequestDispatcher rd;
@@ -29,7 +29,7 @@ public class ReViewServlet extends HttpServlet {
 		resp.setContentType("text/html;charset=utf-8");
 		ReViewVo vo = null;
 		
-		String url = "./~~~/";
+		String url = "./PJH/review/";
 		dao = new ReViewDao();
 		
 		int serial = 0;
@@ -53,35 +53,7 @@ public class ReViewServlet extends HttpServlet {
 		if(req.getParameter("serial") != null) {
 			serial = Integer.parseInt(req.getParameter("serial"));
 		}
-		
-		switch(job) {
-		case "search"	:
-			url += "search.jsp";
-			List<ReViewVo> list = dao.select(page);
-			
-			req.setAttribute("list", list);
-			break;
-			
-		case "view"		:
-			url += "view.jsp";
-			vo = dao.view(serial);
-			
-			req.setAttribute("vo", vo);
-			break;
-			
-		case "delete"	:
-			url += "search.jsp";
-			vo = new ReViewVo();
-			vo.setSerial(serial);
-			vo.setMid(req.getParameter("mid"));
-			vo.setPwd(req.getParameter("pwd"));
-			dao.delete(vo);
-			
-			list = dao.select(page);
-			req.setAttribute("list", list);
-			break;
-			
-		}
+
 
 		req.setAttribute("page", page);
 		rd = req.getRequestDispatcher(url);

@@ -22,20 +22,8 @@ public class ReViewDao {
 		}
 	}
 	
-	public List<ReViewVo> select(Page page){
-		List<ReViewVo> list = null;
-		
-		try{
-			int totList = sqlSession.selectOne("board.totList", page.getFindStr());
-			page.setTotList(totList);
-			page.compute();
-			list = sqlSession.selectList("board.search", page);
-			sqlSession.close();
-			
-		}catch(Exception ex) {
-			ex.printStackTrace();
-		}
-		
-		return list;
+	
+	public static void main(String[] args) {
+		new ReViewDao();
 	}
 }

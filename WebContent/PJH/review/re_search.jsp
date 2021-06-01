@@ -40,19 +40,7 @@
 	</div>
 
 	<!-- 샘플 내용 DB에서 끌어다가 적을 공간
-	<div class='items'>
-	<c:forEach var='vo' items="${list}">
-		<div class='item' onclick="brd.view('${vo.serial}')">
-				<span class='no'>${vo.serial }</span>
-				<span class='subject'>${vo.subject }(${vo.attCnt})</span>
-				<span class='date'>${vo.mdate }</span>
-				<span class='mid'>${vo.mid }</span>
-				<span class='hit'>${vo.hit }</span>
-		</div>
-	</c:forEach>
 
-	</div>
- 
  	<div id='btn_zone'>
 		<c:if test="${page.startPage>1 }">
 			<input type='button' value='맨처음' onclick='brd.move(1)'/>
@@ -68,9 +56,21 @@
 			<input type='button' value='맨끝' onclick='brd.move(${page.totPage })'/>
 		</c:if>
 	</div>
-
 -->
 
+
+	<div class='items'>
+		<c:forEach var='vo' items="${list}">
+			<div class='item' onclick="brd.view('${vo.serial}')">
+				<span class='no'>${vo.serial }</span>
+				<span class='subject'>${vo.subject }</span>
+				<span class='date'>${vo.mdate }</span>
+				<span class='mid'>${vo.mid }</span>
+				<span class='hit'>${vo.hit }</span>
+			</div>
+		</c:forEach>
+	</div>
+<!--
 	<div class='items'  onclick='rev.view()'>
 		<div class='item'>
 				<span class='gubun'>붓산</span>
@@ -99,6 +99,7 @@
 				<span class='hit'>조회수~</span>
 		</div>
 	</div>
+-->
 
 	<div id='btn_zone'>
 			<input type='button' value='맨처음' onclick=/>

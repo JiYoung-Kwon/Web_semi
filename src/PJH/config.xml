@@ -16,7 +16,7 @@
 	</environments>
 
 	<mappers>
-		<mapper resource="review.xml" />
+		<mapper resource="./review.xml" />
 	</mappers>
 
 <!-- mybatis로 데이터베이스에 접근하기위해 xml 파일로 접속 정보를 입력하였음. -->

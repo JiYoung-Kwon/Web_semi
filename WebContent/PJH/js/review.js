@@ -6,7 +6,7 @@ var rev = {};
 
 rev.init = function(){
 	$('#review #btnSearch').on('click', function(){
-		var frm = $('#frm_review')[0];
+		var frm = $('#frm_review');
 		
 		if(frm.serial.value =='') frm.serial.value = 0;
 		if(frm.nowPage.value == '') frm.nowPage.value = '1';
@@ -31,7 +31,7 @@ rev.init = function(){
 	$('#review #btnModifyR').on('click', function(){
 		var frm = $('#frm_review')[0];
 		var param = $(frm).serialize();
-		$('#review').load('PJH/review/re_modify.jsp', param);
+		$('#review').load('./review.do', param);
 	})
 	
 	$('#review #btnRepl').on('click', function(){
