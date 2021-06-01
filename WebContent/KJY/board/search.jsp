@@ -22,13 +22,20 @@
 	
 	.detailPage{
 		display : none;
-		height: 280px;
+		height: 300px;
+		padding-bottom:65px;
+		margin-bottom:45px;
 	}
 	
 	.detailPage img{
 		margin-right: 30px;
 	    margin-top: 5px;
 	    margin-left: 30px;
+	    margin-bottom : 40px;
+	}
+	
+	.oneLineReview{
+		padding-top:30px;
 	}
 
 </style>
@@ -74,18 +81,47 @@
 					<span class = 'eng'>Splendor</span>		
 				</div>		
 				
+				<!-- 클릭 시, 세부 정보 div -->
 				<c:if test ="${x.index%4 eq 0}">		
 					<hr/>		
 					<div class = 'detailPage'>
 						<span class = 'img'>
-							<img src = 'http://placehold.it/180x210' align = 'left'/>
+							<img src = 'http://placehold.it/250x300' align = 'left'/>
 						</span>
 						<span class = 'bName'>스플렌더 (Splendor)</span><hr/>
 						<span class = 'exp'>보석칩으로 카드를 사서 모으는 극강의 두뇌꿀잼게임</span><hr/>
 						난이도 <span class = 'diff'>Hard</span>
 						인원 <span class = 'person'>2-4인</span>
 						게임시간 <span class = 'time'>45분</span>
+						<br/>
+						<hr/>
+						<div class = 'oneLineReview'>
+							<h2>
+								한줄평 
+								<input type = 'button' value = "작성" onclick = "funcRegisterOL()"/>
+							</h2>
+							
+							<c:forEach var = "ol" begin = "1" end = "5" >
+								<span class = "mid">권지영</span>
+								<span class = "star">★★★★★</span>
+								<span class = "doc"> 게임이 아주 쉽고 2인이 플레이하기 좋습니다.</span>
+								<input type = 'button' value = "삭제" id = 'btnDeleteOL'/>
+								<br/>
+							</c:forEach>
+							<br/>
+							
+							<div id = 'btn_zone'>
+								<input type ='button' value ='맨첨'/>
+								<input type ='button' value ='이전'/>
+								<input type ='button' value ='1'/>
+								<input type ='button' value ='2'/>
+								<input type ='button' value ='3'/>
+								<input type ='button' value ='다음'/>
+								<input type ='button' value ='맨끝'/>
+							</div>
+						</div>
 					</div>
+	
 					<hr/>
 				</c:if>		
 			</c:forEach>
@@ -93,13 +129,40 @@
 			<div class = 'detailPage'>
 				<hr/>
 				<span class = 'img'>
-					<img src = 'http://placehold.it/180x210' align = 'left'/>
+					<img src = 'http://placehold.it/250x300' align = 'left'/>
 				</span>
 				<span class = 'bName'>스플렌더 (Splendor)</span><hr/>
 				<span class = 'exp'>보석칩으로 카드를 사서 모으는 극강의 두뇌꿀잼게임</span><hr/>
 				난이도 <span class = 'diff'>Hard</span>
 				인원 <span class = 'person'>2-4인</span>
 				게임시간 <span class = 'time'>45분</span>
+				
+				<hr/>
+				<div class = 'oneLineReview'>
+					<h2>
+						한줄평 
+						<input type = 'button' value = "작성" onclick = "funcRegisterOL()"/>
+					</h2>
+					
+					<c:forEach var = "ol" begin = "1" end = "5" >
+						<span class = "mid">권지영</span>
+						<span class = "star">★★★★★</span>
+						<span class = "doc"> 게임이 아주 쉽고 2인이 플레이하기 좋습니다.</span>
+						<input type = 'button' value = "삭제" id = 'btnDeleteOL'/>
+						<br/>
+					</c:forEach>
+					<br/>
+					
+					<div id = 'btn_zone'>
+						<input type ='button' value ='맨첨'/>
+						<input type ='button' value ='이전'/>
+						<input type ='button' value ='1'/>
+						<input type ='button' value ='2'/>
+						<input type ='button' value ='3'/>
+						<input type ='button' value ='다음'/>
+						<input type ='button' value ='맨끝'/>
+					</div>
+				</div>
 			</div>
 			
 		</div>
