@@ -10,3 +10,20 @@ onDisplay = function(n){
 		$('.detailPage').eq(num).hide();
 	}
 }
+
+function funcRegisterOL(){
+	var popupX = (document.body.offsetWidth / 2) - (200 / 2);
+	//만들 팝업창 좌우 크기의 1/2 만큼 보정값으로 빼주었음
+
+	var popupY= (window.screen.height / 2) - (300 / 2);
+	//만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
+
+	
+	var win = window.open('/Web_Semi/KJY/board/registerOL.jsp','win','width=500px, height=350px, left='+ popupX + ', top='+ popupY);	
+}
+
+$('.starRev span').on('click',function(){
+  	$(this).parent().children('span').removeClass('on');
+  	$(this).addClass('on').prevAll('span').addClass('on');
+  	return false;
+});
