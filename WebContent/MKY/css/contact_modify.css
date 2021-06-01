@@ -3,6 +3,7 @@
 	margin-top:15px;
 	padding:10px;
 }
+
 #wrapper h1{
 	color: #997A5E;
 	font-family: "Noto Sans KR", Sans-serif;
@@ -10,7 +11,6 @@
 	font-weight: bold;
 	line-height: 38px;
 	letter-spacing: -1.4px;
-	margin-bottom: 10px;
 }
 #label{
 	display: inline-block;

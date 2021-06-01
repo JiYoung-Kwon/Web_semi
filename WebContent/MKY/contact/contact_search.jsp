@@ -64,6 +64,8 @@
 		<input type='button' id='back' value='<' onclick='product.move(${p.startPage-1})'/>
 		
 		<input type='button' id='num' value='1' onclick='product.move(${i})' />
+		<input type='button' id='num' value='2' onclick='product.move(${i})' />
+		<input type='button' id='num' value='3' onclick='product.move(${i})' />
 		
 		<input type='button' id='next' value='>' onclick='product.move(${p.endPage+1 })'/>
 		<input type='button' id='end' value='>>' onclick='product.move(${p.totPage })'/>

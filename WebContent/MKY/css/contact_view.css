@@ -1,0 +1,100 @@
+@charset "UTF-8";
+#wrapper{
+	margin-top:15px;
+	padding:10px;
+}
+#wrapper h2{
+	color: #997a5e;
+	font-family: "Noto Sans KR", Sans-serif;
+	font-size: 28px;
+	font-weight: bold;
+	line-height: 38px;
+	margin-bottom: 10px;
+}
+hr{
+	border-top: none;
+	border-bottom: 1px solid #e7e7e7;
+}
+#top_input{
+	display: flex;
+	width: 100%;
+	line-height: 1.5;
+}
+
+#label{
+	display: flex;
+	width: 8%;
+	height: 100%;
+	padding: 8px 0 8px 15px;;
+	font-size: 0.75em;
+   text-align: left;
+}
+#top_text{
+	display: flex;
+	width: 62%;
+	max-height: 30px;
+	padding: 8px 0 8px 15px;;
+	font-size: 0.75em;
+   text-align: left;
+   overflow: auto;
+   margin-left: 10px;
+}
+
+#title{
+	display: inline-block;
+}
+
+#main_text{
+	display: flex;
+	width: 90%;
+	padding: 35px 12px 40px;
+   min-height: 300px;
+   line-height: 1.6;
+}
+
+#wrapper #btn_zone{
+	text-align: left;
+   margin: 40px 0;
+}
+
+#btnSearch, #btnModify, #btnDelete{
+	font-size: 12px !important;
+   padding: 0;
+   line-height: 35px;
+   width: 96px;
+   background-color: #fff;
+   border: 1px solid #000;
+}
+
+#wrapper #btn_zone input[type=button]:hover{
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
