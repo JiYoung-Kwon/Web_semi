@@ -80,7 +80,7 @@ padding: 10px;
 			<br/>
 			<label><span>비밀번호</span><input type='password' name='pwd' required minlength='4' maxlength='12'/></label><br/>
 			<label><span>비밀번호 확인</span><input type='password' name='chk_pwd' required minlength='4' maxlength='12'/></label><br/>
-			<label><span>이름</span><input type='text' name='mname' required minlength='2' maxlength='10'/></label><br/>
+			<label><span>이름</span><input type='text' name='irum' required minlength='2' maxlength='10'/></label><br/>
 			<label><span>전화번호</span><input type='text' name='phone' required/></label><br/>
 			<label><span>주소</span><input type='text' name='post' id='post' readOnly>
 			<input type='button' name='btnZipCode' id="btn_Zip" value='우편번호' onclick='funcZip()'/></label>
@@ -99,11 +99,12 @@ padding: 10px;
 				</select><br/>
 			</label>
 			<div id="button_zone">
-				<input type='submit' id="btn_register" value="가입"/>
+				<input type='button' id="btn_register" value="가입"/>
 				<input type='button' id="btn_cancle" value="취소"/>
 			</div>
 		</form>
 	</div>
 </div>
+<script type="text/javascript" src="./KSY/member/member.js"></script>
 </body>
 </html>

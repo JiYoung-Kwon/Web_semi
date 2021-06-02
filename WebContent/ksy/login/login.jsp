@@ -109,5 +109,6 @@ form>input[type=button]:active {
 		</div>
 	</div>
 </div>
+<script type="text/javascript" src="./KSY/member/member.js"></script>
 </body>
 </html>
