@@ -53,11 +53,11 @@ public class ReviewServlet extends HttpServlet {
 		if(!(req.getParameter("serial") == null || req.getParameter("serial").equals("")) ){
 			serial = Integer.parseInt(req.getParameter("serial"));
 		}
-		
+
 		switch(job) {
 		case "search"	:
 			url += "re_search.jsp";
-			
+
 			List<ReViewVo> list = dao.select(page);
 			
 			req.setAttribute("list", list);
@@ -71,6 +71,7 @@ public class ReviewServlet extends HttpServlet {
 			break;
 		}
 		
+
 		req.setAttribute("page", page);
 		rd = req.getRequestDispatcher(url);
 		rd.include(req, resp);

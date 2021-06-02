@@ -52,9 +52,19 @@
 		<!-- 데이터 확인용 -->
 		<input type='text' name='nowPage' value='${param.nowPage }'/>
 		<input type='text' name='findStr' value='${param.findStr }'/>
-				
+		<input type='text' name='serial' value='${param.serial }'/>
 		
 	</form>
+	
+	<div id='revPasswordZone'>
+			<div id='textZone'>
+				<label>수정 하시려면 암호를 입력해 주세요.</label>		
+				<input type='password' id='pwd'/>
+				<input type='button' value='확인' id='btnDeleteR'/>
+				<input type='button' value='취소' id='btnCancel'/>	
+			</div>		
+	</div>
+	
 </div>
 <script>
 rev.init();

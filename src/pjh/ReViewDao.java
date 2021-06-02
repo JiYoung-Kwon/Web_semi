@@ -46,6 +46,9 @@ public class ReViewDao {
 		ReViewVo vo = new ReViewVo();
 			
 		try {
+			sqlSession.update("review.rev_hitUp", serial);
+			sqlSession.commit();
+			
 			vo = sqlSession.selectOne("review.rev_view", serial);
 			List<ReViewAttVo> attList = sqlSession.selectList("review.revAtt_view", serial);
 			

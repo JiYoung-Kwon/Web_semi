@@ -5,21 +5,21 @@
 var rev = {};
 
 rev.init = function(){
-	$('#review #btnSearch').on('click', function(){
-		var frm = $('#frm_review')[0];
-		
-		if(frm.serial.value == '') frm.serial.value = 0;
-		if(frm.nowPage.value =='') frm.nowPage.value = '1';
-				
-		var param = $(frm).serialize();
-		$('#review').load('.review.do?job=search', param);
-	})
-	
 	$('#review #btnFind').on('click', function(){
 		var frm = $('#frm_review')[0];
 		frm.nowPage.value = 1;
 		var param = $(frm).serialize();
 		$('#review').load('PJH/review/re_search.jsp', param);
+	})
+	
+	$('#review #btnSearch').on('click', function(){
+		var frm = $('#frm_review')[0];
+		
+		if(frm.serial.value=='') frm.serial.value = 0;
+		if(frm.nowPage.value=='') frm.nowPage.value = '1'
+				
+		var param = $(frm).serialize();
+		$('#middle_main').load('./review.do?job=search', param);
 	})
 	
 	//입력

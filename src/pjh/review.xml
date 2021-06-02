@@ -50,9 +50,10 @@
 		value(seq_reviewAtt.nextval, #{pSerial}, #{oriAtt}, #{sysAtt})
 	</insert>
 
-
-
-
+	<!-- 조회수 증가-->
+		<update id="rev_hitUp" parameterType="Integer">
+			update review set hit=hit+1 where serial = #{_parameter}
+		</update>
 
 
 </mapper>
