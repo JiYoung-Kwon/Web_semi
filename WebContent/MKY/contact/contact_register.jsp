@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 			pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <!DOCTYPE html>
 <html lang='ko'>
 <head>
 <meta charset="UTF-8">
 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-<link rel='stylesheet' type='text/css'
-			href='/Web_Semi/MKY/css/contact_register.css'>
+<link rel='stylesheet' type='text/css'	href='/Web_Semi/MKY/css/contact_register.css'>
+<script src='./lib/jquery-3.6.0.min.js'></script>
+<script src='./js/contact.js'></script>
 <title>문의게시판</title>
 </head>
 <body>
@@ -20,52 +22,52 @@
 						</div>
 
 						<div id='input'>
-									<select name='store_name' id='store_name'>
-												<option value="">매장명을 선택해주세요</option>
-												<option value="강남">강남점</option>
-												<option value="홍대">홍대점</option>
-												<option value="부산">부산점</option>
-									</select>
+								<select name='choice' id='choice'>
+											<option value="">매장명을 선택해주세요</option>
+											<option value="강남">강남점</option>
+											<option value="홍대">홍대점</option>
+											<option value="부산">부산점</option>
+								</select>
 						</div>
 						<br />
 						<hr />
 
 						<div id='label'>
-									<label>이름</label>
+								<label>이름</label>
 						</div>
 
 						<div id='input'>
-									<input type='text' name='mname' value='' />
+								<input type='text' name='irum' value='' />
 						</div>
 						<br />
 						<hr />
 
 						<div id='label'>
-									<label>연락처</label>
+								<label>연락처</label>
 						</div>
 
 						<div id='input'>
-									<input type='text' class='phone' name='phone' value='' />
+								<input type='text' class='phone' name='phone' value='' />
 						</div>
 						<br />
 						<hr />
 
 						<div id='label'>
-									<label>이메일</label>
+								<label>이메일</label>
 						</div>
 
 						<div id='input'>
-									<input type='email' class='email' name='email' value='' />
+								<input type='email' class='email' name='email' value='' />
 						</div>
 						<br />
 						<hr />
 
 						<div id='label'>
-									<label>제목</label>
+								<label>제목</label>
 						</div>
 
 						<div id='input'>
-									<input type='text' class='title' name='title' />
+								<input type='text' class='title' name='title' />
 						</div>
 						<br />
 						<hr />
@@ -73,9 +75,9 @@
 
 			<div id='block'>
 						<div id='space'>
-									<div></div>
-									<label>내용</label>
-									<div></div>
+								<div></div>
+								<label>내용</label>
+								<div></div>
 						</div>
 						<div id='textarea_div'>
 									<textarea name='doc'></textarea>
@@ -95,8 +97,8 @@
 			</div>
 
 			<div id='btn_zone'>
-						<input type='button' value='작성' id='btnInsertR'> <input
-									type='button' value='취소' id='btnSearch'>
+						<input type='button' value='작성' id='btnInsertR'> 
+						<input type='button' value='취소' id='btnSearch'>
 			</div>
 
 
@@ -105,5 +107,8 @@
 			<input type='hidden' name='serial' value='${param.serial }' />
 		</form>
 	</div>
+<script>
+	contact.init();
+</script>
 </body>
 </html>

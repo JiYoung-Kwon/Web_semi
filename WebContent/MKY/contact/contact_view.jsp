@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <!DOCTYPE html>
 <html lang='ko'>
 <head>
 <meta charset="UTF-8">
 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
 <link rel='stylesheet' type='text/css'	href='/Web_Semi/MKY/css/contact_view.css'>
+<script src='./lib/jquery-3.6.0.min.js'></script>
+<script src='./js/contact.js'></script>
 <title>문의</title>
 </head>
 <body>
@@ -63,6 +66,8 @@
 	</form>
 
 </div>
-
+<script>
+	contact.init();
+</script>
 </body>
 </html>

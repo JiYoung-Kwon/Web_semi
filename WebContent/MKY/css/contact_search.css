@@ -12,7 +12,7 @@
 	margin-bottom: 10px;
 }
 
-#wrapper .title{
+#wrapper .column_name{
 	display: flex;
 }
 
@@ -20,7 +20,7 @@
 	display: flex;
 }
 
-#wrapper .title span{
+#wrapper .column_name span{
 	text-align: center;
 	border: 1px solid #aaa;
 	border-left: none;
@@ -42,22 +42,22 @@ border-top:none;
 border-bottom: 1px dotted black
 }
 
-#wrapper .title .no, #wrapper .item .no{
+#wrapper .column_name .no, #wrapper .item .no{
 	flex: 0.5;
 }
-#wrapper .title .pname, #wrapper .item .pname{
+#wrapper .column_name .pname, #wrapper .item .pname{
 	flex: 1;
 }
-#wrapper .title .wname, #wrapper .item .wname{
+#wrapper .column_name .title, #wrapper .item .title{
 	flex: 4;
 }
-#wrapper .title .irum, #wrapper .item .irum{
+#wrapper .column_name .irum, #wrapper .item .irum{
 	flex: 1;
 }
-#wrapper .title .nal, #wrapper .item .nal{
+#wrapper .column_name .date, #wrapper .item .date{
 	flex: 2;
 }
-#wrapper .title .hit, #wrapper .item .hit{
+#wrapper .column_name .hit, #wrapper .item .hit{
 	flex: 1;
 }
 
