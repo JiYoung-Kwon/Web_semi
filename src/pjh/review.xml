@@ -6,13 +6,53 @@
 <mapper namespace="review">
 
 	<select id="totList" parameterType="String" resultType="Integer">
-		select count(serial) totList from board 
+		select count(serial) totList from review 
 		where 	subject 	like '%${_parameter}%'
 		or 		doc		 	like '%${_parameter}%'
 	</select>
 	
-	<select id="search" parameterType="Integer" resultType="Integer">
-		select * from review
+	<select id="rev_getSerial" resultType="Integer">
+		select seq_review.nextval from dual	
 	</select>
+	
+	<select id="search" parameterType="pjh.Page" resultType="pjh.ReViewVo">
+		SELECT * FROM(
+			SELECT rownum rno, m.* FROM (
+				SELECT serial, pserial, lpad(' ', (LEVEL-1)*4, ' └ ') || subject subject, 
+					mid, hit, to_char(mdate, 'rrrr-mm-dd') mdate,
+					(SELECT count(serial) FROM reviewAtt WHERE b.serial = pserial) attCnt 
+			FROM review b
+			WHERE subject LIKE '%${findStr}%'
+			OR doc LIKE '%${findStr}%'
+			START WITH pserial IS NULL
+			CONNECT BY PRIOR serial = pserial
+			ORDER siblings BY serial DESC)m
+		)WHERE rno BETWEEN #{startNo} AND #{endNo}
+	</select>
+	
+	<!-- 상세보기 -->
+	<select id="rev_view" parameterType="Integer" resultType="pjh.ReViewVo">
+		select * from review where serial = #{_parameter}
+	</select>
+	
+	<select id="revAtt_view" parameterType="Integer" resultType="pjh.ReViewAttVo">
+		select * from reviewAtt where serial = #{_parameter}
+	</select>
+	
+	<!-- 입력 -->
+	<insert id="rev_insert" parameterType="pjh.ReViewVo">
+			insert into review(serial, subject, doc, mid, pwd, mdate, hit, gubun)
+			values(#{serial}, #{subject}, #{doc}, #{mid}, #{pwd}, sysdate, 0, #{gubun})
+	</insert>
+	
+	<insert id="revAtt_insert" parameterType="pjh.ReViewAttVo">
+		insert into reviewAtt(serial, pserial, oriAtt, sysAtt)
+		value(seq_reviewAtt.nextval, #{pSerial}, #{oriAtt}, #{sysAtt})
+	</insert>
+
+
+
+
+
 
 </mapper>

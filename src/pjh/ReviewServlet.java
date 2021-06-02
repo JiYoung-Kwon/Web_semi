@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@SuppressWarnings("serial")
 @WebServlet(urlPatterns = "/review.do")
 public class ReviewServlet extends HttpServlet {
 	ReViewDao dao;
@@ -25,9 +26,10 @@ public class ReviewServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("utf-8");
 		resp.setContentType("text/html;charset=utf-8");
-		ReViewDao vo = null;
+		ReViewVo vo = null;
+
+		String url = "./PJH/review/";
 		
-		String url = "./review/";
 		dao = new ReViewDao();
 		
 		int serial = 0;
@@ -48,7 +50,7 @@ public class ReviewServlet extends HttpServlet {
 			page.setNowPage(Integer.parseInt(tempNowPage));
 		}
 		
-		if(req.getParameter("serial") != null) {
+		if(!(req.getParameter("serial") == null || req.getParameter("serial").equals("")) ){
 			serial = Integer.parseInt(req.getParameter("serial"));
 		}
 		
@@ -60,7 +62,18 @@ public class ReviewServlet extends HttpServlet {
 			
 			req.setAttribute("list", list);
 			break;
+			
+		case "view"		:
+			url += "view.jsp";
+			vo = dao.view(serial);
+			
+			req.setAttribute("vo", vo);
+			break;
 		}
+		
+		req.setAttribute("page", page);
+		rd = req.getRequestDispatcher(url);
+		rd.include(req, resp);
 		
 	}
 	

@@ -18,11 +18,11 @@
 	<form name='frm_review' id='frm_review' method='post' action=''>
 		
 		<label>작성자</label>
-			<input type='text' name='mid' value='juna' />
+			<input type='text' name='mid' value='${vo.mid }' />
 		<br/>
 		
 		<label>제목</label>
-			<input type='text' name='subject' value='hi~' />
+			<input type='text' name='subject' value='${vo.subject }' />
 			
 		<label>지점</label>
 			<select name='host'>
@@ -32,7 +32,7 @@
 			</select>
 		<br/>
 		
-		<textarea name='doc'></textarea>
+		<textarea name='doc'>${vo.doc }</textarea>
 		<br/>
 		
 		<label>파일첨부</label>
@@ -41,10 +41,6 @@
 		<div id='image_preview'>
 			<div id='attzone'></div>
 		</div>
-		
-		<label>암호</label>
-		<input type='password' name='pwd' />
-		<br/>
 		
 		<div id='btn_zone'>
 			<input type='button' value='수정' id='btnModifyR'/>
@@ -60,6 +56,10 @@
 		
 	</form>
 </div>
-<script>rev.init();</script>
+<script>
+rev.init();
+rev.checkHost('${vo.gubun}');
+</script>
+
 </body>
 </html>
