@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration
-	PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	PUBLIC "-//mybatis.org//DTD config 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<environments default="development">
 		<environment id="development">
 			<transactionManager type="JDBC"/>
 				<dataSource type="POOLED">
-					<property name="driver" value="oracle.jdbc.driver.OracleDriver" />
-					<property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:XE" />
+						<property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+						<property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:XE"/>
 					<property name="username" value="hr" />
 					<property name="password" value="1111" />
 				</dataSource>
@@ -16,9 +16,6 @@
 	</environments>
 
 	<mappers>
-		<mapper resource="./review.xml" />
+		<mapper resource="pjh/review.xml" />
 	</mappers>
-
-<!-- mybatis로 데이터베이스에 접근하기위해 xml 파일로 접속 정보를 입력하였음. -->
-
 </configuration>

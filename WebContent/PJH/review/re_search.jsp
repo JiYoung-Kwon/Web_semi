@@ -59,10 +59,10 @@
 -->
 
 
-	<div class='items'>
+	<div class='items' onclick=''>
 		<c:forEach var='vo' items="${list}">
-			<div class='item' onclick="brd.view('${vo.serial}')">
-				<span class='no'>${vo.serial }</span>
+			<div class='item' onclick="rev.view('${vo.serial}')">
+				<span class='no'>${vo.serial }</span>s
 				<span class='subject'>${vo.subject }</span>
 				<span class='date'>${vo.mdate }</span>
 				<span class='mid'>${vo.mid }</span>

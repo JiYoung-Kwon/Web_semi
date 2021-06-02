@@ -1,4 +1,4 @@
-package PJH;
+package pjh;
 
 import java.io.IOException;
 import java.util.List;
@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(urlPatterns = "/review.do")
-public class ReViewServlet extends HttpServlet {
+public class ReviewServlet extends HttpServlet {
 	ReViewDao dao;
 	RequestDispatcher rd;
 	String job = "search";
@@ -20,16 +20,14 @@ public class ReViewServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		job = "search";
 		doPost(req, resp);
-		
 	}
-
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("utf-8");
 		resp.setContentType("text/html;charset=utf-8");
-		ReViewVo vo = null;
+		ReViewDao vo = null;
 		
-		String url = "./PJH/review/";
+		String url = "./review/";
 		dao = new ReViewDao();
 		
 		int serial = 0;
@@ -53,14 +51,23 @@ public class ReViewServlet extends HttpServlet {
 		if(req.getParameter("serial") != null) {
 			serial = Integer.parseInt(req.getParameter("serial"));
 		}
-
-
-		req.setAttribute("page", page);
-		rd = req.getRequestDispatcher(url);
-		rd.include(req, resp);
+		
+		switch(job) {
+		case "search"	:
+			url += "re_search.jsp";
+			
+			List<ReViewVo> list = dao.select(page);
+			
+			req.setAttribute("list", list);
+			break;
+		}
 		
 	}
-
+	
+	@Override
+	public void init() throws ServletException {
+	
+	}
+	
+	
 }
-
-

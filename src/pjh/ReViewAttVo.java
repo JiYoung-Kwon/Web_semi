@@ -1,10 +1,10 @@
-package PJH;
+package pjh;
 
 public class ReViewAttVo {
 	int serial;
-	int pSerial;	//board table의 serial
-	String oriAtt = "";
-	String sysAtt = "";
+	int pserial;
+	String oriAtt;
+	String sysAtt;
 	
 	public int getSerial() {
 		return serial;
@@ -12,11 +12,11 @@ public class ReViewAttVo {
 	public void setSerial(int serial) {
 		this.serial = serial;
 	}
-	public int getpSerial() {
-		return pSerial;
+	public int getPserial() {
+		return pserial;
 	}
-	public void setpSerial(int pSerial) {
-		this.pSerial = pSerial;
+	public void setPserial(int pserial) {
+		this.pserial = pserial;
 	}
 	public String getOriAtt() {
 		return oriAtt;
@@ -30,6 +30,5 @@ public class ReViewAttVo {
 	public void setSysAtt(String sysAtt) {
 		this.sysAtt = sysAtt;
 	}
-	
 	
 }
