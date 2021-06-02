@@ -15,7 +15,7 @@ public class BoardGameServlet extends HttpServlet {
 	BoardGameDao dao;
 	RequestDispatcher disp;
 	String job= "search";
-	
+	String bName = "";
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		job="search";
@@ -37,9 +37,13 @@ public class BoardGameServlet extends HttpServlet {
 			job = req.getParameter("job");
 		}
 		
+		if(req.getParameter("bName") != null){
+			bName = req.getParameter("bName");
+		}
 		if(req.getParameter("findStr") != null) {
 			page.setFindStr(req.getParameter("findStr"));
 		}
+		
 		
 		if(tempNowPage == null || tempNowPage.equals("")) {
 			page.setNowPage(1);
@@ -53,6 +57,12 @@ public class BoardGameServlet extends HttpServlet {
 			List<BoardGameVo> list = dao.select(page);
 			req.setAttribute("list", list);
 			
+			break;
+			
+		case "detail":
+			url += "detail.jsp";
+			BoardGameVo vo = dao.detail(bName);
+			req.setAttribute("vo", vo);
 			break;
 		}
 		

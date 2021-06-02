@@ -2,15 +2,18 @@
  * 보드게임 소개 페이지 관리
  */
 
-onDisplay = function(n){
+onDisplay = function(n,bName){
 	var num = parseInt(n/4);
+	console.log(bName);
 	if($('.detailPage').eq(num).css('display') == 'none'){
-	var serial = document.getElementById("serial");
-	
-	serial.value = n;
-	
+		/*var serial = document.getElementById("serial");
+		serial.value = n;*/
+		$('.detailPage').load('./boardGame','job=detail&bName='+bName);	
+				
+		$('.detailPage').not(':eq('+num+')').hide();
 		$('.detailPage').eq(num).show();
-	}else{
+	}else{ //같은 div가 열려있으면
+		//같은 item인지 구분해야함
 		$('.detailPage').eq(num).hide();
 	}
 	

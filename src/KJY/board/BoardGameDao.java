@@ -37,6 +37,17 @@ public class BoardGameDao {
 		return list;
 	}
 	
+	public BoardGameVo detail(String bName) {
+		BoardGameVo vo = null;
+		try {
+			vo = sqlSession.selectOne("boardGame.detail",bName);
+			sqlSession.close();
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}
+		return vo;
+	}
+	
 	
 	public static void main(String[] args) {
 		new BoardGameDao();

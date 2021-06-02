@@ -35,6 +35,10 @@
 		</if>
 	</select>
 	
+	<select id = 'detail' parameterType = "String" resultType = "KJY.board.BoardGameVo">
+		SELECT * FROM boardGame
+		WHERE bName = #{_parameter}
+	</select>
 	
 	
 	
