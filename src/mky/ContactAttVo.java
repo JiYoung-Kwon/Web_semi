@@ -1,6 +1,6 @@
 package mky;
 
-public class ConatactAttVo {
+public class ContactAttVo {
 	int serial;
 	int pSerial; // board table의 serial
 	String oriAtt = "";

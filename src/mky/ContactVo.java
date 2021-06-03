@@ -1,5 +1,7 @@
 package mky;
 
+import java.util.List;
+
 public class ContactVo {
 	int serial;
 	int hit;
@@ -14,7 +16,22 @@ public class ContactVo {
 	String doc = "";
 	String choice= "";
 	
+	List<ContactAttVo> attList; // 첨부파일 목록
+	List<ContactAttVo> delList; // 삭제파일 목록
 	
+	
+	public List<ContactAttVo> getAttList() {
+		return attList;
+	}
+	public void setAttList(List<ContactAttVo> attList) {
+		this.attList = attList;
+	}
+	public List<ContactAttVo> getDelList() {
+		return delList;
+	}
+	public void setDelList(List<ContactAttVo> delList) {
+		this.delList = delList;
+	}
 	public int getSerial() {
 		return serial;
 	}

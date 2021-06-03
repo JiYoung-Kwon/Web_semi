@@ -35,13 +35,15 @@ public class ContactServelt extends HttpServlet{
 		String url = "./MKY/contact/";
 		dao = new ContactDao();
 		
+		int serial = 0;
+		Page page = new Page();
+		String tempNowPage = req.getParameter("nowPage");
 		
-		if(req.getParameter("job") != null) { job = req.getParameter("job"); }
+		if(req.getParameter("job") != null) {
+			job = req.getParameter("job"); 
+		}
 
 		/*
-		 * int serial = 0; Page page = new Page(); String tempNowPage =
-		 * req.getParameter("nowPage");
-		 * 
 		 * if(req.getParameter("findStr") != null) {
 		 * page.setFindStr(req.getParameter("findStr")); }
 		 * 
@@ -52,6 +54,7 @@ public class ContactServelt extends HttpServlet{
 		 * req.getParameter("serial").equals("")) ){ serial =
 		 * Integer.parseInt(req.getParameter("serial")); }
 		 */
+		 
 		
 		switch(job) {
 		case "register" :
@@ -61,7 +64,9 @@ public class ContactServelt extends HttpServlet{
 			break;
 		case "search" :
 			url += "contact_search.jsp";
+			List<ContactVo> list = dao.select(page);
 			
+			req.setAttribute("list", list);
 			break;
 	}
 
