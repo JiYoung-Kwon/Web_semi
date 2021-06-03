@@ -132,5 +132,57 @@
 	background-color : #eee;
 }
 
+#review #image_preview #attzone{
+	width:100%;
+	height:160px;
+	padding:0;
+	border:2px dotted #aaa;
+	background-color:rgba(255,255,255,.2);
+}
+	
+#review #image_preview #attzone .item{
+	width:130px;
+	height:150px;
+	margin:5px;
+	position:relative;
+	display:inline-block;
+}
+	
+#review #attzone .del_btn{
+	position:absolute;
+	font-size:24pt;
+	color:#ff0000;
+	right:3px;
+	bottom:3px;
+	background-color:rgba(255,255,255,.2);
+	padding:0;
+	border-width:0;
+	cursor:pointer;
+	}
+	
+#review #attzone img{
+	width:100%;
+	height:100%;
+}
+
+
+#review #revPasswordZone{
+	position : absolute;
+	top : 0;
+	left : 0;
+	background-color : #0009;
+	width : 100%;
+	height : 100%;
+	display : none;
+}
+
+#review #textZone{
+	width : 350px;
+	height : 120px;
+	margin : 70px auto;
+	background-color : #eee;
+}
+
+
 
 

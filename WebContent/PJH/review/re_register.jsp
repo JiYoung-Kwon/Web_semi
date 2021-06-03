@@ -7,7 +7,7 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
 <script src='/Web_Semi/lib/jquery-3.6.0.min.js'></script>
 <script src='/Web_Semi/PJH/js/review.js'></script>
-<link rel='stylesheet' type='text/css' href='/Web_Semi/PJH/css/review.css'>>
+<link rel='stylesheet' type='text/css' href='/Web_Semi/PJH/css/review.css'>
 <head>
 <title>Register_Page</title>
 </head>
@@ -48,7 +48,7 @@
 			<br/>
 			
 			<div id='btn_zone'>
-				<input type='button' value='작성' id='btnModify'>
+				<input type='button' value='작성' id='btnInsertR'>
 				<input type='button' value='취소' id='btnSearch'/>
 	
 			</div>
@@ -61,6 +61,9 @@
 
 	</form>
 </div>
-<script>rev.init();</script>
+<script>
+rev.init();
+imageView('attfile', 'attzone');
+</script>
 </body>
 </html>
