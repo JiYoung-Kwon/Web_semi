@@ -16,9 +16,11 @@ public class BoardGameServlet extends HttpServlet {
 	RequestDispatcher disp;
 	String job= "search";
 	String bName = "";
+	int isClicked = 0;
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		job="search";
+		isClicked= 0;
 		doPost(req, resp);
 	}
 
@@ -40,6 +42,11 @@ public class BoardGameServlet extends HttpServlet {
 		if(req.getParameter("bName") != null){
 			bName = req.getParameter("bName");
 		}
+		
+		if(req.getParameter("isClicked") != null){
+			isClicked = Integer.parseInt(req.getParameter("isClicked"));
+		}
+		
 		if(req.getParameter("findStr") != null) {
 			page.setFindStr(req.getParameter("findStr"));
 		}
@@ -62,7 +69,11 @@ public class BoardGameServlet extends HttpServlet {
 		case "detail":
 			url += "detail.jsp";
 			BoardGameVo vo = dao.detail(bName);
+			int clickNum = isClicked;
+			//System.out.println(clickNum);
+			System.out.println(Integer.toString(clickNum));
 			req.setAttribute("vo", vo);
+			req.setAttribute("clickNum", Integer.toString(clickNum));
 			break;
 		}
 		

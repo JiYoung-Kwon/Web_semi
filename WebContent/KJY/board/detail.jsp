@@ -12,6 +12,7 @@
 </head>
 <body>
 	<div id='detail'>
+		<script>checkClick(${clickNum });</script>
 			<span class='img'>
 				<img src='http://placehold.it/250x300' align='left' />
 			</span> 
@@ -19,9 +20,9 @@
 			<hr />
 			<span class='expl'>${vo.expl }</span>
 			<hr />
-			난이도 <span class='diff'>Hard</span> 
-			인원 <span class='person'>2-4인</span>
-			게임시간 <span class='time'>45분</span> 
+			난이도 <span class='diff'>${vo.diff }</span> 
+			인원 <span class='person'>${vo.minPerson }-${vo.maxPerson }인</span>
+			게임시간 <span class='time'>${vo.minTime }-${vo.maxTime } 분</span> 
 			<br />
 			<hr />
 			<div class='oneLineReview'>

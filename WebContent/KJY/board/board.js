@@ -1,20 +1,30 @@
 /**
  * 보드게임 소개 페이지 관리
  */
-
+var clickNum = 0;
 onDisplay = function(n,bName){
+	
+	checkClick = function(a){
+		clickNum = a;
+	}
+	
 	var num = parseInt(n/4);
-	console.log(bName);
-	if($('.detailPage').eq(num).css('display') == 'none'){
-		/*var serial = document.getElementById("serial");
-		serial.value = n;*/
-		$('.detailPage').load('./boardGame','job=detail&bName='+bName);	
+	//console.log(bName);
+	if($('.detailPage').eq(num).css('display') == 'none'){ 
+		$('.detailPage').load('./boardGame','job=detail&bName='+bName+'&isClicked='+n);	
 				
 		$('.detailPage').not(':eq('+num+')').hide();
 		$('.detailPage').eq(num).show();
 	}else{ //같은 div가 열려있으면
 		//같은 item인지 구분해야함
-		$('.detailPage').eq(num).hide();
+		if(n == clickNum){
+			$('.detailPage').eq(num).hide();
+		}
+		else{ //다른 item 클릭
+			var isClicked = n; //클릭된 item
+			$('.detailPage').load('./boardGame','job=detail&bName='+bName+'&isClicked='+n);	
+		}
+		
 	}
 	
 }

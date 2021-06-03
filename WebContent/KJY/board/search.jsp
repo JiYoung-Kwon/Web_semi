@@ -76,7 +76,7 @@
 		<hr>
 		<div class = 'items'>
 			<c:forEach var="vo" items= "${list }" varStatus ="x">
-				${x.index }
+				<%-- ${x.index } --%>
 				<div class = 'item' onclick = "onDisplay(${x.index},'${vo.bName }')">
 					<span class = 'img'>
 						<img src = 'http://placehold.it/150x180'/>
@@ -91,7 +91,6 @@
 				<c:if test ="${((x.index+1)%4 eq 0) or (x.index eq size)}">		
 					<hr/>		
 					<div class = 'detailPage'>
-						안녕하세요!!!
 					</div>
 	
 					<hr/>
