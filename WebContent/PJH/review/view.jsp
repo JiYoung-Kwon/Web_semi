@@ -55,8 +55,17 @@
 		<input type='text' name='findStr' value='${param.findStr }'/>
 		<input type='text' name='serial' value='${param.serial }'/>
 		
+		<input type='hidden' name='pwd' />
 	</form>
-
+	
+	<div id='revPasswordZone'>
+		<div id='textZone'>
+			<label>삭제하시려면 암호를 입력해 주세요</label><br/>
+			<input type='password' id='pwd' />
+			<input type='button' value='확인' id='btnDeleteRRRR' />
+			<input type='button' value='취소' id='btnCancel' />
+		</div>
+	</div>
 	
 </div>
 <script>

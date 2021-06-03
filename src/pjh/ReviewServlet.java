@@ -76,6 +76,18 @@ public class ReviewServlet extends HttpServlet {
 			
 			req.setAttribute("vo", vo);
 			break;
+			
+		case "delete":
+			url += "re_search.jsp";
+			vo = new ReViewVo();
+			vo.setSerial(serial);
+			vo.setMid(req.getParameter("mid"));
+			vo.setPwd(req.getParameter("pwd"));
+			dao.delete(vo);
+			
+			list = dao.select(page);
+			req.setAttribute("list", list);
+			break;
 		}
 		
 

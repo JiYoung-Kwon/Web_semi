@@ -93,6 +93,25 @@ rev.init = function(){
 			}
 		});
 	})
+	
+	$('#btnDelete').on('click', function(){
+		$('#revPasswordZone').css({
+			'display' : 'block'
+		})
+	})
+	
+	$('#review #btnDeleteR').on('click', function(){
+		var frm = $('#frm_review')[0];
+		var pwd = $('#revPasswordZone #pwd').val();
+		frm.pwd.value = pwd;
+
+		var param = $(frm).serialize();
+		$('#middle_main').load('./review.do?job=delete', param, function(){
+			$('#revPasswordZone').css({
+				'display' : 'none'
+			})
+		});
+	})
 
 
 }

@@ -59,7 +59,7 @@
 			<input type='text' name='findStr' value='${param.findStr }'/>
 			<input type='text' name='serial' value='${param.serial }'/>
 		</div>
-			<input type='password' id='pwd' />
+			<input type='hidden' name='pwd'/>
 	</form>
 	
 	<div id='revPasswordZone'>
