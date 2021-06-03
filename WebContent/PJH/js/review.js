@@ -35,13 +35,13 @@ rev.init = function(){
 		//내용 입력폼과 파일 업로드 폼이 분리되지 않아서 넣음 분리해야 될듯.....
 		if(frm.findStr.value == '') frm.findStr.value = ' ';
 		if(frm.serial.value == '') frm.serial.value = 0;
-		if(frm.nowPage.value == '') frm.nowPage = '1';
+		if(frm.nowPage.value == '') frm.nowPage.value = '1';
 		
 		var data = new FormData(frm);
 		
 		$.ajax({
 			type		: 'POST',
-			rul			: './reviewUpload.do?flag=insert',
+			url			: './reviewUpload.do?flag=insert',
 			enctype		: 'multipart/form-data',
 			data		: data,
 			contentType	: false,
@@ -53,13 +53,13 @@ rev.init = function(){
 			
 		})
 		
-	})
+	});
 	
 	
-	$('#review #btnModifyR').on('click', function(){
+	$('#review #btnModify').on('click', function(){
 		var frm = $('#frm_review')[0];
 		var param = $(frm).serialize();
-		$('#review').load('./review.do', param);
+		$('#middle_main').load('./review.do?job=modify', param);
 	})
 	
 	$('#review #btnRepl').on('click', function(){
@@ -68,17 +68,33 @@ rev.init = function(){
 		$('#review').load('PJH/review/re_repl.jsp', param);
 	})
 	
-	$('#review #btnModify').on('click', function(){
+	$('#review #btnUpdate').on('click', function(){
 		var frm = $('#frm_review')[0];
-		var param = $(frm).serialize();
-		$('#review').load('PJH/review/re_modify.jsp', param);
-	})
+		var pwd = $('#revPasswordZone #pwd').val();
+		frm.pwd.value = pwd;
 	
-	$('#review #btnModify').on('click', function(){
-		var frm = $('#frm_review')[0];
-		var param = $(frm).serialize();
-		$('#review').load('PJH/review/re_modify.jsp', param);
+		//내용입력폼과 파일 업로드폼이 분리되지 않아서 임시데이터
+		if(frm.findStr.value=='') frm.findStr.value = ' ';
+		if(frm.serial.value=='') frm.serial.value = 0;
+		if(frm.nowPage.value=='') frm.nowPage.value = '1';
+		
+		var data = new FormData(frm);
+		
+		$.ajax({
+			type    : 'POST',
+			url     : './reviewUpload.do?flag=update',
+			enctype : 'multipart/form-data',
+			data    : data,
+			contentType : false,
+			processData : false,
+			success : function(resp){
+				$('#revPasswordZone').css({'display' : 'none'});
+				$('#middle_main').load('./review.do?job=search');  
+			}
+		});
 	})
+
+
 }
 	
 	rev.view = function(serial){
@@ -100,13 +116,13 @@ rev.init = function(){
 	var frm = $('#frm_review')[0];
 	switch(gubun){
 		case '서울'	:
-			frm.host[0].selected = true;
+			frm.gubun[0].selected = true;
 			break;
 		case '대전'	:
-			frm.host[1].selected = true;
+			frm.gubun[1].selected = true;
 			break;
 		case '붓산'	:
-			frm.host[2].selected = true;
+			frm.gubun[2].selected = true;
 			break;		
 	}
 }
@@ -126,6 +142,10 @@ rev.init = function(){
 		ft.onchange = function(ev){
 			var ele = ev.srcElement;
 			var files = ele.files;
+			
+			for(var index in files){
+			console.table(files[index]);
+			}
 			
 			for(var file of files){
 				var reader = new FileReader();

@@ -4,7 +4,7 @@ import java.util.List;
 
 public class ReViewVo {
 	int serial;
-	int pserial;
+	int pSerial;
 	int hit;
 	String subject = "";
 	String doc = "";
@@ -34,11 +34,11 @@ public class ReViewVo {
 	public void setSerial(int serial) {
 		this.serial = serial;
 	}
-	public int getPserial() {
-		return pserial;
+	public int getpSerial() {
+		return pSerial;
 	}
-	public void setPserial(int pserial) {
-		this.pserial = pserial;
+	public void setpSerial(int pSerial) {
+		this.pSerial = pSerial;
 	}
 	public int getHit() {
 		return hit;

@@ -24,7 +24,7 @@
 			<input type='text' name='subject' value='hi~' />
 			
 		<label>지점</label>
-			<select name='host'>
+			<select name='gubun'>
 				<option value='서울'>서울</option>
 				<option value='대전'>대전</option>
 				<option value='붓산'>붓산</option>
@@ -48,12 +48,13 @@
 
 		<div id='btn_zone'>
 			<input type='button' value='답글 작성'/>
-			<input type='button' value='취소' onclick='rev.view()'/>
+			<input type='button' value='취소' onclick='rev.view(serial)'/>
 		</div>
 		
 		<!-- 데이터 확인용 -->
 		<input type='text' name='nowPage' value='${param.nowPage }'/>
 		<input type='text' name='findStr' value='${param.findStr }'/>
+		<input type='text' name='serial' value='${param.serial }'/>
 
 	</form>
 	
@@ -62,7 +63,7 @@
 			<label>답글을 작성하시려면 암호를 입력해 주세요.</label>		
 			<input type='password' id='pwd'/>
 			<input type='button' value='확인' id='btnUpdateR'/>
-			<input type='button' value='취소' id='btnCancel'/>	
+			<input type='button' value='취소' id='btnView'/>	
 		</div>		
 	</div>
 </div>

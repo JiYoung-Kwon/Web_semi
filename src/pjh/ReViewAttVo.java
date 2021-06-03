@@ -2,9 +2,9 @@ package pjh;
 
 public class ReViewAttVo {
 	int serial;
-	int pserial;
-	String oriAtt;
-	String sysAtt;
+	int pSerial;
+	String oriAtt = "";
+	String sysAtt = "";
 	
 	public int getSerial() {
 		return serial;
@@ -12,11 +12,12 @@ public class ReViewAttVo {
 	public void setSerial(int serial) {
 		this.serial = serial;
 	}
-	public int getPserial() {
-		return pserial;
+
+	public int getpSerial() {
+		return pSerial;
 	}
-	public void setPserial(int pserial) {
-		this.pserial = pserial;
+	public void setpSerial(int pSerial) {
+		this.pSerial = pSerial;
 	}
 	public String getOriAtt() {
 		return oriAtt;

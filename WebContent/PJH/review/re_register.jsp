@@ -25,7 +25,7 @@
 			<input type='text' name='subject' value='hi~' />
 			
 		<label>지점</label>
-			<select name='host'>
+			<select name='gubun'>
 				<option value='서울'>서울</option>
 				<option value='대전'>대전</option>
 				<option value='붓산'>붓산</option>
