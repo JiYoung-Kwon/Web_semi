@@ -96,7 +96,7 @@ form>input[type=button]:active {
 			<div></div>
 		</div>
 		<div id="login_middle">
-			<form>
+			<form id="login_frm">
 				<input type="text" name="mid" placeholder="아이디"><br/>
 				<input type="password" name="pwd" placeholder="비밀번호"><br/>
 				<input type="button" id="btn_login" value="로그인"><br/>

@@ -10,6 +10,16 @@
 		values( #{mid }, #{irum }, #{pwd }, #{phone }, #{post }, #{address }, #{address2 }, #{email }, #{host })
 	</insert>
 
-	
+	<select id="login" parameterType="ksy.MemberVo" resultType="Integer">
+		select count(mid) cnt from member where mid = #{mid } and pwd = #{pwd }
+	</select>
 
+	<select id="select" parameterType="ksy.MemberVo" resultType="ksy.MemberVo">
+		select * from member where mid = #{mid }
+	</select>
+	
+	<update id="update" parameterType="ksy.MemberVo">
+		update member set phone = #{phone}, post = #{post}, Address = #{address}, Address2 = #{address2}, email = #{email}, host = #{host}
+		WHERE mid = #{mid }
+	</update>
 </mapper>

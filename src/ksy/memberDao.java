@@ -1,5 +1,6 @@
 package ksy;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -22,28 +23,78 @@ public class memberDao {
 			ex.printStackTrace();
 		}
 	}
+
 	
-public int insert(MemberVo vo) {
-		int r=0;
+	public int insert(MemberVo vo) {
+			int r=0;
+			try {
+				r = sqlSession.insert("member.insert", vo); 
+				if(r>0) {
+					sqlSession.commit();
+				}else {
+					sqlSession.rollback();				
+				}
+			}catch(Exception ex) {
+				ex.printStackTrace();
+				
+			}
+			sqlSession.close();
+			return r;
+			
+		}
+
+	public int login(MemberVo vo) {
+			int r=0;
 		try {
-			r = sqlSession.insert("member.insert", vo); 
-			if(r>0) {
-				sqlSession.commit();
+				r = sqlSession.selectOne("member.login",vo);
+				if(r>0) {
+					sqlSession.commit();
+				}else {
+					sqlSession.rollback();				
+				}
+			}catch(Exception ex) {
+				ex.printStackTrace();
+				
+			}
+			sqlSession.close();
+			return r;
+		}
+	
+	
+	public MemberVo select(MemberVo vo) {
+		MemberVo vo2 = null;
+	try { 
+		  vo2 = sqlSession.selectOne("member.select",vo);
+		  if(vo2==null) {
+			  sqlSession.rollback();	
 			}else {
-				sqlSession.rollback();				
+				sqlSession.commit();			
+			} 
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}sqlSession.close();
+		 return vo2;
+	}
+	
+	
+	public MemberVo update(MemberVo vo) {
+		MemberVo vo2 = null;
+		int r=0;
+	try { 
+		  r = sqlSession.update("member.update",vo);
+		  System.out.println("업데이트 r "+r);
+		  if(r>0) {
+				sqlSession.commit();
+				vo2 = sqlSession.selectOne("member.select",vo);
+			}else {
+				sqlSession.rollback();	
 			}
 		}catch(Exception ex) {
 			ex.printStackTrace();
 			
 		}
 		sqlSession.close();
-		return r;
-		
+		return vo2;
 	}
-
-
-	
-	
-	
 	
 }

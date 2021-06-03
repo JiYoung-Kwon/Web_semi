@@ -1,3 +1,6 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="ksy.MemberVo"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -142,12 +145,10 @@ form>input[type=button]:active {
 	background: linear-gradient(100deg ,#2d2d2d, #414e6f91);
 }
 
-
-
-
 </style>
 </head>
 <body>
+
 <div id="myP_main">
 	<div id="myP_wrapper">
 		<div id="myP_top">
@@ -166,17 +167,18 @@ form>input[type=button]:active {
 			</div>
 		</div>
 		<div id="profile">
-			<form>
-				<label><span>아이디</span><input type="text" name="mid" value="mid" readonly></label><br>
-				<label><span>성명</span><input type="text" name="irum" value="irum" readonly></label><br>
-				<label><span>전화번호</span><input type="text" name="phone" value="010-0000-0000"></label><br>
-				<label><span>주소</span><input type="text" name="post" id="post" value="07803" readonly></label><br>
-				<label><span> </span><input type="text" name="address" id="address" value="서울 강서구 강서로 375" readonly></label>
+			<form id="mp_frm">
+				<label><span>아이디</span><input type="text" name="mid" value='${vo.mid }' readonly></label><br>
+				<label><span>성명</span><input type="text" name="irum" value='${vo.irum }' readonly></label><br>
+				<label><span>전화번호</span><input type="text" name="phone" value='${vo.phone }'></label><br>
+				<label><span>주소</span><input type="text" name="post" id="post" value='${vo.post }' readonly></label><br>
+				<label><span> </span><input type="text" name="address" id="address" value='${vo.address }' readonly></label>
 				<input type='button' name='btnZipCode' id="btn_Zip" value='우편번호' onclick='funcZip()'/>
 				<br>
-				<label><span>상세주소</span><input type="text" name="address2" value="abcd" ></label><br>
-				<label><span>이메일</span><input type="text" name="account" value="hong123"></label><input type="text" value="@" id="email" readonly>
-				<select name='host'>
+				<label><span>상세주소</span><input type="text" name="address2" value='${vo.address2 }' ></label><br>
+				<label><span>이메일</span><input type="text" name="email" value='${vo.email }'></label><input type="text" value="@" id="email" readonly>
+				<input type=hidden value='${vo.host }' id='hidden_host'>
+				<select name='host' id='host'>
 					<option value='IT여행자'>IT여행자</option>
 					<option value='acorn'>ACORN</option>
 					<option value='네이버'>네이버</option>
@@ -194,5 +196,6 @@ form>input[type=button]:active {
 	</div>
 </div>
 <script type="text/javascript" src="./KSY/member/member.js"></script>
+<script>host_chk();</script>
 </body>
 </html>
