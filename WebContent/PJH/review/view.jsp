@@ -25,7 +25,7 @@
 			<input type='text' name='subject' value='${vo.subject }' />
 			
 		<label>지점</label>
-			<select name='host'>
+			<select name='gubun'>
 				<option value='서울'>서울</option>
 				<option value='대전'>대전</option>
 				<option value='붓산'>붓산</option>
@@ -35,15 +35,16 @@
 		<textarea name='doc'>${vo.doc }</textarea>
 		<br/>
 		
-		<label>파일첨부</label>
-			<input type='file' id='attfile' multiple/>
-		
 		<div id='image_preview'>
-			<div id='attzone'></div>
+			<c:forEach var='f' items="${vo.attList}">
+				<a href='./upload/${f.sysAtt }' download='${f.oriAtt }' >
+					<img src="./upload/${f.sysAtt }" width='150px' height='180px'/>
+				</a>
+			</c:forEach>
 		</div>
 		
 		<div id='btn_zone'>
-			<input type='button' value='수정' id='btnModifyR'/>
+			<input type='button' value='수정' id='btnModify'/>
 			<input type='button' value='삭제' id='btnDeleteR'/>
 			<input type='button' value='답글' id='btnRepl'/>
 			<input type='button' value='취소' id='btnSearch'/>
@@ -55,20 +56,13 @@
 		<input type='text' name='serial' value='${param.serial }'/>
 		
 	</form>
-	
-	<div id='revPasswordZone'>
-			<div id='textZone'>
-				<label>수정 하시려면 암호를 입력해 주세요.</label>		
-				<input type='password' id='pwd'/>
-				<input type='button' value='확인' id='btnDeleteR'/>
-				<input type='button' value='취소' id='btnCancel'/>	
-			</div>		
-	</div>
+
 	
 </div>
 <script>
 rev.init();
 rev.checkHost('${vo.gubun}');
+imageView('attfile', 'attzone');
 </script>
 
 </body>

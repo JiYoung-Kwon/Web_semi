@@ -69,6 +69,13 @@ public class ReviewServlet extends HttpServlet {
 			
 			req.setAttribute("vo", vo);
 			break;
+			
+		case "modify"	:
+			url += "re_modify.jsp";
+			vo = dao.view(serial);
+			
+			req.setAttribute("vo", vo);
+			break;
 		}
 		
 

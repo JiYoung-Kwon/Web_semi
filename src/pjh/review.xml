@@ -47,13 +47,23 @@
 	
 	<insert id="revAtt_insert" parameterType="pjh.ReViewAttVo">
 		insert into reviewAtt(serial, pserial, oriAtt, sysAtt)
-		value(seq_reviewAtt.nextval, #{pSerial}, #{oriAtt}, #{sysAtt})
+		values(seq_reviewAtt.nextval, #{pSerial}, #{oriAtt}, #{sysAtt})
 	</insert>
 
 	<!-- 조회수 증가-->
-		<update id="rev_hitUp" parameterType="Integer">
+	<update id="rev_hitUp" parameterType="Integer">
 			update review set hit=hit+1 where serial = #{_parameter}
-		</update>
+	</update>
+		
+	<!-- 수정 -->
+	<update id="rev_update" parameterType="pjh.ReViewVo">
+		UPDATE review SET subject = #{subject} , doc = #{doc},  gubun = #{gubun}
+		WHERE serial = #{serial} AND mid = #{mid} AND pwd = #{pwd}
+	</update>
+		
+	<delete id="revAtt_delete2" parameterType="String">
+		DELETE FROM reviewAtt WHERE sysAtt = #{_parameter}
+	</delete>
 
 
 </mapper>
