@@ -9,12 +9,16 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 
 @WebServlet(urlPatterns = "/member.do")
 public class MemberServlet extends HttpServlet {
 	memberDao dao;
 	RequestDispatcher rd;
 	String job = "search";
+	HttpSession session = null;
+	
 	int r;
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -65,6 +69,12 @@ public class MemberServlet extends HttpServlet {
 		break;
 		case "register":
 			url += "member/register.jsp";
+		break;
+		case "login":
+			/*
+			 * if(){ url += "login/login.jsp"; }else { url += "login/myPage.jsp"; // 나중엔
+			 * 메인으로 수정해야함. }
+			 */
 		break;
 		}
 		

@@ -28,3 +28,7 @@ function funcZip(){
 		}).open();
 		
 }
+
+$('#loginpage').on('click', function(){
+	$('#middle_main').load(url+'login');
+});
