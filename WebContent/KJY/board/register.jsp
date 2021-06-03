@@ -6,6 +6,8 @@
 <meta charset="UTF-8">
 <meta name='viewport' content='width = device-width, initial-scale=1.0'>
 <title>입력</title>
+<script src = '/Web_Semi/KJY/board/board.js'></script>
+<script src = '/Web_Semi/lib/jquery-3.6.0.min.js'></script>
 <style>
 	textarea{
 		width: 425px;
@@ -17,6 +19,7 @@
 	<div id = 'board'>
 		<h1>REGISTER</h1>
 		
+		<!-- 일반 정보 폼 -->
 		<form name='frm_board' id = 'frm_board' method='post' action=''>		
 			<label>보드게임</label>
 			<input type ='text' name ='bName' placeholder = '한글명 입력'/>
@@ -59,7 +62,14 @@
 				<option value = "순발력">순발력</option>
 			</select>
 			<br/>
-			
+						
+			<input type = 'text' name = 'nowPage' value = '${param.nowPage }'/>
+			<input type = 'text' name = 'serial' value = '${param.serial }'/>
+			<input type = 'text' name = 'findStr' value = '${param.findStr }'/>
+		</form>	
+		
+		<!-- 이미지 폼 -->
+		<form name='frm_bImage' id = 'frm_bImage' method='post' action=''>
 			<!-- 이미지는 한 개만 선택할 수 있음 -->
 			<label>이미지</label>
 			<input type='file' name='attfile' id = 'attfile'/>
@@ -74,11 +84,7 @@
 				<input type='button' value='취소' id = 'btnSelect'/>
 			</div>
 			<br/>
-			
-			<input type = 'text' name = 'nowPage' value = '${param.nowPage }'/>
-			<input type = 'text' name = 'serial' value = '${param.serial }'/>
-			<input type = 'text' name = 'findStr' value = '${param.findStr }'/>
-		</form>	
+		</form>
 	</div>
 	
 </body>

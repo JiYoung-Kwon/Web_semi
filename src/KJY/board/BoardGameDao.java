@@ -1,4 +1,4 @@
-package KJY.board;
+package kjy.board;
 
 import java.util.List;
 
@@ -25,11 +25,14 @@ public class BoardGameDao {
 		List<BoardGameVo> list = null;
 		try {
 			int totList = sqlSession.selectOne("boardGame.totList", page);
+			System.out.println("totList는 " + totList);
 			page.setTotList(totList);
 			page.compute();
+			
 			System.out.println(totList);
 			list = sqlSession.selectList("boardGame.search", page);
 			sqlSession.close();
+			
 		}catch(Exception ex) {
 			ex.printStackTrace();
 		}
@@ -48,6 +51,23 @@ public class BoardGameDao {
 		return vo;
 	}
 	
+	public String insert(BoardGameVo vo) {
+		String msg = "OK";
+		
+		try {
+			int r = sqlSession.insert("boardGame.insert",vo);
+			if(r>0){
+				System.out.println("정상");
+				sqlSession.commit();
+			}
+			
+		}catch(Exception ex) {
+			sqlSession.rollback();
+			msg = ex.toString();
+			ex.printStackTrace();
+		}
+		return msg;
+	}
 	
 	public static void main(String[] args) {
 		new BoardGameDao();

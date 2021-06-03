@@ -4,70 +4,48 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
 <mapper namespace="boardGame">		
-	<select id = 'totList' parameterType ='KJY.board.Page' resultType = 'Integer'>
+	<select id = 'totList' parameterType ='kjy.board.Page' resultType = 'Integer'>
 		SELECT count(bName) totList FROM boardGame
-		WHERE bName LIKE '%${findStr}%' 
-		OR eName LIKE '%${findStr}%'
+		WHERE (bName LIKE '%${findStr}%' 
+		OR eName LIKE '%${findStr}%')
 		
-		<if test="#store != null">
+		<if test="store != null">
 			AND store = '${store}'
 		</if>
 		
-		<if test="#genre != null">
+		<if test="genre != null">
 			AND genre = '${genre}'
 		</if>
-		
-		
+	
 	</select>
 	
 	
 	<!-- 조회 -->
-	<select id = 'search' parameterType = "KJY.board.Page" resultType = "KJY.board.BoardGameVo">
-		SELECT * FROM boardGame 
-		WHERE bName LIKE '%${findStr}%' 
-		OR eName LIKE '%${findStr}%'
-		<if test="#store != null">
-			AND store = '${store}'
-		</if>
-		
-		<if test="#genre != null">
-			AND genre = '${genre}'
-		</if>
+	<select id = 'search' parameterType = "kjy.board.Page" resultType = "kjy.board.BoardGameVo">
+		SELECT * FROM(		
+			SELECT rownum rno, m.* from(
+				SELECT * FROM boardGame 
+				WHERE (bName LIKE '%${findStr}%' 
+				OR eName LIKE '%${findStr}%')
+				<if test="store != null">
+					AND store = '${store}'
+				</if>
+				
+				<if test="genre != null">
+					AND genre = '${genre}'
+				</if>)m
+		) WHERE rno BETWEEN ${startNo} AND ${endNo}
 	</select>
 	
-	<select id = 'detail' parameterType = "String" resultType = "KJY.board.BoardGameVo">
+	<select id = 'detail' parameterType = "String" resultType = "kjy.board.BoardGameVo">
 		SELECT * FROM boardGame
 		WHERE bName = #{_parameter}
 	</select>
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-	<!-- 조회 -->
-	<!-- 
-	<select id = 'search' parameterType = "board.Page" resultType = "board.BoardVo">
-		SELECT * FROM(		
-			SELECT rownum rno, m.* from(
-			SELECT serial, pserial, lpad(' ', (LEVEL-1)*4, ' └ ') || subject subject,
-				   mid, to_char(mDate, 'rrrr-mm-dd') mDate, hit, 
-				   (SELECT count(serial) FROM BOARDATT WHERE b.serial = pserial) attCnt
-			FROM BOARD b
-			WHERE subject LIKE '%${findStr}%'
-			OR	  doc	  LIKE '%${findStr}%'
-			START WITH pserial IS NULL 
-			CONNECT BY PRIOR serial = pserial
-			ORDER siblings BY serial DESC) m
-		) WHERE rno BETWEEN ${startNo} AND ${endNo}
-	</select> -->
+	<!-- 입력 -->
+	<insert id = 'insert' parameterType = "kjy.board.BoardGameVo">
+		INSERT INTO BOARDGAME (bName, eName, expl, diff, minPerson, maxPerson, minTime, maxTime, store, genre, oriAtt, sysAtt) 
+		values('${bName}', '${eName}', '${expl}', '${diff}', ${minPerson}, ${maxPerson}, ${minTime}, ${maxTime}, '${store}', '${genre}', '0', '0')
+	</insert>
 
 </mapper>

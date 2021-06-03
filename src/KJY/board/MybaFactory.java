@@ -1,4 +1,4 @@
-package KJY.board;
+package kjy.board;
 
 import java.io.Reader;
 
@@ -12,7 +12,7 @@ public class MybaFactory {
 	static {
 		
 		try {
-			Reader reader = Resources.getResourceAsReader("KJY/board/config.xml");
+			Reader reader = Resources.getResourceAsReader("kjy/board/config.xml");
 			factory = new SqlSessionFactoryBuilder().build(reader);
 		}catch(Exception ex) {
 			ex.printStackTrace();

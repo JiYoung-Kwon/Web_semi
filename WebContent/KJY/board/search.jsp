@@ -51,26 +51,29 @@
 			<!-- 보드게임 검색 -->
 			<div class = 'find_zone'>
 				<label>게임 이름</label>
-				<input type = 'search' name = 'findStr' placeholder="게임 이름을 입력하세요." value = ''/>
+				<input type = 'search' name = 'findStr' placeholder="게임 이름을 입력하세요." value = '${param.findStr }'/>
 				<input type = 'button' value = '검색' id = 'btnFind'/>
 				<br/>
 				
 				<label>매장 선택</label>
 				<select id="game-store" name="game-store">				
 					<option value="">전국매장</option>				
-					<option value="1">강남</option>				
-					<option value="2">홍대</option>				
-					<option value="3">부산</option>	
+					<option value="강남"  selected>강남</option>				
+					<option value="홍대">홍대</option>				
+					<option value="부산">부산</option>	
 				</select>
 				
 				<label>장르</label>
 				<select id="game-genre" name="game-genre">				
 					<option value="">전체</option>				
-					<option value="1">추리</option>				
-					<option value="2">전략</option>				
-					<option value="3">퍼즐</option>	
+					<option value="추리">추리</option>				
+					<option value="전략">전략</option>				
+					<option value="퍼즐">퍼즐</option>	
 				</select>
 			</div>
+			
+			<input type = 'text' name = 'nowPage' value = '${(empty param.nowPage) ? 1: param.nowPage }'/>
+			<input type = 'text' name = 'serial' value = '${(empty param.serial) ? 1: param.serial }'/>
 		</form>
 		
 		<hr>
@@ -100,14 +103,21 @@
 		
 		<br/>
 		<div id = 'btn_zone'>
-			<input type ='button' value ='맨첨'/>
-			<input type ='button' value ='이전'/>
-			<input type ='button' value ='1'/>
-			<input type ='button' value ='2'/>
-			<input type ='button' value ='3'/>
-			<input type ='button' value ='다음'/>
-			<input type ='button' value ='맨끝'/>
+			<c:if test="${page.startPage > 1 }">
+				<input type='button' value = '맨첨' onclick='brd.move(1)'/>
+				<input type='button' value = '이전' onclick='brd.move(${page.startPage-1})'/>
+			</c:if>
+			
+			<c:forEach var='p' begin='${page.startPage }' end='${page.endPage }'>
+				<input type='button' value = '${p }' onclick = 'brd.move(${p})'/>
+			</c:forEach>
+			
+			<c:if test = "${page.endPage<page.totPage }">
+				<input type='button' value = '다음' onclick = 'brd.move(${page.endPage+1 })'/>
+				<input type='button' value = '맨끝' onclick = 'brd.move(${page.totPage })'/>
+			</c:if>			
 		</div>
+		
 	</div>
 </body>
 </html>

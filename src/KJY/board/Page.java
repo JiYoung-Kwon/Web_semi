@@ -1,8 +1,8 @@
-package KJY.board;
+package kjy.board;
 
 public class Page {
 	int totList;
-	int listSize = 10;
+	int listSize = 12;
 	int blockSize = 5;
 	int totPage;
 	int startNo;
@@ -11,8 +11,8 @@ public class Page {
 	int endPage;
 	int nowPage;
 	String findStr = "";
-	String store = "";
-	String genre = "";
+	String store = null;
+	String genre = null;
 	
 	public Page() {}
 	

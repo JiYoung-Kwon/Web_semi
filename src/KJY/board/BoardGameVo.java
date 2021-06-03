@@ -1,4 +1,4 @@
-package KJY.board;
+package kjy.board;
 
 public class BoardGameVo {
 	String bName;
@@ -9,6 +9,8 @@ public class BoardGameVo {
 	int maxPerson;
 	int minTime;
 	int maxTime;
+	String store;
+	String genre;
 	String oriAtt;
 	String sysAtt;
 	
@@ -59,6 +61,18 @@ public class BoardGameVo {
 	}
 	public void setMaxTime(int maxTime) {
 		this.maxTime = maxTime;
+	}
+	public String getStore() {
+		return store;
+	}
+	public void setStore(String store) {
+		this.store = store;
+	}
+	public String getGenre() {
+		return genre;
+	}
+	public void setGenre(String genre) {
+		this.genre = genre;
 	}
 	public String getOriAtt() {
 		return oriAtt;

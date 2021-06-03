@@ -19,7 +19,7 @@
 	<mappers>
 		<!-- <mapper resource="mybatis/board.xml"/>
 		<mapper resource="mybatis/test.xml"/> -->
-		<mapper resource="KJY/board/boardGame.xml"/>
+		<mapper resource="kjy/board/boardGame.xml"/>
 	</mappers>
 	
 </configuration>
