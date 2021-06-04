@@ -8,15 +8,10 @@
 		SELECT count(bName) totList FROM boardGame
 		WHERE (bName LIKE '%${findStr}%' 
 		OR eName LIKE '%${findStr}%')
+		AND store LIKE '%${store}%'
+		AND genre LIKE '%${genre}%'
+
 		
-		<if test="store != null">
-			AND store = '${store}'
-		</if>
-		
-		<if test="genre != null">
-			AND genre = '${genre}'
-		</if>
-	
 	</select>
 	
 	
@@ -27,13 +22,8 @@
 				SELECT * FROM boardGame 
 				WHERE (bName LIKE '%${findStr}%' 
 				OR eName LIKE '%${findStr}%')
-				<if test="store != null">
-					AND store = '${store}'
-				</if>
-				
-				<if test="genre != null">
-					AND genre = '${genre}'
-				</if>)m
+				AND store LIKE '%${store}%'
+				AND genre LIKE '%${genre}%')m
 		) WHERE rno BETWEEN ${startNo} AND ${endNo}
 	</select>
 	
@@ -44,8 +34,20 @@
 	
 	<!-- 입력 -->
 	<insert id = 'insert' parameterType = "kjy.board.BoardGameVo">
-		INSERT INTO BOARDGAME (bName, eName, expl, diff, minPerson, maxPerson, minTime, maxTime, store, genre, oriAtt, sysAtt) 
-		values('${bName}', '${eName}', '${expl}', '${diff}', ${minPerson}, ${maxPerson}, ${minTime}, ${maxTime}, '${store}', '${genre}', '0', '0')
+		INSERT INTO BOARDGAME (bName, eName, expl, diff, minPerson, maxPerson, minTime, maxTime, store, genre, oriAtt, sysAtt, gubun) 
+		values('${bName}', '${eName}', '${expl}', '${diff}', ${minPerson}, ${maxPerson}, ${minTime}, ${maxTime}, '${store}', '${genre}', '${oriAtt}', '${sysAtt}', '${gubun}')
 	</insert>
 
+	<!-- 삭제 -->
+	<delete id = 'delete' parameterType = "String">
+		DELETE FROM BOARDGAME WHERE bName = '${_parameter}'
+	</delete>
+	
+	<!-- 수정 -->
+	<update id = 'update' parameterType = "kjy.board.BoardGameVo">
+		UPDATE boardGame 
+		SET bName = '${bName}', eName = '${eName}' , expl = '${expl}', diff = '${diff}', minPerson = ${minPerson}, maxPerson =${maxPerson}, minTime =  ${minTime}, maxTime = ${maxTime}, store ='${store}', genre = '${genre}', oriAtt = '${oriAtt}', sysAtt = '${sysAtt}' 
+		WHERE gubun = '${gubun}'
+
+	</update>
 </mapper>

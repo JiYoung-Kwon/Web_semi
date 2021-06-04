@@ -1,5 +1,6 @@
 package kjy.board;
 
+import java.io.File;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -66,6 +67,51 @@ public class BoardGameDao {
 			msg = ex.toString();
 			ex.printStackTrace();
 		}
+		return msg;
+	}
+	
+	public String delete(BoardGameVo vo) {
+		String msg = "OK";
+		
+		try {	
+			//boardGame 테이블 삭제
+			int r = sqlSession.delete("boardGame.delete",vo.getbName());
+			
+			if(r>0) { // 정상이면 첨부파일 삭제		
+				File f = new File(BoardFileUpload.saveDir + vo.getSysAtt());
+				if(f.exists()) f.delete();				
+			}		
+			sqlSession.commit();
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			sqlSession.rollback();
+		}
+		
+		return msg;
+	}
+	
+	public String update(BoardGameVo vo) {
+		String msg = "OK";
+		
+		try {
+			//boardGame 테이블 수정
+			int r = sqlSession.update("boardGame.update",vo);
+			
+			if(r>0) {
+				File file = new File(BoardFileUpload.saveDir +  vo.getSysAtt());
+				if(file.exists()) file.delete();
+				
+				sqlSession.commit();
+			}else {
+				System.out.println("수정 안됨");
+				sqlSession.rollback();
+			}
+			
+			
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}
+		
 		return msg;
 	}
 	

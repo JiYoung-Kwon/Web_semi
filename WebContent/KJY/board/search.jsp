@@ -33,7 +33,7 @@
 		margin-right: 30px;
 	    margin-top: 5px;
 	    margin-left: 30px;
-	    margin-bottom : 40px;
+	    margin-bottom : 0px;
 	}
 	
 	.oneLineReview{
@@ -56,22 +56,27 @@
 				<br/>
 				
 				<label>매장 선택</label>
+				<input type = 'hidden' value = '${page.store}' id = 'h_store'/>
 				<select id="game-store" name="game-store">				
 					<option value="">전국매장</option>				
-					<option value="강남"  selected>강남</option>				
+					<option value="강남">강남</option>				
 					<option value="홍대">홍대</option>				
 					<option value="부산">부산</option>	
 				</select>
 				
 				<label>장르</label>
+				<input type = 'hidden' value = '${page.genre}' id = 'h_genre'/>
 				<select id="game-genre" name="game-genre">				
 					<option value="">전체</option>				
-					<option value="추리">추리</option>				
-					<option value="전략">전략</option>				
-					<option value="퍼즐">퍼즐</option>	
+					<option value = "전략">전략</option>
+					<option value = "추리">추리</option>
+					<option value = "배팅">배팅</option>
+					<option value = "복불복">복불복</option>
+					<option value = "순발력">순발력</option>
 				</select>
 			</div>
-			
+			<input type = 'text' name = 'oriAtt' value = '${oriAtt}'/>
+			<input type = 'text' name = 'sysAtt' value = '${sysAtt}'/>
 			<input type = 'text' name = 'nowPage' value = '${(empty param.nowPage) ? 1: param.nowPage }'/>
 			<input type = 'text' name = 'serial' value = '${(empty param.serial) ? 1: param.serial }'/>
 		</form>
@@ -82,7 +87,7 @@
 				<%-- ${x.index } --%>
 				<div class = 'item' onclick = "onDisplay(${x.index},'${vo.bName }')">
 					<span class = 'img'>
-						<img src = 'http://placehold.it/150x180'/>
+						<img src = '/Web_Semi/KJY/upload/${vo.sysAtt }' width = '150px' height = '180px'/>
 					</span>
 					<span class = 'bName'>${vo.bName }</span>
 					<span class = 'eName'>${vo.eName }</span>	
@@ -117,7 +122,27 @@
 				<input type='button' value = '맨끝' onclick = 'brd.move(${page.totPage })'/>
 			</c:if>			
 		</div>
-		
 	</div>
+	<script>
+		$(function(){
+			var chk = document.getElementsByName('game-store');
+			var chk2 = document.getElementsByName('game-genre');
+	
+			var gubun = document.getElementById('h_store');
+			var gubun2 = document.getElementById('h_genre');
+	
+			for (var i in chk){
+				if(chk[i].value == gubun.Value){
+					$("#game-store").val(gubun.value).attr("selected", "selected");
+				}
+			}
+	
+			for (var i in chk2){
+				if(chk2[i].value == gubun2.Value){
+					$("#game-genre").val(gubun2.value).attr("selected", "selected");
+				}
+			}
+		});
+	</script>
 </body>
 </html>

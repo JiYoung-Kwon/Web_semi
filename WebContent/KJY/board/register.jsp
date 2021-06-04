@@ -63,13 +63,6 @@
 			</select>
 			<br/>
 						
-			<input type = 'text' name = 'nowPage' value = '${param.nowPage }'/>
-			<input type = 'text' name = 'serial' value = '${param.serial }'/>
-			<input type = 'text' name = 'findStr' value = '${param.findStr }'/>
-		</form>	
-		
-		<!-- 이미지 폼 -->
-		<form name='frm_bImage' id = 'frm_bImage' method='post' action=''>
 			<!-- 이미지는 한 개만 선택할 수 있음 -->
 			<label>이미지</label>
 			<input type='file' name='attfile' id = 'attfile'/>
@@ -83,8 +76,15 @@
 				<input type='button' value='작성' id = 'btnInsertR'/>
 				<input type='button' value='취소' id = 'btnSelect'/>
 			</div>
-			<br/>
-		</form>
+			<br/>			
+						
+			<input type = 'text' name = 'nowPage' value = '${param.nowPage }'/>
+			<input type = 'text' name = 'serial' value = '${param.serial }'/>
+			<input type = 'text' name = 'findStr' value = '${param.findStr }'/>
+		</form>	
+
+			
+
 	</div>
 	
 </body>

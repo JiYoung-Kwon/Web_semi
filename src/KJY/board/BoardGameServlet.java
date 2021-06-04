@@ -82,12 +82,16 @@ public class BoardGameServlet extends HttpServlet {
 		if(req.getParameter("game-store") != null){
 			vo.setStore(req.getParameter("game-store"));
 			page.setStore(req.getParameter("game-store"));
+		}else {
+			page.setStore("");
 		}
+		
 		if(req.getParameter("game-genre") != null){
 			vo.setGenre(req.getParameter("game-genre"));
 			page.setGenre(req.getParameter("game-genre"));
+		}else {
+			page.setGenre("");
 		}
-		
 
 		if(tempNowPage == null || tempNowPage.equals("")) {
 			page.setNowPage(1);
@@ -100,7 +104,8 @@ public class BoardGameServlet extends HttpServlet {
 			url += "search.jsp";
 			System.out.println(page.getStore());
 			List<BoardGameVo> list = dao.select(page);
-			
+			System.out.println(page.getStore());
+			System.out.println("장르:" +page.getGenre());
 			System.out.println("리스트 검색은" + list.size());
 			
 			req.setAttribute("list", list);
@@ -119,6 +124,9 @@ public class BoardGameServlet extends HttpServlet {
 			
 		case "register":
 			url += "search.jsp";
+			vo.setOriAtt(req.getParameter("oriAtt"));
+			vo.setSysAtt(req.getParameter("sysAtt"));
+			
 			String msg = dao.insert(vo);
 			System.out.println(msg);
 			
@@ -126,6 +134,20 @@ public class BoardGameServlet extends HttpServlet {
 			System.out.println("list는 " + list.size());
 			req.setAttribute("list", list);	
 			break;
+			
+		case "delete":
+			url += "search.jsp";
+			dao.delete(vo);
+			
+			list = dao.select(page);
+			req.setAttribute("list", list);	
+			break;
+		
+		case "modify":
+			url += "modify.jsp";
+			bName = req.getParameter("bName");
+			vo = dao.detail(bName);
+			req.setAttribute("vo",vo);
 		}
 		
 		req.setAttribute("page", page);

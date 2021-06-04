@@ -13,10 +13,18 @@
 <body>
 	<div id='detail'>
 		<script>checkClick(${clickNum });</script>
+			<form name='frm_detail' id = 'frm_detail' method='post' action=''>
+				<input type = 'hidden' value = '${vo.bName }' name = 'bName'/>
+			</form>
+		
 			<span class='img'>
-				<img src='http://placehold.it/250x300' align='left' />
+				<a href ='/Web_Semi/KJY/upload/${vo.sysAtt }' download = '${vo.oriAtt }'>
+					<img src = '/Web_Semi/KJY/upload/${vo.sysAtt }' width = '250px' height = '300px'   align='left'/>
+				</a>
 			</span> 
 			<span class='TotalName'>${vo.bName } (${vo.eName})</span>
+			<input type = 'button' value = '수정' id="btnModify" />
+			<input type = 'button' value = '삭제' id="btnDelete"/>
 			<hr />
 			<span class='expl'>${vo.expl }</span>
 			<hr />

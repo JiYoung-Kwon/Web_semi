@@ -65,29 +65,30 @@ $('#board #btnRegister').on('click', function(){
 //보드게임 입력
 $('#board #btnInsertR').on('click', function(){		
 		var frm = $('#frm_board')[0];
-		var frmImage = $('#frm_bImage')[0];
 		
 		//내용 입력폼과 파일 업로드 폼이 분리되지 않아서 임시로 해결하기 위해
-		if(frm.findStr.value == '') frm.findStr.value = ''; //임시조치
+		if(frm.findStr.value == '') frm.findStr.value = ' '; //임시조치
 		if(frm.serial.value == '') frm.serial.value = 0; //임시조치
 		if(frm.nowPage.value == '') frm.nowPage.value = '1';
 
-		var data1 = $(frm).serialize();
+		var data = new FormData(frm)
 		
-		var data2 = new FormData(frmImage);
-		/*$.ajax({
+		$.ajax({
 			type : 'POST',
-			url  : './boardGame?job=insert',
+			url  : './boardUpload?flag=insert',
 			enctype : 'multipart/form-data',
-			data : data2,
+			data : data,
 			contentType : false,
 			processData : false,
 			success : function(resp){
-				$('#border').load('./board');
-			} 
-		});*/
+				$('#middle_main').load('./boardGame');
+			},
+			error : function(xhr, status, resp){
+				alert(status + ", " + resp);
+			}
+		});
 		
-		$('#middle_main').load('./boardGame?job=register', data1);
+		
 })
 
 //보드게임 검색
@@ -99,6 +100,44 @@ $('#board #btnFind').on('click', function(){
 	$('#middle_main').load('./boardGame', param);
 })
 
+//보드게임 수정 창 띄우기
+$('#board #btnModify').on('click', function(){
+	var frm = $('#frm_detail')[0];
+	var param = $(frm).serialize();
+	$('#middle_main').load('./boardGame?job=modify', param);
+})
+
+//보드게임 수정
+$('#board #btnUpdate').on('click', function(){ //저장		
+	var frm = $('#frm_board')[0];
+	
+	if(frm.findStr.value == '') frm.findStr.value = ' '; //임시 조치
+	if(frm.serial.value == '') frm.serial.value = 0; //임시조치
+	if(frm.nowPage.value == '') frm.nowPage.value = '1';
+	
+	var data = new FormData(frm);
+		
+	$.ajax({
+		type : 'POST',
+		url  : './boardUpload?flag=update',
+		enctype : 'multipart/form-data',
+		data : data,
+		contentType : false,
+		processData : false,
+		success : function(resp){
+			$('#middle_main').load('./boardGame');	
+		}
+	})		
+})
+
+//보드게임 삭제
+$('#board #btnDelete').on('click', function(){
+	var frm = $('#frm_detail')[0];
+	var param = $(frm).serialize();
+	alert(param);
+	$('#middle_main').load('./boardGame?job=delete', param);
+})
+
 //페이지 이동
 brd.move = function(nowPage){
 	var frm = $('#frm_board')[0];
@@ -107,3 +146,26 @@ brd.move = function(nowPage){
 	
 	$('#middle_main').load('./boardGame',param);
 }
+
+//수정 시, 파일 클릭되게
+$('#photo').on('click',function(){
+		$('#attfile').click();
+})
+
+//파일 선택 시, 이미지 변경
+var pic = $('#attfile')[0];
+	if(pic!=null){
+		pic.onchange = function(ev){
+			var files = ev.srcElement.files;		
+			var reader = new FileReader();
+	
+			reader.readAsDataURL(files[0]);
+			reader.onload = function(ev2){
+				var img = new Image();
+				img.src = ev2.target.result;
+				
+				$('#photo')[0].src = img.src;
+			}
+		}
+}
+

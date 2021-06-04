@@ -11,8 +11,8 @@ public class Page {
 	int endPage;
 	int nowPage;
 	String findStr = "";
-	String store = null;
-	String genre = null;
+	String store = "";
+	String genre = "";
 	
 	public Page() {}
 	

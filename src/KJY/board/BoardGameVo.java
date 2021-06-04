@@ -14,6 +14,9 @@ public class BoardGameVo {
 	String oriAtt;
 	String sysAtt;
 	
+	
+	String gubun;
+	
 	public String getbName() {
 		return bName;
 	}
@@ -85,6 +88,15 @@ public class BoardGameVo {
 	}
 	public void setSysAtt(String sysAtt) {
 		this.sysAtt = sysAtt;
+	}
+	
+	
+	
+	public String getGubun() {
+		return gubun;
+	}
+	public void setGubun(String gubun) {
+		this.gubun = gubun;
 	}
 	
 	
