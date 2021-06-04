@@ -20,7 +20,7 @@
 			SELECT rownum rno, m.* FROM (
 				SELECT serial, pserial, lpad(' ', (LEVEL-1)*4, ' └ ') || subject subject, 
 					mid, hit, to_char(mdate, 'rrrr-mm-dd') mdate,
-					(SELECT count(serial) FROM reviewAtt WHERE b.serial = pserial) attCnt 
+					(SELECT count(serial) FROM reviewAtt WHERE b.serial = pserial) attCnt, gubun 
 			FROM review b
 			WHERE subject LIKE '%${findStr}%'
 			OR doc LIKE '%${findStr}%'
@@ -36,7 +36,7 @@
 	</select>
 	
 	<select id="revAtt_view" parameterType="Integer" resultType="pjh.ReViewAttVo">
-		select * from reviewAtt where serial = #{_parameter}
+		select * from reviewAtt where pserial = #{_parameter}
 	</select>
 	
 	<!-- 입력 -->

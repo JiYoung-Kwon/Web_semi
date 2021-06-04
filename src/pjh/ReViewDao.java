@@ -51,7 +51,7 @@ public class ReViewDao {
 			
 			vo = sqlSession.selectOne("review.rev_view", serial);
 			List<ReViewAttVo> attList = sqlSession.selectList("review.revAtt_view", serial);
-			
+			sqlSession.commit();
 			vo.setAttList(attList);
 			
 		}catch(Exception ex) {
@@ -108,25 +108,29 @@ public class ReViewDao {
 		
 		try {
 			r = sqlSession.update("review.rev_update", vo);
-             
+			sqlSession.commit();
+
 			if(r < 1) throw new Exception();
 			chkCnt = 0;
-			for(ReViewAttVo v : vo.getAttList()) {
-				v.setpSerial(vo.getSerial());
-				chkCnt += sqlSession.insert("review.revAtt_insert", v);
-				sqlSession.commit();
-			}
-			
-			if(chkCnt == vo.getAttList().size()) {
-				for(ReViewAttVo delVo : vo.getDelList()) {
-					sqlSession.delete("review.revAtt_delete2", delVo.getSysAtt());
-					File f = new File(ReViewFileUpload.saveDir + delVo.getSysAtt());
-					if(f.exists()) f.delete();
+			if(vo.getAttList() != null) {
+				for(ReViewAttVo v : vo.getAttList()) {
+					System.out.println("chkcnt " +chkCnt);
+					v.setpSerial(vo.getSerial());
+					chkCnt += sqlSession.insert("review.revAtt_insert", v);
 				}
-				sqlSession.close();
-			}else {
-				throw new Exception();
-			}
+				
+				if(chkCnt == vo.getAttList().size()) {
+					for(ReViewAttVo delVo : vo.getDelList()) {
+						sqlSession.delete("review.revAtt_delete2", delVo.getSysAtt());
+						sqlSession.commit();
+						File f = new File(ReViewFileUpload.saveDir + delVo.getSysAtt());
+						if(f.exists()) f.delete();
+					}
+					sqlSession.close();
+				}else {
+					throw new Exception();
+				}
+			} //첨부파일 유무로 수정
 		}catch(Exception ex) {
 			ex.printStackTrace();
 			System.out.println("r=" + r);

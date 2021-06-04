@@ -54,6 +54,7 @@ public class ReviewServlet extends HttpServlet {
 			serial = Integer.parseInt(req.getParameter("serial"));
 		}
 
+
 		switch(job) {
 		case "search"	:
 			url += "re_search.jsp";
@@ -66,7 +67,6 @@ public class ReviewServlet extends HttpServlet {
 		case "view"		:
 			url += "view.jsp";
 			vo = dao.view(serial);
-			
 			req.setAttribute("vo", vo);
 			break;
 			

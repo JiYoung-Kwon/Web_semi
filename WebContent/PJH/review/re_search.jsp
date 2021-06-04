@@ -23,16 +23,16 @@
 			<input type='button' value='검색' id='btnFind'/>
 		</div>
 		
-		<input type='text' name='nowPage' value='${param.nowPage }'/>
-		<input type='text' name='serial' value='${param.serial }'/>
+		<input type='hidden' name='nowPage' value='${param.nowPage }'/>
+		<input type='hidden' name='serial' value='${param.serial }'/>
 		
 	</form>
 	
 	<hr/>
 	
 	<div class='title'>
-		<span class='gubun'>지점</span>
 		<span class='no'>순번</span>
+		<span class='gubun'>지점</span>
 		<span class='subject'>제목</span>
 		<span class='date'>작성일</span>
 		<span class='mid'>작성자</span>
@@ -42,8 +42,8 @@
 	<div class='items'>
 		<c:forEach var='vo' items="${list}">
 			<div class='item' onclick="rev.view('${vo.serial}')">
+				<span class='no'>${vo.rno }</span>
 				<span class='gubun'>${vo.gubun }</span>
-				<span class='no'>${vo.serial }</span>
 				<span class='subject'>${vo.subject }</span>
 				<span class='date'>${vo.mdate }</span>
 				<span class='mid'>${vo.mid }</span>

@@ -37,23 +37,23 @@
 		
 		<div id='image_preview'>
 			<c:forEach var='f' items="${vo.attList}">
-				<a href='./upload/${f.sysAtt }' download='${f.oriAtt }' >
-					<img src="./upload/${f.sysAtt }" width='150px' height='180px'/>
+				<a href='./PJH/upload/${f.sysAtt }' download='${f.oriAtt }'>
+					<img src='./PJH/upload/${f.sysAtt }' width='150px' height='180px'/>
 				</a>
 			</c:forEach>
 		</div>
 		
 		<div id='btn_zone'>
 			<input type='button' value='수정' id='btnModify'/>
-			<input type='button' value='삭제' id='btnDeleteR'/>
+			<input type='button' value='삭제' id='btnDelete'/>
 			<input type='button' value='답글' id='btnRepl'/>
 			<input type='button' value='취소' id='btnSearch'/>
 		</div>
 		
 		<!-- 데이터 확인용 -->
-		<input type='text' name='nowPage' value='${param.nowPage }'/>
-		<input type='text' name='findStr' value='${param.findStr }'/>
-		<input type='text' name='serial' value='${param.serial }'/>
+		<input type='hidden' name='nowPage' value='${param.nowPage }'/>
+		<input type='hidden' name='findStr' value='${param.findStr }'/>
+		<input type='hidden' name='serial' value='${param.serial }'/>
 		
 		<input type='hidden' name='pwd' />
 	</form>
@@ -62,7 +62,7 @@
 		<div id='textZone'>
 			<label>삭제하시려면 암호를 입력해 주세요</label><br/>
 			<input type='password' id='pwd' />
-			<input type='button' value='확인' id='btnDeleteRRRR' />
+			<input type='button' value='확인' id='btnDeleteR' />
 			<input type='button' value='취소' id='btnCancel' />
 		</div>
 	</div>
@@ -71,7 +71,6 @@
 <script>
 rev.init();
 rev.checkHost('${vo.gubun}');
-imageView('attfile', 'attzone');
 </script>
 
 </body>

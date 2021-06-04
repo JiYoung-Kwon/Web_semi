@@ -6,6 +6,7 @@ public class ReViewVo {
 	int serial;
 	int pSerial;
 	int hit;
+	int rno;
 	String subject = "";
 	String doc = "";
 	String mid = "";
@@ -16,6 +17,12 @@ public class ReViewVo {
 	List<ReViewAttVo> attList;
 	List<ReViewAttVo> delList;
 	
+	public int getRno() {
+		return rno;
+	}
+	public void setRno(int rno) {
+		this.rno = rno;
+	}
 	public List<ReViewAttVo> getAttList() {
 		return attList;
 	}

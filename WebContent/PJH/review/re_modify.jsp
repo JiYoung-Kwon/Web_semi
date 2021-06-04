@@ -38,7 +38,7 @@
 		<div id='att_list' >
 		<c:forEach var='f' items="${vo.attList}">
 			<div  class='file_zone'>
-				<img src="./upload/${f.sysAtt }"  width='150px' height='180px'/>
+				<img src="./PJH/upload/${f.sysAtt }"  width='150px' height='180px'/>
 				<label  class='del_file_chk'>
 					<input type='checkbox' name='delFile' value='${f.sysAtt }'>삭제</label> 
 			</div>
@@ -53,23 +53,24 @@
 		</div>
 		
 		<div id='btn_zone'>
-			<input type='button' value='수정' id='btnUpdate'/>
+			<input type='button' value='수정' id='btnUpdateR'/>
 			<input type='button' value='취소' id='btnSearch'/>
-			<input type='text' name='nowPage' value='${param.nowPage }'/>
-			<input type='text' name='findStr' value='${param.findStr }'/>
-			<input type='text' name='serial' value='${param.serial }'/>
+			<input type='hidden' name='nowPage' value='${param.nowPage }'/>
+			<input type='hidden' name='findStr' value='${param.findStr }'/>
+			<input type='hidden' name='serial' value='${param.serial }'/>
 		</div>
-			<input type='hidden' name='pwd'/>
-	</form>
-	
+			
 	<div id='revPasswordZone'>
 		<div id='textZone'>
-			<label>삭제하시려면 암호를 입력해 주세요</label><br/>
-			<input type='password' id='pwd' />
-			<input type='button' value='확인' id='btnUpdateR' />
+			<label>수정하시려면 암호를 입력해 주세요</label><br/>
+			<input type='password' id='pwd' name='pwd' />
+			<input type='button' value='확인' id='btnUpdate' />
 			<input type='button' value='취소' id='btnCancel' />
 		</div>
 	</div>
+			
+	</form>
+	
 	
 </div>
 <script>
