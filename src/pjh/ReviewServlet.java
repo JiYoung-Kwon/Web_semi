@@ -54,6 +54,7 @@ public class ReviewServlet extends HttpServlet {
 			serial = Integer.parseInt(req.getParameter("serial"));
 		}
 
+
 		switch(job) {
 		case "search"	:
 			url += "re_search.jsp";
@@ -66,7 +67,6 @@ public class ReviewServlet extends HttpServlet {
 		case "view"		:
 			url += "view.jsp";
 			vo = dao.view(serial);
-			
 			req.setAttribute("vo", vo);
 			break;
 			
@@ -75,6 +75,18 @@ public class ReviewServlet extends HttpServlet {
 			vo = dao.view(serial);
 			
 			req.setAttribute("vo", vo);
+			break;
+			
+		case "delete":
+			url += "re_search.jsp";
+			vo = new ReViewVo();
+			vo.setSerial(serial);
+			vo.setMid(req.getParameter("mid"));
+			vo.setPwd(req.getParameter("pwd"));
+			dao.delete(vo);
+			
+			list = dao.select(page);
+			req.setAttribute("list", list);
 			break;
 		}
 		

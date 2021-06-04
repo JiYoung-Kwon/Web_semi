@@ -73,39 +73,31 @@
 	background-color : #ccc;
 	cursor : pointer;
 }
-
+#review .title>.gubun, #review .item>.gubun{ width:60px;}
 #review .title>.no, #review .item>.no{ width:60px;}
 #review .title>.subject, #review .item>.subject{ width:450px;}
 #review .title>.date, #review .item>.date{ width:150px;}
 #review .title>.mid, #review .item>.mid{ width:150px;}
 #review .title>.hit, #review .item>.hit{ width:100px;}
 
-#image_preview{
-	position: relative;	
-}
 
-#image_preview img {
-	width:150px;
-	height:180px;
-}
-
-#image_preview #attzone{
+#review #image_preview #attzone{
 	width:100%;
-	min-height:130px;
+	height:160px;
 	padding:0;
 	border:2px dotted #aaa;
-	background-color:rgba(240,240,240,0.3);
+	background-color:rgba(255,255,255,.2);
 }
 	
-#image_preview #attzone .item{
-	width:150px;
-	height:180px;
+#review #image_preview #attzone .item{
+	width:130px;
+	height:150px;
 	margin:5px;
 	position:relative;
 	display:inline-block;
 }
 	
-#attzone .del_btn{
+#review #attzone .del_btn{
 	position:absolute;
 	font-size:24pt;
 	color:#ff0000;
@@ -116,4 +108,44 @@
 	border-width:0;
 	cursor:pointer;
 	}
+	
+#review #attzone img{
+	width:100%;
+	height:100%;
+}
+
+#review #att_list .file_zone{
+	display: inline-block;
+	width:160px;
+	position: relative;
+}
+#review #att_list .del_file_chk{
+	background-color : #fff6;
+	position: absolute;
+	bottom: 5px;
+	right: 15px;
+}
+
+	
+#review #revPasswordZone{
+	position: absolute;
+	top : 0;
+	left : 0;
+	background-color : #0009;
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+
+#review #textZone{
+	width: 350px;
+	height: 120px;
+	margin: 70px auto;
+	background-color : #eee;
+	text-align: center;
+	padding:26px;
+	border-radius : 10px;
+	line-height: 30px;
+}
+
 

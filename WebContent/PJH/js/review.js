@@ -9,7 +9,7 @@ rev.init = function(){
 		var frm = $('#frm_review')[0];
 		frm.nowPage.value = 1;
 		var param = $(frm).serialize();
-		$('#review').load('PJH/review/re_search.jsp', param);
+		$('#review').load('review.do?job=search', param);
 	})
 	
 	$('#review #btnSearch').on('click', function(){
@@ -55,6 +55,12 @@ rev.init = function(){
 		
 	});
 	
+	$('#btnInsertRRRR').on('click', function(){
+		$('#revPasswordZone').css({
+			'display' : 'block'
+		})
+	})
+	
 	
 	$('#review #btnModify').on('click', function(){
 		var frm = $('#frm_review')[0];
@@ -68,6 +74,13 @@ rev.init = function(){
 		$('#review').load('PJH/review/re_repl.jsp', param);
 	})
 	
+	
+	$('#review #btnUpdateR').on('click', function(){
+		$('#revPasswordZone').css({
+			'display' : 'block'
+		})
+	})
+	
 	$('#review #btnUpdate').on('click', function(){
 		var frm = $('#frm_review')[0];
 		var pwd = $('#revPasswordZone #pwd').val();
@@ -79,7 +92,7 @@ rev.init = function(){
 		if(frm.nowPage.value=='') frm.nowPage.value = '1';
 		
 		var data = new FormData(frm);
-		
+
 		$.ajax({
 			type    : 'POST',
 			url     : './reviewUpload.do?flag=update',
@@ -88,10 +101,36 @@ rev.init = function(){
 			contentType : false,
 			processData : false,
 			success : function(resp){
+
 				$('#revPasswordZone').css({'display' : 'none'});
 				$('#middle_main').load('./review.do?job=search');  
 			}
 		});
+	})
+	
+	$('#btnDelete').on('click', function(){
+		$('#revPasswordZone').css({
+			'display' : 'block'
+		})
+	})
+	
+	$('#review #btnDeleteR').on('click', function(){
+		var frm = $('#frm_review')[0];
+		var pwd = $('#revPasswordZone #pwd').val();
+		frm.pwd.value = pwd;
+
+		var param = $(frm).serialize();
+		$('#middle_main').load('./review.do?job=delete', param, function(){
+			$('#revPasswordZone').css({
+				'display' : 'none'
+			})
+		});
+	})
+	
+	$('#btnCancel').on('click', function(){
+		$('#revPasswordZone').css({
+			'display' : 'none'
+		})
 	})
 
 
@@ -101,7 +140,7 @@ rev.init = function(){
 	var frm = $('#frm_review')[0];
 	frm.serial.value = serial;
 	var param = $(frm).serialize();
-	$('#middle_main').load('./review.do?job=view', param);
+	$('#middle_main').load('./review.do?job=view' , param);
 	}
 	
 	rev.move = function(nowPage){

@@ -20,7 +20,7 @@
 			SELECT rownum rno, m.* FROM (
 				SELECT serial, pserial, lpad(' ', (LEVEL-1)*4, ' └ ') || subject subject, 
 					mid, hit, to_char(mdate, 'rrrr-mm-dd') mdate,
-					(SELECT count(serial) FROM reviewAtt WHERE b.serial = pserial) attCnt 
+					(SELECT count(serial) FROM reviewAtt WHERE b.serial = pserial) attCnt, gubun 
 			FROM review b
 			WHERE subject LIKE '%${findStr}%'
 			OR doc LIKE '%${findStr}%'
@@ -36,7 +36,7 @@
 	</select>
 	
 	<select id="revAtt_view" parameterType="Integer" resultType="pjh.ReViewAttVo">
-		select * from reviewAtt where serial = #{_parameter}
+		select * from reviewAtt where pserial = #{_parameter}
 	</select>
 	
 	<!-- 입력 -->
@@ -63,6 +63,19 @@
 		
 	<delete id="revAtt_delete2" parameterType="String">
 		DELETE FROM reviewAtt WHERE sysAtt = #{_parameter}
+	</delete>
+	
+	<!-- 삭제 -->
+	<select id='rev_att_list' parameterType="Integer" resultType="pjh.ReViewAttVo">
+		select sysAtt from reviewAtt where pserial = #{_parameter}
+	</select>
+		
+	<delete id="rev_delete" parameterType="pjh.ReViewVo">
+		DELETE FROM review WHERE serial = #{serial} AND mid = #{mid} AND pwd = #{pwd}
+	</delete>
+
+	<delete id="revAtt_delete" parameterType="Integer">
+		DELETE FROM reviewAtt WHERE pserial=#{_parameter}
 	</delete>
 
 
