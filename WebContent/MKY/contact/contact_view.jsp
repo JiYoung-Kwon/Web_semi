@@ -12,7 +12,7 @@
 <title>문의</title>
 </head>
 <body>
-<div id='wrapper'>
+<div id='contact'>
 	<h2>문의</h2>
 	<form id='frm_contact' name='frm_contact' method='POST' action='' >
 		<hr class='vertical'/>
@@ -22,13 +22,7 @@
 				<label>제목</label>
 			</div>
 			<div id='top_text'>
-				<div id='title'>안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
-				안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
-				안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
-				안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
-				안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
-				안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
-				안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요</div>
+				<div id='subject'>안녕하세요</div>
 			</div>
 		</div>
 			<hr/>
@@ -48,7 +42,7 @@
 				<label>작성일</label>
 			</div>
 			<div id='top_text'>
-				<div id='date'>2021-06-01</div>
+				<div id='mdate'>2021-06-01</div>
 			</div>
 		</div>
 			<hr/>
@@ -57,6 +51,18 @@
 	</div>
 	<hr/>
 	
+	<div id='no_answer'>
+		<div id='top_input'>
+			<div id='label'>
+				<label>답변</label>
+			</div>
+			<div id='top_text'>
+				<div id='answer'></div>
+			</div>
+		</div>
+		<hr/>
+	</div>
+			
 	<div id='btn_zone'>
 		<input type='button' id='btnSearch' value='목록' />
 		<input type='button' id='btnModify' value='수정' />

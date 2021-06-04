@@ -2,7 +2,7 @@ package mky;
 
 public class ContactAttVo {
 	int serial;
-	int pSerial; // board table의 serial
+	int pSerial; // contact table의 serial
 	String oriAtt = "";
 	String sysAtt = "";
 	

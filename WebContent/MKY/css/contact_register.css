@@ -1,9 +1,9 @@
 @charset "UTF-8";
-#wrapper{
+#contact{
 	margin-top:15px;
 	padding:10px;
 }
-#wrapper h1{
+#contact h1{
 	color: #997A5E;
 	font-family: "Noto Sans KR", Sans-serif;
 	font-size: 28px;
@@ -24,11 +24,11 @@
 	border-bottom: 2px solid #5555558f !important;
 }
 
-#wrapper #insert .phone, .email{
+#contact #insert .phone, .email{
 	width: 30% !important;
 }
 
-#wrapper #insert #input .title{
+#contact #insert #input .subject{
 	width: 60% !important;
 }
 
@@ -71,7 +71,7 @@ textarea{
 	
 }
 
-#wrapper #insert input{
+#contact #insert input{
 	height: 24px;
 	color: rgb(136, 136, 136);
 	font-size: 12px;
@@ -83,7 +83,7 @@ textarea{
 	background: rgb(255, 255, 255);
 }
 
-#wrapper #insert select{
+#contact #insert select{
 	height: 34px;
 	color: rgb(136, 136, 136);
 	font-size: 12px;
@@ -95,12 +95,12 @@ textarea{
 	background: rgb(255, 255, 255);
 }
 
-#wrapper hr{
+#contact hr{
 	border-top: none;
 	border-bottom: 1px dotted #aaa;
 }
 
-#wrapper #btn_zone{
+#contact #btn_zone{
 	text-align: center;
    margin: 40px 0;
 }
@@ -124,7 +124,7 @@ textarea{
    border: 1px solid #000;
 }
 
-#wrapper #btn_zone input[type=button]:hover{
+#contact #btn_zone input[type=button]:hover{
 	cursor: pointer;
 }
 

@@ -2,19 +2,22 @@ package mky;
 
 import java.util.List;
 
+
 public class ContactVo {
 	int serial;
+	int pSerial;
 	int hit;
 	int attCnt;
 	
-	String pname = "";
-	String title = "";
-	String iurm = "";
-	String date = "";
+	String mid = "";
+	String subject = "";
+	String irum = "";
+	String mdate = "";
 	String phone= "";
 	String email = "";
 	String doc = "";
 	String choice= "";
+	String store= "";
 	
 	List<ContactAttVo> attList; // 첨부파일 목록
 	List<ContactAttVo> delList; // 삭제파일 목록
@@ -32,11 +35,30 @@ public class ContactVo {
 	public void setDelList(List<ContactAttVo> delList) {
 		this.delList = delList;
 	}
+	
+	public String getMid() {
+		return mid;
+	}
+	public void setMid(String mid) {
+		this.mid = mid;
+	}
+	public String getStore() {
+		return store;
+	}
+	public void setStore(String store) {
+		this.store = store;
+	}
 	public int getSerial() {
 		return serial;
 	}
 	public void setSerial(int serial) {
 		this.serial = serial;
+	}
+	public int getpSerial() {
+		return pSerial;
+	}
+	public void setpSerial(int pSerial) {
+		this.pSerial = pSerial;
 	}
 	public int getHit() {
 		return hit;
@@ -50,29 +72,25 @@ public class ContactVo {
 	public void setAttCnt(int attCnt) {
 		this.attCnt = attCnt;
 	}
-	public String getPname() {
-		return pname;
+	public String getSubject() {
+		return subject;
 	}
-	public void setPname(String pname) {
-		this.pname = pname;
+	public void setSubject(String subject) {
+		this.subject = subject;
 	}
-	public String getTitle() {
-		return title;
+	
+	public String getIrum() {
+		return irum;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setIrum(String irum) {
+		this.irum = irum;
 	}
-	public String getIurm() {
-		return iurm;
+	
+	public String getMdate() {
+		return mdate;
 	}
-	public void setIurm(String iurm) {
-		this.iurm = iurm;
-	}
-	public String getDate() {
-		return date;
-	}
-	public void setDate(String date) {
-		this.date = date;
+	public void setMdate(String mdate) {
+		this.mdate = mdate;
 	}
 	public String getPhone() {
 		return phone;

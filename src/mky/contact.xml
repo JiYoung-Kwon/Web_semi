@@ -3,6 +3,47 @@
 		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 		
-<mapper namespace="test">
+<mapper namespace="contact">
+	
+	<!--  조회   -->
+	  <select id='totList' parameterType="mky.Page" resultType="mky.ContactVo">
+	  		select * from CONTACT WHERE store like '%${store }%'
+			<if test="choice == '제목'">
+			and subject LIKE '%${findStr }%'
+			</if>
+			<if test="choice == '이름'">
+			and irum LIKE '%${findStr }%'
+			</if>
+	  </select>
 
+
+	   <select id="search" parameterType="mky.Page" resultType="mky.ContactVo">
+	   
+	  	 SELECT * from(
+	   		SELECT rownum rno, m.* from(	
+	   			SELECT serial, pserial,
+						lpad('└ ' , (LEVEL-1)*2, '　') || subject subject,
+						mid, hit, irum, store, to_char(mdate, 'rrrr-mm-dd') mdate,
+						(SELECT count(serial) FROM contactAtt WHERE c.serial=pserial) attCnt
+	   			FROM CONTACT c
+	   			WHERE store like '%${store }%'
+					<if test="choice == '제목'">
+					and subject LIKE '%${findStr }%'
+					</if>
+					<if test="choice == '이름'">
+					and irum LIKE '%${findStr }%'
+					</if>
+			  	AND	 subject LIKE '%${findStr}%'
+			  	OR	 doc 	 LIKE '%${findStr}%'
+			  	START with pserial IS NULL
+				CONNECT BY PRIOR serial = pserial and level le 3
+			  	ORDER BY serial DESC) m
+	  	) WHERE rno BETWEEN #{startNo} AND #{endNo}
+	  		
+	   </select>
+	   
+	   
+	   
+	   
+	   
 </mapper>

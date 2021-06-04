@@ -11,8 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import mky.ContactVo;
-import mky.Page;
 
 @WebServlet(urlPatterns = "/contact.do")
 public class ContactServelt extends HttpServlet{
@@ -35,27 +33,33 @@ public class ContactServelt extends HttpServlet{
 		String url = "./MKY/contact/";
 		dao = new ContactDao();
 		
-		int serial = 0;
-		Page page = new Page();
+		int serial = 0; 
+		String store = "";
+		
+		Page page = new Page(); 
 		String tempNowPage = req.getParameter("nowPage");
 		
-		if(req.getParameter("job") != null) {
+		if(req.getParameter("job") != null) { 
 			job = req.getParameter("job"); 
 		}
 
-		/*
-		 * if(req.getParameter("findStr") != null) {
-		 * page.setFindStr(req.getParameter("findStr")); }
-		 * 
-		 * if(tempNowPage == null || tempNowPage.equals("")) { page.setNowPage(1); }else
-		 * { page.setNowPage(Integer.parseInt(tempNowPage)); }
-		 * 
-		 * if(!(req.getParameter("serial") == null ||
-		 * req.getParameter("serial").equals("")) ){ serial =
-		 * Integer.parseInt(req.getParameter("serial")); }
-		 */
-		 
+		if(!(req.getParameter("findStr") == null || req.getParameter("findStr").equals(" "))) {
+			page.setFindStr(req.getParameter("findStr")); 
+		}
 		
+	    if(tempNowPage == null || tempNowPage.equals("")) { 
+			page.setNowPage(1); 
+	    }else { 
+			page.setNowPage(Integer.parseInt(tempNowPage)); 
+		}
+		  
+		if(!(req.getParameter("serial") == null || req.getParameter("serial").equals("")) ){
+		  serial = Integer.parseInt(req.getParameter("serial")); }
+		 
+		if(!(req.getParameter("store") == null || req.getParameter("store").equals("")) ){
+			  page.setStore(store); }
+	
+		  
 		switch(job) {
 		case "register" :
 			url += "contact_register.jsp";
@@ -64,9 +68,15 @@ public class ContactServelt extends HttpServlet{
 			break;
 		case "search" :
 			url += "contact_search.jsp";
+			
+			System.out.println(page.getFindStr());
+			System.out.println(page.getChoice());
+			System.out.println(page.getStore());
+			
 			List<ContactVo> list = dao.select(page);
 			
 			req.setAttribute("list", list);
+//			System.out.println(list.size());
 			break;
 	}
 

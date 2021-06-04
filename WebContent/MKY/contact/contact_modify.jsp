@@ -10,7 +10,7 @@
 <title>문의 수정</title>
 </head>
 <body>
-	<div id='wrapper'>
+	<div id='contact'>
 		<h1>문의 게시판</h1>
 		<form name='frm_contact' id='frm_contact' method='post' action=''>
 			<div id='insert'>
@@ -20,7 +20,7 @@
 						</div>
 
 						<div id='input'>
-									<select name='store_name' id='store_name'>
+									<select name='store' id='store'>
 												<option value="">매장명을 선택해주세요</option>
 												<option value="강남">강남점</option>
 												<option value="홍대">홍대점</option>
@@ -65,7 +65,7 @@
 						</div>
 
 						<div id='input'>
-									<input type='text' class='title' name='title' />
+									<input type='text' class='subject' name='subject' />
 						</div>
 						<br />
 						<hr />
@@ -95,8 +95,8 @@
 			</div>
 
 			<div id='btn_zone'>
-						<input type='button' value='작성' id='btnInsertR'> <input
-									type='button' value='취소' id='btnSearch'>
+						<input type='button' value='작성' id='btnInsertR'> 
+						<input type='button' value='취소' id='btnSearch'>
 			</div>
 
 

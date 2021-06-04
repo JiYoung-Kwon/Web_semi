@@ -12,37 +12,29 @@
 <title>문의사항</title>
 </head>
 <body>
-<div id='wrapper'>
+<div id='contact'>
 	<h2>문의사항</h2>
 		<div class='column_name'>
 			<span class='no'>번호</span>
-			<span class='pname'>매장명</span>
-			<span class='title'>제목</span>
+			<span class='store'>매장명</span>
+			<span class='subject'>제목</span>
 			<span class='irum'>이름</span>
-			<span class='date'>날짜</span>
+			<span class='mdate'>날짜</span>
 			<span class='hit'>조회수</span>
 		</div>
 		
 		<div class='items'>
 			<c:forEach var='vo' items="${list}">
 				<div class='item' onclick='contact.view(${vo.serial})'>
-					<span class='no'>1</span>
-					<span class='pname'>강남점</span>
-					<span class='title'>매장관리</span>
-					<span class='irum'>김길동</span>
-					<span class='date'>2021-05-31</span>
-					<span class='hit'>2</span>
+					<span class='no'>${vo.serial }</span>
+					<span class='store'>${vo.store }[${vo.attCnt }]</span>
+					<span class='subject'>${vo.subject }</span>
+					<span class='irum'>${vo.irum }</span>
+					<span class='mdate'>${vo.mdate }</span>
+					<span class='hit'>${vo.hit }</span>
 				</div>
 				<hr/>
 			</c:forEach>
-					<div class='item' onclick=''>
-					<span class='no'>2</span>
-					<span class='pname'>부산점</span>
-					<span class='title'>배관문제</span>
-					<span class='irum'>홍삼정</span>
-					<span class='date'>2021-05-31</span>
-					<span class='hit'>5</span>
-				</div>
 				<hr/>
 		</div>
 		
@@ -55,7 +47,7 @@
 				<input type='radio' name='choice' value='제목'>제목
 			</label>
 			<label>
-				<select name="gubun">
+				<select name="store">
 					<option value="all">전체</option>
 					<option value="1">강남점</option>
 					<option value="2">홍대점</option>
@@ -67,8 +59,8 @@
 			<input type='button' value='검색' id='btnFind' /> <br/>
 			<input type='button' value='글쓰기' id='btnInsert' />
 			
-			<input type='hidden' name='nowPage' value='${param.nowPage }'/>		
-			<input type='hidden' name='serial'  value='${param.serial }'/>
+			<input type='hidden' name='nowPage' value='${(empty param.nowPage)? 1 : param.nowPage }'/>		
+			<input type='hidden' name='serial'  value='${(empty param.serial)? 1 : param.serial }'/>
 		</div>
 	</form>
 	

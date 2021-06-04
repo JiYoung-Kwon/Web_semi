@@ -1,9 +1,9 @@
 @charset "UTF-8";
-#wrapper{
+#contact{
 	margin-top:15px;
 	padding:10px;
 }
-#wrapper>h2{
+#contact>h2{
 	color: #997a5e;
 	font-family: "Noto Sans KR", Sans-serif;
 	font-size: 28px;
@@ -12,15 +12,15 @@
 	margin-bottom: 10px;
 }
 
-#wrapper .column_name{
+#contact .column_name{
 	display: flex;
 }
 
-#wrapper .item{
+#contact .item{
 	display: flex;
 }
 
-#wrapper .column_name span{
+#contact .column_name span{
 	text-align: center;
 	border: 1px solid #aaa;
 	border-left: none;
@@ -28,68 +28,68 @@
 	padding: 20px 0 20px 0;
 }
 
-#wrapper .items{
+#contact .items{
 	border-top: none;
 }
 
-#wrapper .item span{
+#contact .item span{
 	text-align: center;
 	padding: 20px 0 20px 0;
 }
 
-#wrapper hr{
+#contact hr{
 border-top:none;
 border-bottom: 1px dotted black
 }
 
-#wrapper .column_name .no, #wrapper .item .no{
+#contact .column_name .no, #contact .item .no{
 	flex: 0.5;
 }
-#wrapper .column_name .pname, #wrapper .item .pname{
+#contact .column_name .store, #contact .item .store{
 	flex: 1;
 }
-#wrapper .column_name .title, #wrapper .item .title{
+#contact .column_name .subject, #contact .item .subject{
 	flex: 4;
 }
-#wrapper .column_name .irum, #wrapper .item .irum{
+#contact .column_name .irum, #contact .item .irum{
 	flex: 1;
 }
-#wrapper .column_name .date, #wrapper .item .date{
+#contact .column_name .mdate, #contact .item .mdate{
 	flex: 2;
 }
-#wrapper .column_name .hit, #wrapper .item .hit{
+#contact .column_name .hit, #contact .item .hit{
 	flex: 1;
 }
 
-#wrapper .find_zone{
+#contact .find_zone{
 	text-align: right;
 	margin-top: 20px;
 }
 
-#wrapper .find_zone #btnInsert{
+#contact .find_zone #btnInsert{
 	margin-top: 20px;
 	padding: 10px 43px;
    background-color: #fff;
    border: 1px solid #000;
    font-size: 12px;
 }
-#wrapper .find_zone #btnInsert, #btnFind:hover{
+#contact .find_zone #btnInsert, #btnFind:hover{
 	cursor: pointer;
 }
 
-#wrapper .find_zone #btnFind{
+#contact .find_zone #btnFind{
 	padding: 5px 10px;
    background-color: #fff;
    border: 1px solid #000;
    font-size: 12px;
 }
-#wrapper #btn_zone{
+#contact #btn_zone{
 	margin: auto;
 	width: 100%;
 	text-align: center;
 	vertical-align: top;
 }
-#wrapper #btn_zone input[type=button]{
+#contact #btn_zone input[type=button]{
 	margin-top: 20px;
 	padding: 25px;
 	border: 0px;
@@ -98,7 +98,7 @@ border-bottom: 1px dotted black
    font-size: inherit;
 }
 
-#wrapper #btn_zone input[type=button]:hover{
+#contact #btn_zone input[type=button]:hover{
 	cursor: pointer;
 }
 

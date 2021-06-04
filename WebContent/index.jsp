@@ -230,7 +230,7 @@
 								<div>공지사항</div>
 								<div>이용 후기</div>
 								<div>고객 의견</div>
-								<div>자유게시판</div>
+								<div id='btn_contact'>자유게시판</div>
 							</div>
 						</div>
 						<div></div>

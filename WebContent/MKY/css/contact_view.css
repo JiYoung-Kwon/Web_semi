@@ -1,9 +1,9 @@
 @charset "UTF-8";
-#wrapper{
+#contact{
 	margin-top:15px;
 	padding:10px;
 }
-#wrapper h2{
+#contact h2{
 	color: #997a5e;
 	font-family: "Noto Sans KR", Sans-serif;
 	font-size: 28px;
@@ -40,7 +40,7 @@ hr{
    margin-left: 10px;
 }
 
-#title{
+#subject{
 	display: inline-block;
 }
 
@@ -52,7 +52,7 @@ hr{
    line-height: 1.6;
 }
 
-#wrapper #btn_zone{
+#contact #btn_zone{
 	text-align: left;
    margin: 40px 0;
 }
@@ -66,7 +66,7 @@ hr{
    border: 1px solid #000;
 }
 
-#wrapper #btn_zone input[type=button]:hover{
+#contact #btn_zone input[type=button]:hover{
 	cursor: pointer;
 }
 

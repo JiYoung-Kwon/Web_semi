@@ -12,6 +12,7 @@ public class Page {
 	int nowPage;
 	String findStr="";
 	String choice="";
+	String store="";
 	
 	public Page() {}
 	public Page(String choice, String findStr,int totList, int nowPage) {
@@ -100,6 +101,12 @@ public class Page {
 	}
 	public void setChoice(String choice) {
 		this.choice = choice;
+	}
+	public String getStore() {
+		return store;
+	}
+	public void setStore(String store) {
+		this.store = store;
 	}
 	
 	
