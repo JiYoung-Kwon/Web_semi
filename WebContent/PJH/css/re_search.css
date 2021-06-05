@@ -17,6 +17,9 @@
     margin-top: 2px;
     background-color: #332f2d;
     font-weight: bold;
+    width: 1194px;
+    margin: 0 auto;
+    position: relative;
 }
 
 #review>h2{
@@ -59,7 +62,7 @@
 	text-align: center;
 	margin-top:10px;
 	padding-top:10px;
-	border-top:2px dotted #ff80c0;
+	border-top:2px solid #aaa;
 	
 }
 
@@ -163,73 +166,6 @@
    background-color: #fff;
    border: 1px solid #000;
    font-size: 12px;
-}
-
-#review #image_preview #attzone{
-	width:100%;
-	height:160px;
-	padding:0;
-	border:2px dotted #aaa;
-	background-color:rgba(255,255,255,.2);
-}
-	
-#review #image_preview #attzone .item{
-	width:130px;
-	height:150px;
-	margin:5px;
-	position:relative;
-	display:inline-block;
-}
-	
-#review #attzone .del_btn{
-	position:absolute;
-	font-size:24pt;
-	color:#ff0000;
-	right:3px;
-	bottom:3px;
-	background-color:rgba(255,255,255,.2);
-	padding:0;
-	border-width:0;
-	cursor:pointer;
-	}
-	
-#review #attzone img{
-	width:100%;
-	height:100%;
-}
-
-#review #att_list .file_zone{
-	display: inline-block;
-	width:160px;
-	position: relative;
-}
-#review #att_list .del_file_chk{
-	background-color : #fff6;
-	position: absolute;
-	bottom: 5px;
-	right: 15px;
-}
-
-	
-#review #revPasswordZone{
-	position: absolute;
-	top : 0;
-	left : 0;
-	background-color : #0009;
-	width: 100%;
-	height: 100%;
-	display: none;
-}
-
-#review #textZone{
-	width: 350px;
-	height: 120px;
-	margin: 70px auto;
-	background-color : #eee;
-	text-align: center;
-	padding:26px;
-	border-radius : 10px;
-	line-height: 30px;
 }
 
 

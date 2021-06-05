@@ -14,15 +14,15 @@
 <body>
 <div id='review'>
 
-	<h1>리뷰 입력 페이지 입니다~</h1>
+	<h2>리뷰 입력 페이지 입니다~</h2>
 	<form name='frm_review' id='frm_review' method='post' action=''>
 		
 		<label>작성자</label>
-			<input type='text' name='mid' style='background-color:#332f2d; border: 2px dotted #aaa;'/>
+			<input type='text' name='mid' style='background-color:#332f2d; border: 2px solid #aaa;'/>
 		<br/>
 		
 		<label>제목</label>
-			<input type='text' name='subject' style='background-color:#332f2d; border: 2px dotted #aaa;'/>
+			<input type='text' name='subject' style='background-color:#332f2d; border: 2px solid #aaa;'/>
 			
 		<label>지점</label>
 			<select name='gubun' id='gubun'>
@@ -51,7 +51,7 @@
 	<div id='revPasswordZone'>
 		<div id='textZone'>
 			<label>작성하시려면 암호를 입력해 주세요</label><br/>
-			<input type='password' name='pwd' id='pwd' style='background-color:#332f2d; border: 2px dotted #aaa;'/>
+			<input type='password' name='pwd' id='pwd' style='background-color:#332f2d; border: 2px solid #aaa;'/>
 			<input type='button' value='확인' id='btnInsertR' />
 			<input type='button' value='취소' id='btnCancel' />
 		</div>

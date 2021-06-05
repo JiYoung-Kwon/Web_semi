@@ -22,6 +22,7 @@
 			<input type='search' name='findStr' value='${param.findStr }'/>
 			<input type='button' value='검색' id='btnFind'/>
 		</div>
+		<br/>
 		
 		<input type='hidden' name='nowPage' value='${param.nowPage }'/>
 		<input type='hidden' name='serial' value='${param.serial }'/>

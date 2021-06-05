@@ -18,14 +18,14 @@
 	<form name='frm_review' id='frm_review' method='post' action=''>
 		
 		<label>작성자</label>
-			<input type='text' name='mid' value='${vo.mid }' />
+			<input type='text' name='mid'  style='background-color:#332f2d; border: 2px solid #aaa;' value='${vo.mid }' />
 		<br/>
 		
 		<label>제목</label>
-			<input type='text' name='subject' value='${vo.subject }' />
+			<input type='text' name='subject'  style='background-color:#332f2d; border: 2px solid #aaa;' value='${vo.subject }' />
 			
 		<label>지점</label>
-			<select name='gubun'>
+			<select name='gubun' id='gubun'>
 				<option value='서울'>서울</option>
 				<option value='대전'>대전</option>
 				<option value='붓산'>붓산</option>
@@ -46,7 +46,6 @@
 		<div id='btn_zone'>
 			<input type='button' value='수정' id='btnModify'/>
 			<input type='button' value='삭제' id='btnDelete'/>
-			<input type='button' value='답글' id='btnRepl'/>
 			<input type='button' value='취소' id='btnSearch'/>
 		</div>
 		
@@ -61,7 +60,7 @@
 	<div id='revPasswordZone'>
 		<div id='textZone'>
 			<label>삭제하시려면 암호를 입력해 주세요</label><br/>
-			<input type='password' id='pwd' />
+			<input type='password' id='pwd' style='background-color:#332f2d; border: 2px solid #aaa;' />
 			<input type='button' value='확인' id='btnDeleteR' />
 			<input type='button' value='취소' id='btnCancel' />
 		</div>

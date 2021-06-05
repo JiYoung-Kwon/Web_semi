@@ -27,7 +27,7 @@
 			START WITH pserial IS NULL
 			CONNECT BY PRIOR serial = pserial
 			ORDER siblings BY serial DESC)m
-		)WHERE rno BETWEEN #{startNo} AND #{endNo}
+		)WHERE rno BETWEEN #{startNo} AND #{endNo} 
 	</select>
 	
 	<!-- 상세보기 -->

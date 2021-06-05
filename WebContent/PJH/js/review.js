@@ -68,13 +68,6 @@ rev.init = function(){
 		$('#middle_main').load('./review.do?job=modify', param);
 	})
 	
-	$('#review #btnRepl').on('click', function(){
-		var frm = $('#frm_review')[0];
-		var param = $(frm).serialize();
-		$('#review').load('PJH/review/re_repl.jsp', param);
-	})
-	
-	
 	$('#review #btnUpdateR').on('click', function(){
 		$('#revPasswordZone').css({
 			'display' : 'block'

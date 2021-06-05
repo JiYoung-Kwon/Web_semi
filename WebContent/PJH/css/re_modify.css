@@ -7,12 +7,27 @@
 */
 @charset "UTF-8";
 
-#review{
-	width:100%;
-	padding-right:10px;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: white;
 }
 
-#review>h1{
+#review{
+	border-top: 2px solid #888;
+    border-bottom: 2px solid #888;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-top: 2px;
+    background-color: #332f2d;
+    font-weight: bold;
+    width: 1194px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#review>h2{
 	font-size:16pt;
 	margin-bottom:20px;
 	margin-top:20px;
@@ -25,7 +40,7 @@
 	text-align: center;
 	margin-top:10px;
 	padding-top:10px;
-	border-top:2px dotted #ff80c0;
+	border-top:2px solid #888;
 	
 }
 
@@ -38,16 +53,11 @@
 	width:600px;
 	height:300px;
 	margin-top:3px;
+	background-color: #332f2d;
 }
 
 #review form>input[name=subject]{
 	width:314px;
-}
-
-#review #btn_zone>input[type=button], input[type=reset] {
-	border-radius:12px;
-	padding-left:5px;
-	padding-right:5px;
 }
 
 /*----검색 (search)------------- */
@@ -73,20 +83,13 @@
 	background-color : #ccc;
 	cursor : pointer;
 }
-#review .title>.gubun, #review .item>.gubun{ width:60px;}
-#review .title>.no, #review .item>.no{ width:60px;}
-#review .title>.subject, #review .item>.subject{ width:450px;}
-#review .title>.date, #review .item>.date{ width:150px;}
-#review .title>.mid, #review .item>.mid{ width:150px;}
-#review .title>.hit, #review .item>.hit{ width:100px;}
-
 
 #review #image_preview #attzone{
 	width:100%;
 	height:160px;
 	padding:0;
-	border:2px dotted #aaa;
-	background-color:rgba(255,255,255,.2);
+	border:2px solid #888;
+	background-color: #332f2d;
 }
 	
 #review #image_preview #attzone .item{
@@ -96,6 +99,11 @@
 	position:relative;
 	display:inline-block;
 }
+
+#review #gubun{
+	background-color: #332f2d;
+}
+	
 	
 #review #attzone .del_btn{
 	position:absolute;
@@ -103,7 +111,7 @@
 	color:#ff0000;
 	right:3px;
 	bottom:3px;
-	background-color:rgba(255,255,255,.2);
+	background-color:#332f2d;
 	padding:0;
 	border-width:0;
 	cursor:pointer;
@@ -120,7 +128,7 @@
 	position: relative;
 }
 #review #att_list .del_file_chk{
-	background-color : #fff6;
+	background-color : #fff;
 	position: absolute;
 	bottom: 5px;
 	right: 15px;
@@ -141,11 +149,14 @@
 	width: 350px;
 	height: 120px;
 	margin: 70px auto;
-	background-color : #eee;
+	background-color : #332f2d;
 	text-align: center;
 	padding:26px;
 	border-radius : 10px;
 	line-height: 30px;
 }
 
+#review input[type=button]{
+	background-color: #332f2d;
+}
 
