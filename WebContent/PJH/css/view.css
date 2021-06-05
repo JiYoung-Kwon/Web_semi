@@ -8,16 +8,17 @@
 @charset "UTF-8";
 
 #review{
-	width:100%;
-	padding-right:10px;
+	margin-top:15px;
+	padding:10px;
 }
 
-#review>h1{
-	font-size:16pt;
-	margin-bottom:20px;
-	margin-top:20px;
-	text-align: center;
-	
+#review>h2{
+	color: #997a5e;
+	font-family: "Noto Sans KR", Sans-serif;
+	font-size: 28px;
+	font-weight: bold;
+	line-height: 38px;
+	margin-bottom: 10px;
 }
 
 
@@ -73,12 +74,25 @@
 	background-color : #ccc;
 	cursor : pointer;
 }
-#review .title>.gubun, #review .item>.gubun{ width:60px;}
-#review .title>.no, #review .item>.no{ width:60px;}
-#review .title>.subject, #review .item>.subject{ width:450px;}
-#review .title>.date, #review .item>.date{ width:150px;}
-#review .title>.mid, #review .item>.mid{ width:150px;}
-#review .title>.hit, #review .item>.hit{ width:100px;}
+
+#review .title .no, #review .item .no{
+	flex: 0.5;
+}
+#review .title .gubun, #review .item .gubun{
+	flex: 1;
+}
+#review .title .subject, #review .item .subject{
+	flex: 4;
+}
+#review .title .mid, #review .item .mid{
+	flex: 1;
+}
+#review .title .date, #review .item .date{
+	flex: 2;
+}
+#review .title .hit, #review .item .hit{
+	flex: 1;
+}
 
 
 #review #image_preview #attzone{

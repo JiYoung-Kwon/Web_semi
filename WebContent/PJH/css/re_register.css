@@ -7,6 +7,13 @@
 */
 @charset "UTF-8";
 
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: white;
+}
+
 #review{
 	width:100%;
 	padding-right:10px;
@@ -38,6 +45,7 @@
 	width:600px;
 	height:300px;
 	margin-top:3px;
+	background-color: #332f2d;
 }
 
 #review form>input[name=subject]{
@@ -86,7 +94,7 @@
 	height:160px;
 	padding:0;
 	border:2px dotted #aaa;
-	background-color:rgba(255,255,255,.2);
+	background-color: #332f2d;
 }
 	
 #review #image_preview #attzone .item{
@@ -96,6 +104,10 @@
 	position:relative;
 	display:inline-block;
 }
+
+#review #gubun{
+	background-color: #332f2d;
+}
 	
 #review #attzone .del_btn{
 	position:absolute;
@@ -103,7 +115,7 @@
 	color:#ff0000;
 	right:3px;
 	bottom:3px;
-	background-color:rgba(255,255,255,.2);
+	background-color:#332f2d;
 	padding:0;
 	border-width:0;
 	cursor:pointer;
@@ -141,11 +153,13 @@
 	width: 350px;
 	height: 120px;
 	margin: 70px auto;
-	background-color : #eee;
+	background-color: #332f2d;
 	text-align: center;
 	padding:26px;
 	border-radius : 10px;
 	line-height: 30px;
 }
 
-
+#review input[type=button]{
+	background-color: #332f2d;
+}

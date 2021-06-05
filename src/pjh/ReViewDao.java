@@ -117,6 +117,7 @@ public class ReViewDao {
 					System.out.println("chkcnt " +chkCnt);
 					v.setpSerial(vo.getSerial());
 					chkCnt += sqlSession.insert("review.revAtt_insert", v);
+					sqlSession.commit();
 				}
 				
 				if(chkCnt == vo.getAttList().size()) {

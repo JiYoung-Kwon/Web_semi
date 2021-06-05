@@ -7,17 +7,51 @@
 */
 @charset "UTF-8";
 
+* {padding: 0; margin: 0; box-sizing: border-box;}
+
 #review{
-	width:100%;
-	padding-right:10px;
+	border-top: 2px solid #888;
+    border-bottom: 2px solid #888;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-top: 2px;
+    background-color: #332f2d;
+    font-weight: bold;
 }
 
-#review>h1{
-	font-size:16pt;
-	margin-bottom:20px;
-	margin-top:20px;
+#review>h2{
+	color: #bbb2a9;
+	font-family: "Noto Sans KR", Sans-serif;
+	font-size: 28px;
+	font-weight: bold;
+	line-height: 38px;
+	margin-bottom: 10px;
+	text-shadow: 3px 1px 4px black;
+}
+
+#review .title{
+	display: flex;
+}
+
+#review .item{
+	display: flex;
+}
+
+#review .title span{
 	text-align: center;
-	
+	border: 1px solid #aaa;
+	border-left: none;
+	border-right: none;
+	padding: 20px 0 20px 0;
+}
+
+#review .items{
+	border-top: none;
+}
+
+#review .item span{
+	text-align: center;
+	padding: 20px 0 20px 0;
 }
 
 
@@ -44,10 +78,26 @@
 	width:314px;
 }
 
-#review #btn_zone>input[type=button], input[type=reset] {
-	border-radius:12px;
-	padding-left:5px;
-	padding-right:5px;
+#review #btn_zone{
+	margin: auto;
+	width: 100%;
+	text-align: center;
+	vertical-align: top;
+}
+
+#review #btn_zone input[type=button]{
+   padding: 18px;
+    border: 0px;
+    background-color: #332f2d;
+    color: #eee !important;
+    font-size: inherit;
+    border-radius: 25px;
+   
+}
+
+#review #btn_zone input[type=button]:hover{
+	cursor: pointer;
+
 }
 
 /*----검색 (search)------------- */
@@ -62,24 +112,58 @@
 	padding-top:2px;
 	padding-bottom:2px;
 	margin-top:2px;
-	background-color:#ccc;
+	background-color:#332f2d;
+	font-weight: bold;
+	color: white;
+	
 }
 
 #review .title>span, #review .item>span{
+	color: white;
 	display:inline-block;
 }
 
 #review .item:hover{
-	background-color : #ccc;
+	background-color : #332f2d;
 	cursor : pointer;
 }
-#review .title>.gubun, #review .item>.gubun{ width:60px;}
+
+#review .items{
+	border-top: none;
+}
+/* #review .title>.gubun, #review .item>.gubun{ width:60px;}
 #review .title>.no, #review .item>.no{ width:60px;}
 #review .title>.subject, #review .item>.subject{ width:450px;}
 #review .title>.date, #review .item>.date{ width:150px;}
 #review .title>.mid, #review .item>.mid{ width:150px;}
-#review .title>.hit, #review .item>.hit{ width:100px;}
+ .title>.hit, .item>.hit{ width:100px;} */
 
+#review .title .no, #review .item .no{
+	flex: 0.5;
+}
+#review .title .gubun, #review .item .gubun{
+	flex: 1;
+}
+#review .title .subject, #review .item .subject{
+	flex: 4;
+}
+#review .title .mid, #review .item .mid{
+	flex: 1;
+}
+#review .title .date, #review .item .date{
+	flex: 2;
+}
+#review .title .hit, #review .item .hit{
+	flex: 1;
+}
+
+#review .find_zone #btnInsert{
+	margin-top: 20px;
+	padding: 10px 43px;
+   background-color: #fff;
+   border: 1px solid #000;
+   font-size: 12px;
+}
 
 #review #image_preview #attzone{
 	width:100%;

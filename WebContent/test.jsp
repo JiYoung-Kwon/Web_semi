@@ -12,7 +12,7 @@
 
 	String review = "./review.do";
 	
-	request.setAttribute("review", review);
+	request.setAttribute("./review.do", review);
 %>
 <div id="middle">
 		<div id="middle_main">

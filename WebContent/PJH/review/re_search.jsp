@@ -13,7 +13,7 @@
 </head>
 <body>
 <div id='review'>
-	<h1>리뷰 서치 페이지입니다</h1>
+	<h2>리뷰 서치 페이지입니다</h2>
 	
 	<form name='frm_review' id='frm_review' method='post' action=''>
 		<input type='button' id='btnInsert' value='작성'/>

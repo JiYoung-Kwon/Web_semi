@@ -14,7 +14,7 @@
 <body>
 <div id='review'>
 
-	<h1>상세보기 페이지 입니다~</h1>
+	<h2>상세보기 페이지 입니다~</h2>
 	<form name='frm_review' id='frm_review' method='post' action=''>
 		
 		<label>작성자</label>
