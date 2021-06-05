@@ -129,16 +129,18 @@ public class MemberServlet extends HttpServlet {
 			break;
 		case "register_chkid":    // 아이디 중복값 처리하기
 
+			
+			
 			MemberVo vo3 = new MemberVo();
 
-			vo3.setMid(req.getParameter("mid"));
+			vo3.setMid(req.getParameter("id"));
 			
-			try {
-				vo = dao.select(vo3);
-				System.out.println(vo.getMid());
-			}catch(Exception ex) {
-				ex.printStackTrace();
-			}
+		    r = dao.chk_id(vo3);
+		   if (r>0) {
+			   
+		   }
+		    
+		    
 			break;
 			
 		case "pwd_update":

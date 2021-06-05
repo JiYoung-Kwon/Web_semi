@@ -42,6 +42,25 @@ public class memberDao {
 			return r;
 			
 		}
+	
+	
+	public int chk_id(MemberVo vo) {
+		int r=0;
+		try {
+			r = sqlSession.selectOne("member.chk_id", vo); 
+			if(r>0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();				
+			}
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			
+		}
+		sqlSession.close();
+		return r;
+		
+	}
 
 	public int login(MemberVo vo) {
 			int r=0;

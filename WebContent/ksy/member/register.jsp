@@ -30,7 +30,7 @@
         #member_frm> #btn_Zip{background: #584c4c; color: #ffffff; font-weight: 600; width: 62px; margin-left: 15px;}
         input[name=address], input[name=post] {background-color: #cacaca;}
         input[name=address], input[name=address2]{width:260px; }
-        #chk_mid{border: 1px solid white; width: 118px; height: 30px; display: inline-block; position: absolute; right: 15px; top: 89px; font-family: serif; font-size: 12px; color: #ff0000; text-shadow: 1px 0px 4px #000000;}
+        #chk_mid{ width: 118px; height: 30px; display: inline-block; position: absolute; right: 15px; top: 89px; font-family: serif; font-size: 12px; color: #ff0000; text-shadow: 1px 0px 4px #000000;}
         #chk_pwd{ width: 118px; height: 30px; display: inline-block; position: absolute; right: 15px; top: 166px; font-family: serif; font-size: 12px; color: #ff0000; text-shadow: 1px 0px 4px #000000;}
         #chk_phone{ width: 130px; height: 30px; display: inline-block; position: absolute; right: 15px; top: 247px; font-family: serif; font-size: 12px; color: #ff0000; text-shadow: 1px 0px 4px #000000;}
 </style>
@@ -43,7 +43,7 @@
         <hr>
         <form action="" method="post" id="member_frm">
             <label><span>아이디</span> <input type="text" class="input_class" name="mid" id="register_mid" value='${vo.mid }'></label><br>
-			<div id="chk_mid"></div>
+			<div id="chk_mid" value='${chk.mid }'></div>
 			<div id="chk_pwd"></div>
 			<div id="chk_phone"></div>
             <label><span>비밀번호</span> <input type="password" class="input_class" name="pwd" id="pwd"></label><br>

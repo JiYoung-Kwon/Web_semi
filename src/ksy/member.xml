@@ -22,4 +22,9 @@
 		update member set phone = #{phone}, post = #{post}, Address = #{address}, Address2 = #{address2}, email = #{email}, host = #{host}
 		WHERE mid = #{mid }
 	</update>
+	
+	<select id="chk_id" parameterType="ksy.MemberVo" resultType="Integer">
+		select count(mid) cnt from member where mid = #{mid }
+	</select>
+	
 </mapper>

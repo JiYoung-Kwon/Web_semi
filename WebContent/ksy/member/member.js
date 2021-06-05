@@ -129,17 +129,12 @@ $('#register_mid').keyup(function(){
 	var div = document.getElementById('chk_mid') 
 	
 	$.ajax({
-		url: url+'register_chkid',
+		url: './KSY/login/login_check.jsp',
 		type:'post',
-		data:{id:id},
+		data:{mid:id},
 		success:function(resp){
-		/*	alert(resp)*/
-			div.innerHTML = '중복값있음'
-		},
-		error:function(resp){
-			div.innerHTML = ' '
-		}
-		
+			div.innerHTML = resp
+		}		
 	})
 })
 
