@@ -132,6 +132,22 @@ public class BoardGameDao {
 		return msg;
 	}
 	
+	public String deleteOL(OneLineVo vo) {
+		String msg = "OK";
+		
+		try {	
+			//boardGame 테이블 삭제
+			sqlSession.delete("boardGame.deleteOL",vo);
+				
+			sqlSession.commit();
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			sqlSession.rollback();
+		}
+		
+		return msg;
+	}
+	
 	public static void main(String[] args) {
 		new BoardGameDao();
 	}

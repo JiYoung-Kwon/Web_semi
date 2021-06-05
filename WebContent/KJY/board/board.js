@@ -44,6 +44,7 @@ function funcRegisterOL(){
 	var win = window.open('/Web_Semi/KJY/board/registerOL.jsp','win','width=500px, height=350px, left='+ popupX + ', top='+ popupY);	
 }
 
+
 //별점 클릭 기능
 $('.starRev span').on('click',function(){
   	$(this).parent().children('span').removeClass('on');
@@ -134,7 +135,7 @@ $('#board #btnUpdate').on('click', function(){ //저장
 $('#board #btnDelete').on('click', function(){
 	var frm = $('#frm_detail')[0];
 	var param = $(frm).serialize();
-	alert(param);
+	//alert(param);
 	$('#middle_main').load('./boardGame?job=delete', param);
 })
 
@@ -147,13 +148,18 @@ brd.move = function(nowPage){
 	$('#middle_main').load('./boardGame',param);
 }
 
-//페이지 이동(한줄평)
+//한줄평 페이지 이동
 brd.moveOL = function(nowPage){
 	var frm = $('#frm_detail')[0];
 	frm.nowPage.value = nowPage;
 	var param = $(frm).serialize();
 
 	$('.detailPage').load('./boardGame?job=detail',param);
+}
+
+//한줄평 삭제 기능
+function funcDeleteOL(bName, mid){
+	$('.detailPage').load('./boardGame?job=detail&isDel=ok&bName='+bName+"&mid="+mid);
 }
 
 //수정 시, 파일 클릭되게

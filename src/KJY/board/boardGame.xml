@@ -58,6 +58,9 @@
 		DELETE FROM BOARDGAME WHERE bName = '${_parameter}'
 	</delete>
 	
+	<delete id = 'deleteOL' parameterType = "kjy.board.OneLineVo">
+		DELETE FROM ONELINE WHERE bName = '${bName}' AND mid = '${mid}'
+	</delete>
 	<!-- 수정 -->
 	<update id = 'update' parameterType = "kjy.board.BoardGameVo">
 		UPDATE boardGame 

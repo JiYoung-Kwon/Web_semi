@@ -15,7 +15,7 @@
 		<script>checkClick(${clickNum });</script>
 			<form name='frm_detail' id = 'frm_detail' method='post' action=''>
 				<input type = 'hidden' value = '${vo.bName }' name = 'bName'/>
-				<input type = 'text' name = 'nowPage' value = '${(empty param.nowPage) ? 1: param.nowPage }'/>
+				<input type = 'hidden' name = 'nowPage' value = '${(empty param.nowPage) ? 1: param.nowPage }'/>
 			</form>
 		
 			<span class='img'>
@@ -43,7 +43,7 @@
 					<span class="mid">${ol.mid }</span>
 					<span class="star">${ol.star }</span>
 					<span class="doc"> ${ol.doc }</span>
-					<input type='button' value="삭제" id='btnDeleteOL' />
+					<input type='button' value="삭제" onclick="funcDeleteOL('${ol.bName}', '${ol.mid }')" />
 					<br />
 				</c:forEach>
 				<br />

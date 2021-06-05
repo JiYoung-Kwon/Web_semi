@@ -16,7 +16,7 @@ public class BoardGameServlet extends HttpServlet {
 	int isClicked = 0;
 	String job= "search";
 	String bName = "";
-
+	String isDel = "";
 	
 	
 	@Override
@@ -49,6 +49,10 @@ public class BoardGameServlet extends HttpServlet {
 			
 		if(req.getParameter("job") != null) {
 			job = req.getParameter("job");
+		}
+		
+		if(req.getParameter("isDel") != null) {
+			isDel = req.getParameter("isDel");
 		}
 		
 		if(req.getParameter("bName") != null){
@@ -115,6 +119,18 @@ public class BoardGameServlet extends HttpServlet {
 			
 		case "detail":
 			url += "detail.jsp";
+			
+			if(isDel.equals("ok")) {
+				OneLineVo oVo = new OneLineVo();
+				oVo.setbName(req.getParameter("bName"));
+				oVo.setMid(req.getParameter("mid"));
+				
+				System.out.println(oVo.getbName() + " " + oVo.getMid());
+				
+				dao.deleteOL(oVo);
+			}		
+			
+			
 			vo = dao.detail(bName);
 			System.out.println("페이지능" + page.getNowPage());
 			page.setListSize(5);
@@ -155,6 +171,7 @@ public class BoardGameServlet extends HttpServlet {
 			bName = req.getParameter("bName");
 			vo = dao.detail(bName);
 			req.setAttribute("vo",vo);
+			break;
 		}
 		
 		req.setAttribute("page", page);
