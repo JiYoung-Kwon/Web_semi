@@ -45,11 +45,27 @@ public class BoardGameDao {
 		BoardGameVo vo = null;
 		try {
 			vo = sqlSession.selectOne("boardGame.detail",bName);
-			sqlSession.close();
+			
 		}catch(Exception ex) {
 			ex.printStackTrace();
 		}
 		return vo;
+	}
+	
+	public List<OneLineVo> oneline(Page page) {
+		List<OneLineVo> list = null;
+		try {
+			int totList = sqlSession.selectOne("boardGame.onelineList", page);
+			System.out.println("totList는 " + totList);
+			page.setTotList(totList);
+			page.compute();
+			
+			list = sqlSession.selectList("boardGame.oneline", page);
+			sqlSession.close();
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}
+		return list;
 	}
 	
 	public String insert(BoardGameVo vo) {
@@ -94,11 +110,12 @@ public class BoardGameDao {
 		String msg = "OK";
 		
 		try {
+			BoardGameVo vo1 = sqlSession.selectOne("boardGame.detail",vo.gubun);
 			//boardGame 테이블 수정
 			int r = sqlSession.update("boardGame.update",vo);
 			
 			if(r>0) {
-				File file = new File(BoardFileUpload.saveDir +  vo.getSysAtt());
+				File file = new File(BoardFileUpload.saveDir +  vo1.getSysAtt());
 				if(file.exists()) file.delete();
 				
 				sqlSession.commit();

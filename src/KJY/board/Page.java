@@ -13,16 +13,16 @@ public class Page {
 	String findStr = "";
 	String store = "";
 	String genre = "";
-	
+	String bName = "";
 	public Page() {}
 	
-	public Page(String store, String genre, String findStr, int totList, int nowPage) {
+	public Page(String store, String genre, String findStr, int totList, int nowPage, String bName) {
 		this.findStr = findStr;
 		this.totList = totList;
 		this.nowPage = nowPage;
 		this.store = store;
 		this.genre = genre;
-		
+		this.bName = bName;
 		//페이징 연산
 		compute();
 	}
@@ -113,5 +113,13 @@ public class Page {
 
 	public void setGenre(String genre) {
 		this.genre = genre;
+	}
+
+	public String getbName() {
+		return bName;
+	}
+
+	public void setbName(String bName) {
+		this.bName = bName;
 	}
 }

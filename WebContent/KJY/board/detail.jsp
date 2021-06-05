@@ -15,6 +15,7 @@
 		<script>checkClick(${clickNum });</script>
 			<form name='frm_detail' id = 'frm_detail' method='post' action=''>
 				<input type = 'hidden' value = '${vo.bName }' name = 'bName'/>
+				<input type = 'text' name = 'nowPage' value = '${(empty param.nowPage) ? 1: param.nowPage }'/>
 			</form>
 		
 			<span class='img'>
@@ -38,21 +39,30 @@
 					한줄평 <input type='button' value="작성" onclick="funcRegisterOL()" />
 				</h2>
 
-				<c:forEach var="ol" begin="1" end="5">
-					<span class="mid">권지영</span>
-					<span class="star">★★★★★</span>
-					<span class="doc"> 게임이 아주 쉽고 2인이 플레이하기 좋습니다.</span>
+				<c:forEach var="ol" items = "${oList}">
+					<span class="mid">${ol.mid }</span>
+					<span class="star">${ol.star }</span>
+					<span class="doc"> ${ol.doc }</span>
 					<input type='button' value="삭제" id='btnDeleteOL' />
 					<br />
 				</c:forEach>
 				<br />
 
-				<div id='btn_zone'>
-					<input type='button' value='맨첨' /> <input type='button' value='이전' />
-					<input type='button' value='1' /> <input type='button' value='2' />
-					<input type='button' value='3' /> <input type='button' value='다음' />
-					<input type='button' value='맨끝' />
-				</div>
+				<div id = 'btn_zone'>
+					<c:if test="${page.startPage > 1 }">
+						<input type='button' value = '맨첨' onclick='brd.moveOL(1)'/>
+						<input type='button' value = '이전' onclick='brd.moveOL(${page.startPage-1})'/>
+					</c:if>
+					
+					<c:forEach var='p' begin='${page.startPage }' end='${page.endPage }'>
+						<input type='button' value = '${p }' onclick = 'brd.moveOL(${p})'/>
+					</c:forEach>
+					
+					<c:if test = "${page.endPage<page.totPage }">
+						<input type='button' value = '다음' onclick = 'brd.moveOL(${page.endPage+1 })'/>
+						<input type='button' value = '맨끝' onclick = 'brd.moveOL(${page.totPage })'/>
+					</c:if>			
+				</div>	
 			</div>
 
 

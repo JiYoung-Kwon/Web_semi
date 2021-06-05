@@ -96,7 +96,7 @@ $('#board #btnFind').on('click', function(){
 	var frm = $('#frm_board')[0];
 	frm.nowPage.value = 1;
 	var param = $(frm).serialize();
-	alert(param);
+	//alert(param);
 	$('#middle_main').load('./boardGame', param);
 })
 
@@ -145,6 +145,15 @@ brd.move = function(nowPage){
 	var param = $(frm).serialize();
 	
 	$('#middle_main').load('./boardGame',param);
+}
+
+//페이지 이동(한줄평)
+brd.moveOL = function(nowPage){
+	var frm = $('#frm_detail')[0];
+	frm.nowPage.value = nowPage;
+	var param = $(frm).serialize();
+
+	$('.detailPage').load('./boardGame?job=detail',param);
 }
 
 //수정 시, 파일 클릭되게

@@ -25,7 +25,7 @@ public class BoardFileUpload extends HttpServlet {
 	BoardGameDao dao;
 	RequestDispatcher rd;
 
-	final static String saveDir = "C:\\eclipse\\workspace\\Web_Semi\\WebContent\\KJY\\upload\\";
+	final static String saveDir = "C:\\Users\\JIYOUNG.DESKTOP-KDUS7M3\\eclipse\\workspace\\Web_Semi\\WebContent\\KJY\\upload\\";
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -45,7 +45,9 @@ public class BoardFileUpload extends HttpServlet {
 		dao = new BoardGameDao();
 		BoardGameVo bVo = new BoardGameVo();
 		Page page = new Page();
-
+		
+		flag = req.getParameter("flag");
+		
 		Collection<Part> parts = req.getParts();
 		for (Part p : parts) {
 			if (p.getHeader("Content-Disposition").contains("filename=")) { // file tag
@@ -67,6 +69,8 @@ public class BoardFileUpload extends HttpServlet {
 				switch (tagName) {
 				case "bName":
 					bVo.setbName(value);
+					if(flag == "insert")
+						bVo.setGubun(value);
 					break;
 				case "eName":
 					bVo.seteName(value);
@@ -96,7 +100,9 @@ public class BoardFileUpload extends HttpServlet {
 					bVo.setGenre(value);
 					break;
 				case "gubun":
-					bVo.setGubun(value );
+					if(flag != "insert")
+						bVo.setGubun(value);
+					break;
 				case "findStr":
 					page.setFindStr(value);
 					break;
@@ -106,8 +112,6 @@ public class BoardFileUpload extends HttpServlet {
 				}
 			}
 		}
-
-		flag = req.getParameter("flag");
 
 		switch (flag) {
 		case "insert":

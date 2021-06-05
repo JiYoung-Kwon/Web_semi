@@ -31,12 +31,13 @@ public class BoardGameServlet extends HttpServlet {
 		req.setCharacterEncoding("utf-8");
 		resp.setContentType("text/html; charset=utf-8");
 		BoardGameVo vo = new BoardGameVo();
-		
+
 		String url = "./KJY/board/";
 		dao = new BoardGameDao();
 		
 		Page page = new Page();
 		String tempNowPage = req.getParameter("nowPage");
+		System.out.println("현재페이지는 " +tempNowPage);
 		
 		if(req.getParameter("isClicked") != null){
 			isClicked = Integer.parseInt(req.getParameter("isClicked"));
@@ -51,7 +52,7 @@ public class BoardGameServlet extends HttpServlet {
 		}
 		
 		if(req.getParameter("bName") != null){
-			bName = req.getParameter("bName");
+			bName = req.getParameter("bName");;
 			vo.setbName(bName);
 		}
 		
@@ -115,10 +116,16 @@ public class BoardGameServlet extends HttpServlet {
 		case "detail":
 			url += "detail.jsp";
 			vo = dao.detail(bName);
+			System.out.println("페이지능" + page.getNowPage());
+			page.setListSize(5);
+			page.setbName(bName);
+			List<OneLineVo> oList = dao.oneline(page);
+			
 			int clickNum = isClicked;
 			//System.out.println(clickNum);
 			System.out.println(Integer.toString(clickNum));
 			req.setAttribute("vo", vo);
+			req.setAttribute("oList", oList);
 			req.setAttribute("clickNum", Integer.toString(clickNum));
 			break;
 			
