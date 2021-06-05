@@ -9,7 +9,6 @@ contact.init = function(){
 	  var btn_contact = document.getElementById('btn_contact');
 	
 	btn_contact.onclick = function(){
-		
 		var frm = $('#frm_contact')[0];
 		frm.nowPage.value = 1;
 		if(frm.findStr.value=='') frm.findStr.value = ' ';
@@ -35,20 +34,23 @@ contact.init = function(){
 		$('#middle_main').load('./contact.do?job=search', param);
 	})
 	
-	
-	/*
+	//입력
 	$('#contact #btnInsert').on('click', function(){
 		var frm = $('#frm_contact')[0];
 		var param = $(frm).serialize();
 		$('#middle_main').load('./contact.do?job=register', param);
 	})
+	
 	$('#contact #btnInsertR').on('click', function(){
-		var frm = $('#frm_board')[0];
+		var frm = $('#frm_contact')[0];
 		
 		//내용입력폼과 파일 업로드폼이 분리되지 않아서...
 		if(frm.findStr.value=='') frm.findStr.value = ' ';
 		if(frm.serial.value=='') frm.serial.value = 0;
 		if(frm.nowPage.value=='') frm.nowPage.value = '1';
+		if(frm.mid.value=='') frm.mid.value = ' ';
+		
+		alert(frm.mid.value)
 		
 		var data = new FormData(frm);
 		
@@ -60,11 +62,36 @@ contact.init = function(){
 			contentType : false,
 			processData : false,
 			success : function(resp){
+				alert("성공");
 				$('#middle_main').load('./contact.do?job=search');
 			}
 		});
 		
 	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	contact.move= function(nowPage){
+	var frm = $('#frm_contact')[0];
+	frm.nowPage.value = nowPage;
+	var param = $(frm).serialize();
+	
+	$('#middle_main').load('./contact.do?job=search', param);
+	}
+	
+	/*
 	
 	$('#contact #btnModify').on('click', function(){
 		var frm = $('#frm_board')[0];
@@ -84,8 +111,8 @@ contact.move= function(nowPage){
 	var param = $(frm).serialize();
 	
 	$('#middle_main').load('./contact.do?job=search', param);
-	*/
-}
+	}*/
+
 
 
 
@@ -100,4 +127,4 @@ $(document).ready(function(){
 
 
 
-
+}

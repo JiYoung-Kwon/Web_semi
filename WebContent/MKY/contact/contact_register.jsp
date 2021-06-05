@@ -23,7 +23,7 @@
 
 						<div id='input'>
 								<select name='store' id='store'>
-											<option value="">매장명을 선택해주세요</option>
+											<option >매장명을 선택해주세요</option>
 											<option value="강남">강남점</option>
 											<option value="홍대">홍대점</option>
 											<option value="부산">부산점</option>
@@ -35,9 +35,8 @@
 						<div id='label'>
 								<label>이름</label>
 						</div>
-
 						<div id='input'>
-								<input type='text' name='irum' value='' />
+								<input type='text' name='irum' />
 						</div>
 						<br />
 						<hr />
@@ -45,9 +44,8 @@
 						<div id='label'>
 								<label>연락처</label>
 						</div>
-
 						<div id='input'>
-								<input type='text' class='phone' name='phone' value='' />
+								<input type='text' class='phone' name='phone' />
 						</div>
 						<br />
 						<hr />
@@ -55,9 +53,8 @@
 						<div id='label'>
 								<label>이메일</label>
 						</div>
-
 						<div id='input'>
-								<input type='email' class='email' name='email' value='' />
+								<input type='email' class='email' name='email' />
 						</div>
 						<br />
 						<hr />
@@ -65,7 +62,6 @@
 						<div id='label'>
 								<label>제목</label>
 						</div>
-
 						<div id='input'>
 								<input type='text' class='subject' name='subject' />
 						</div>
@@ -101,7 +97,8 @@
 						<input type='button' value='취소' id='btnSearch'>
 			</div>
 
-
+			<!-- 데이터 확인용 -->
+			<input type='hidden' name='mid' value='세션값'/>
 			<input type='hidden' name='nowPage' value='${param.nowPage }' />
 			<input type='hidden' name='findStr' value='${param.findStr }' />
 			<input type='hidden' name='serial' value='${param.serial }' />

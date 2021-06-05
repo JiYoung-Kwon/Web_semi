@@ -28,7 +28,7 @@ public class ContactFileUpload extends HttpServlet{
 	ContactDao dao;
 	RequestDispatcher rd;
 	
-	final static String saveDir = "C:/eclipse/workspace/Web_Semi/WebContent/MKY/upload/";
+	final static String saveDir = "C:\\eclipse\\workspace\\Web_Semi\\WebContent\\MKY\\upload\\";
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -54,15 +54,25 @@ public class ContactFileUpload extends HttpServlet{
 		List<ContactAttVo> attList = new ArrayList<ContactAttVo>();
 		List<ContactAttVo> delList = new ArrayList<ContactAttVo>();
 		boolean delFileFlag = true; // 삭제파일 처리 여부
-		
+		System.out.println("확인");
+		System.out.println(req.getAttribute("mid"));
+		System.out.println(req.getAttribute("nowPage"));
+		System.out.println(req.getAttribute("findStr"));
+		System.out.println(req.getAttribute("serial"));
+
+		if (contentType != null &&  contentType.toLowerCase().startsWith("multipart/")) {
+            // getParts()를 통해 Body에 넘어온 데이터들을 각각의  Part로 쪼개어 리턴
 		Collection<Part> parts = req.getParts();
+		System.out.println(parts.size());
 		for(Part p : parts) {
+			System.out.printf("파라미터 명 : %s, contentType :  %s,  size : %d bytes \n", p.getName(),
+					p.getContentType(), p.getSize());
 			if( p.getHeader("Content-Disposition").contains("filename=")) { // file tag
 				String fileName = p.getSubmittedFileName();
 				ContactAttVo attVo = new ContactAttVo();
 				
 				String date = sdf.format(new Date());
-				
+
 				if(p.getSize()>0) {
 					p.write(saveDir + date + "-" + fileName);
 					p.delete();
@@ -78,12 +88,19 @@ public class ContactFileUpload extends HttpServlet{
 				switch(tagName) {
 					case "serial":
 						cVo.setSerial(Integer.parseInt(value));
+						cVo.setpSerial(Integer.parseInt(value));
 						break;
 					case "subject":
 						cVo.setSubject(value);
 						break;
+					case "mid":
+						cVo.setMid(value);
+						break;
 					case "irum":
 						cVo.setIrum(value);
+						break;
+					case "store":
+						cVo.setStore(value);
 						break;
 					case "doc":
 						cVo.setDoc(value);
@@ -111,22 +128,22 @@ public class ContactFileUpload extends HttpServlet{
 					}
 				}
 			}
-		
+		}
 			cVo.setAttList(attList);
 			cVo.setDelList(delList);
 			
 			flag = req.getParameter("flag");
 		
-//			switch(flag) {
-//			case "insert":
-//				dao.insert(cVo);
-//				break;
+			switch(flag) {
+			case "insert":
+				dao.insert(cVo);
+				break;
 //			case "update":
 //				dao.update(cVo);
 //				break;
-//			}
+			}
 			
-			rd = req.getRequestDispatcher("./board/search.jsp");
+			rd = req.getRequestDispatcher("./MKY/contact/contact_search.jsp");
 			rd.include(req, resp);		
 		
 		}

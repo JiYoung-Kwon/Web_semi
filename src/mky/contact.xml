@@ -19,31 +19,52 @@
 
 	   <select id="search" parameterType="mky.Page" resultType="mky.ContactVo">
 	   
-	  	 SELECT * from(
-	   		SELECT rownum rno, m.* from(	
-	   			SELECT serial, pserial,
-						lpad('└ ' , (LEVEL-1)*2, '　') || subject subject,
-						mid, hit, irum, store, to_char(mdate, 'rrrr-mm-dd') mdate,
-						(SELECT count(serial) FROM contactAtt WHERE c.serial=pserial) attCnt
-	   			FROM CONTACT c
-	   			WHERE store like '%${store }%'
-					<if test="choice == '제목'">
-					and subject LIKE '%${findStr }%'
-					</if>
-					<if test="choice == '이름'">
-					and irum LIKE '%${findStr }%'
-					</if>
-			  	AND	 subject LIKE '%${findStr}%'
-			  	OR	 doc 	 LIKE '%${findStr}%'
-			  	START with pserial IS NULL
-				CONNECT BY PRIOR serial = pserial and level le 3
-			  	ORDER BY serial DESC) m
-	  	) WHERE rno BETWEEN #{startNo} AND #{endNo}
+		  	 SELECT * from(
+		   		SELECT rownum rno, m.* from(	
+						select * from CONTACT WHERE store like '%${store }%'
+							<if test="choice == '제목'">
+							and subject LIKE '%${findStr }%'
+							</if>
+							<if test="choice == '이름'">
+							and irum LIKE '%${findStr }%'
+							</if>
+						) m
+		  	) WHERE rno BETWEEN #{startNo} AND #{endNo}
 	  		
 	   </select>
 	   
+	   <!-- 입력 -->
+	   <select id="contact_getSerial" resultType="Integer">
+	   	select seq_contact.nextval from dual
+	   </select>
 	   
+	   <insert id="contact_insert" parameterType="mky.ContactVo">
+	   	insert into contact(serial, irum, phone, email, subject, doc, mid, mdate, hit, store)
+	   	values(#{serial}, #{irum}, #{phone}, #{email}, #{subject}, #{doc}, #{mid}, sysdate, 0, #{store})
+	   </insert>
 	   
-	   
+	   <insert id="contactAtt_insert" parameterType="mky.ContactAttVo">
+	   	insert into contactAtt(serial, pserial, oriAtt, sysAtt)
+			values(seq_contactAtt.nextval, #{pSerial}, #{oriAtt}, #{sysAtt})
+	   </insert>
 	   
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

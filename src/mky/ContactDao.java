@@ -38,11 +38,74 @@ public class ContactDao {
 			
 		}catch(Exception ex) {
 			ex.printStackTrace();
-		}return list;
+		}
 		
-		
-		
+		return list;
 	}
+	
+	public String insert(ContactVo vo) {
+		String msg = "입력완료";
+		int r = 0;
+		int chkCnt = 0;
+		try {
+			
+			System.out.println("조회됨");
+			
+			int serial = sqlSession.selectOne("contact.contact_getSerial");
+			
+			vo.setSerial(serial);
+			
+			System.out.println("인설트됨");
+			r = sqlSession.insert("contact.contact_insert", vo);
+			
+			System.out.println("인설트 완료");
+			
+			if(r>0) {
+				chkCnt = 0; //첨부파일의 수만큼 실행된 쿼리의 수
+				for(ContactAttVo v : vo.getAttList()) {
+					v.setpSerial(serial);
+					chkCnt += sqlSession.insert("contact.contactAtt_insert", v);
+				}
+				if(chkCnt == vo.getAttList().size()) {
+					sqlSession.commit();
+				}else {
+					throw new Exception();
+				}
+			}else {
+				throw new Exception();
+			}
+			
+		}catch(Exception ex) {
+			msg = ex.toString();
+//			System.out.println("r=" + r);
+//			System.out.println("chkCnt=" + chkCnt);
+			ex.printStackTrace();
+			sqlSession.rollback();
+			
+			for(ContactAttVo delVo : vo.getAttList()) {
+				File f = new File(ContactFileUpload.saveDir + delVo.getSysAtt());
+				if(f.exists()) f.delete();
+			}
+		}
+		sqlSession.close();
+		return msg;
+	}
+
+	
+	
+	//	public ContactVo view(int serial) {
+//		ContactVo vo = new ContactVo();
+//		
+//		try {
+//			
+//			
+//		}catch(Exception ex) {
+//			ex.printStackTrace();
+//		}
+//		
+//		
+//		
+//	}
 	
 	
 	
@@ -79,43 +142,4 @@ public class ContactDao {
 
 	// board, boardAtt 저장
 		// 오류 : 첨부 파일 삭제
-		public String insert(ContactVo vo) {
-			String msg = "OK";
-			int r = 0;
-			int chkCnt = 0;
-			try {
-				int serial = sqlSession.selectOne("contact.contact_getSerial");
-				vo.setSerial(serial);
-				r = sqlSession.insert("contact.contact_insert", vo);
-				
-				if(r>0) {
-					chkCnt = 0; //첨부파일의 수만큼 실행된 쿼리의 수
-					for(ContactAttVo v : vo.getAttList()) {
-						v.setpSerial(serial);
-						chkCnt += sqlSession.insert("contact.contactAtt_insert", v);
-					}
-					if(chkCnt == vo.getAttList().size()) {
-						sqlSession.commit();
-					}else {
-						throw new Exception();
-					}
-				}else {
-					throw new Exception();
-				}
-				
-			}catch(Exception ex) {
-				msg = ex.toString();
-				System.out.println("r=" + r);
-				System.out.println("chkCnt=" + chkCnt);
-				ex.printStackTrace();
-				sqlSession.rollback();
-				
-				for(ContactAttVo delVo : vo.getAttList()) {
-					File f = new File(ContactFileUpload.saveDir + delVo.getSysAtt());
-					if(f.exists()) f.delete();
-				}
-			}
-			sqlSession.close();
-			return msg;
-		}
 }

@@ -68,14 +68,11 @@ public class ContactServelt extends HttpServlet{
 			break;
 		case "search" :
 			url += "contact_search.jsp";
-			
-			System.out.println(page.getFindStr());
-			System.out.println(page.getChoice());
-			System.out.println(page.getStore());
-			
+						
 			List<ContactVo> list = dao.select(page);
 			
 			req.setAttribute("list", list);
+			req.setAttribute("page", page);
 //			System.out.println(list.size());
 			break;
 	}

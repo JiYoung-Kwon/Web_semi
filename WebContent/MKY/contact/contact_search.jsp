@@ -13,6 +13,7 @@
 </head>
 <body>
 <div id='contact'>
+
 	<h2>문의사항</h2>
 		<div class='column_name'>
 			<span class='no'>번호</span>
@@ -27,7 +28,7 @@
 			<c:forEach var='vo' items="${list}">
 				<div class='item' onclick='contact.view(${vo.serial})'>
 					<span class='no'>${vo.serial }</span>
-					<span class='store'>${vo.store }[${vo.attCnt }]</span>
+					<span class='store'>${vo.store }</span>
 					<span class='subject'>${vo.subject }</span>
 					<span class='irum'>${vo.irum }</span>
 					<span class='mdate'>${vo.mdate }</span>
@@ -67,7 +68,7 @@
 		<div id='btn_zone'>
 			<c:if test="${page.startPage>1 }">	
 				<input type='button' id='start' value='<<'  onclick='contact.move(1)'/>
-				<input type='button' id='back' value='<' onclick='contact.move(${p.startPage-1})'/>
+				<input type='button' id='back' value='<' onclick='contact.move(${page.startPage-1})'/>
 			</c:if>
 			
 			<c:forEach var='p' begin='${page.startPage }' end='${page.endPage }'>
@@ -75,8 +76,8 @@
 			</c:forEach>
 			
 			<c:if test="${page.endPage<page.totPage }">
-				<input type='button' id='next' value='>' onclick='contact.move(${p.endPage+1 })'/>
-				<input type='button' id='end' value='>>' onclick='contact.move(${p.totPage })'/>
+				<input type='button' id='next' value='>' onclick='contact.move(${page.endPage+1 })'/>
+				<input type='button' id='end' value='>>' onclick='contact.move(${page.totPage })'/>
 			</c:if>
 		</div>
 </div>
