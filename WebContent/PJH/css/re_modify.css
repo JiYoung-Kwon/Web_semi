@@ -128,7 +128,7 @@
 	position: relative;
 }
 #review #att_list .del_file_chk{
-	background-color : #fff;
+	background-color : #332f2d;
 	position: absolute;
 	bottom: 5px;
 	right: 15px;
@@ -159,4 +159,5 @@
 #review input[type=button]{
 	background-color: #332f2d;
 }
+
 
