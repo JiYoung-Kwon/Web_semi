@@ -52,6 +52,11 @@
 		INSERT INTO BOARDGAME (bName, eName, expl, diff, minPerson, maxPerson, minTime, maxTime, store, genre, oriAtt, sysAtt, gubun) 
 		values('${bName}', '${eName}', '${expl}', '${diff}', ${minPerson}, ${maxPerson}, ${minTime}, ${maxTime}, '${store}', '${genre}', '${oriAtt}', '${sysAtt}', '${bName}')
 	</insert>
+	
+	<insert id= 'insertOL' parameterType = "kjy.board.OneLineVo">
+		INSERT INTO ONELINE (bName, mid, star, doc)
+		VALUES('${bName}', '${mid}', '${star}', '${doc}')
+	</insert>
 
 	<!-- 삭제 -->
 	<delete id = 'delete' parameterType = "String">

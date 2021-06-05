@@ -33,7 +33,7 @@ onDisplay = function(n,bName){
 }
 
 //한줄평 작성 창
-function funcRegisterOL(){
+function funcRegisterOL(bName, mid, nowPage){
 	var popupX = (document.body.offsetWidth / 2) - (200 / 2);
 	//만들 팝업창 좌우 크기의 1/2 만큼 보정값으로 빼주었음
 
@@ -42,6 +42,11 @@ function funcRegisterOL(){
 
 	
 	var win = window.open('/Web_Semi/KJY/board/registerOL.jsp','win','width=500px, height=350px, left='+ popupX + ', top='+ popupY);	
+	win.onload = function(){
+		win.frm_ol.bName.value = bName;
+		win.frm_ol.mid.value = mid;
+		win.frm_ol.nowPage.value = nowPage;
+	}
 }
 
 
@@ -49,8 +54,32 @@ function funcRegisterOL(){
 $('.starRev span').on('click',function(){
   	$(this).parent().children('span').removeClass('on');
   	$(this).addClass('on').prevAll('span').addClass('on');
+	
+	var star = "";
+	for(i=0; i< $('.on').length; i++){
+		star += "★";
+	}
+	
+	for(i=0; i< 5- $('.on').length; i++){
+		star += "☆"
+	}
+	$('#star').val(star);
+	//console.log($('.on').length);
   	return false;
 });
+
+$('#btnInsertOL').on('click', function(){
+	var param =$('#frm_ol').serialize();
+	
+	$.ajax({
+		type : 'POST',
+		url : '../../boardGame?job=detail&isDel=no',
+		data : param,
+		success : function(resp){
+			self.close();
+		}	
+	})
+})
 
 //취소 버튼
 $('#board #btnSelect').on('click', function(){
@@ -69,7 +98,7 @@ $('#board #btnInsertR').on('click', function(){
 		
 		//내용 입력폼과 파일 업로드 폼이 분리되지 않아서 임시로 해결하기 위해
 		if(frm.findStr.value == '') frm.findStr.value = ' '; //임시조치
-		if(frm.serial.value == '') frm.serial.value = 0; //임시조치
+	/*	if(frm.serial.value == '') frm.serial.value = 0; //임시조치*/
 		if(frm.nowPage.value == '') frm.nowPage.value = '1';
 
 		var data = new FormData(frm)
@@ -113,7 +142,7 @@ $('#board #btnUpdate').on('click', function(){ //저장
 	var frm = $('#frm_board')[0];
 	
 	if(frm.findStr.value == '') frm.findStr.value = ' '; //임시 조치
-	if(frm.serial.value == '') frm.serial.value = 0; //임시조치
+/*	if(frm.serial.value == '') frm.serial.value = 0; //임시조치*/
 	if(frm.nowPage.value == '') frm.nowPage.value = '1';
 	
 	var data = new FormData(frm);

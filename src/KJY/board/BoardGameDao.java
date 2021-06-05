@@ -148,6 +148,24 @@ public class BoardGameDao {
 		return msg;
 	}
 	
+	public String insertOL(OneLineVo vo) {
+		String msg = "OK";
+		
+		try {
+			int r = sqlSession.insert("boardGame.insertOL",vo);
+			if(r>0){
+				System.out.println("정상");
+				sqlSession.commit();
+			}
+			
+		}catch(Exception ex) {
+			sqlSession.rollback();
+			msg = ex.toString();
+			ex.printStackTrace();
+		}
+		return msg;
+	}
+	
 	public static void main(String[] args) {
 		new BoardGameDao();
 	}

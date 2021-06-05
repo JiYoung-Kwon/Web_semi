@@ -36,7 +36,7 @@
 			<hr />
 			<div class='oneLineReview'>
 				<h2>
-					한줄평 <input type='button' value="작성" onclick="funcRegisterOL()" />
+					한줄평 <input type='button' value="작성" onclick="funcRegisterOL('${vo.bName}','아이디', ${(empty param.nowPage) ? 1: param.nowPage })" />
 				</h2>
 
 				<c:forEach var="ol" items = "${oList}">

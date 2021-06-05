@@ -78,7 +78,7 @@
 			<input type = 'text' name = 'oriAtt' value = '${oriAtt}'/>
 			<input type = 'text' name = 'sysAtt' value = '${sysAtt}'/>
 			<input type = 'text' name = 'nowPage' value = '${(empty param.nowPage) ? 1: param.nowPage }'/>
-			<input type = 'text' name = 'serial' value = '${(empty param.serial) ? 1: param.serial }'/>
+			<%-- <input type = 'text' name = 'serial' value = '${(empty param.serial) ? 1: param.serial }'/> --%>
 		</form>
 		
 		<hr>

@@ -79,7 +79,7 @@
 			<br/>			
 						
 			<input type = 'text' name = 'nowPage' value = '${param.nowPage }'/>
-			<input type = 'text' name = 'serial' value = '${param.serial }'/>
+			<%-- <input type = 'text' name = 'serial' value = '${param.serial }'/> --%>
 			<input type = 'text' name = 'findStr' value = '${param.findStr }'/>
 		</form>	
 

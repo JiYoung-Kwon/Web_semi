@@ -22,6 +22,7 @@ public class BoardGameServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		job="search";
+		isDel = "";
 		isClicked= 0;
 		doPost(req, resp);
 	}
@@ -130,6 +131,16 @@ public class BoardGameServlet extends HttpServlet {
 				dao.deleteOL(oVo);
 			}		
 			
+			if(isDel.equals("no")) {
+				OneLineVo oVo = new OneLineVo();
+				oVo.setbName(req.getParameter("bName"));
+				oVo.setMid(req.getParameter("mid"));
+				oVo.setDoc(req.getParameter("doc"));
+				oVo.setStar(req.getParameter("star"));
+				
+				dao.insertOL(oVo);
+				
+			}
 			
 			vo = dao.detail(bName);
 			System.out.println("페이지능" + page.getNowPage());
@@ -143,6 +154,7 @@ public class BoardGameServlet extends HttpServlet {
 			req.setAttribute("vo", vo);
 			req.setAttribute("oList", oList);
 			req.setAttribute("clickNum", Integer.toString(clickNum));
+			
 			break;
 			
 		case "register":

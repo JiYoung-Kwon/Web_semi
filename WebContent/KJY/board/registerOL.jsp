@@ -23,8 +23,12 @@
 
 </head>
 <body>
-	<form name = 'frm_guestbook' id = 'frm_gb' method ='post' action=''>
+	<form name = 'frm_ol' id = 'frm_ol' method ='post' action=''>
 		<h2>한줄평 작성</h2>
+		<input type = 'text' name= 'nowPage' id = 'nowPage'/>
+		<input type = 'text' name = 'bName'/>
+		<input type = 'text' name = 'mid'/>
+		<input type = 'text' name = 'star' id = 'star' value = '★☆☆☆☆'/>
 		
 		<p>해당 보드게임은 어떠셨나요?</p>
 		
@@ -41,7 +45,7 @@
 		
 
 		<br/>
-		<input type = 'button' value = '저장' id = 'btnModify'/>
+		<input type = 'button' value = '저장' id = 'btnInsertOL'/>
 	</form>
 	
 	<script src = '/Web_Semi/KJY/board/board.js'></script>
