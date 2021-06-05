@@ -1,6 +1,7 @@
 package ksy;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +28,6 @@ public class MemberServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("시작이야");
 		req.setCharacterEncoding("utf-8");
 		resp.setContentType("text/html;charset=utf-8");
 
@@ -59,7 +59,9 @@ public class MemberServlet extends HttpServlet {
 			if (r > 0) {
 				url += "login/login.jsp";
 			} else {
+				
 				url += "member/register.jsp"; // 오류날 경우 알려주고 register에 머무른다. (오류 처리하기 ---- 아직 안함 ex)아이디 중복값 처리 )
+				req.setAttribute("vo", vo);
 			}
 			break;
 
@@ -81,20 +83,14 @@ public class MemberServlet extends HttpServlet {
 				session.setAttribute("login_id", chk_id); // check 후 일치하면 session에 저장
 				session.setAttribute("login_pwd", chk_pwd);
 			}
-			url += "member/register.jsp";
+			url = "./main.jsp";
 			break;
 
 		case "login":
-			/*
-			 * System.out.println(job); System.out.println("r = "+r);
-			 * System.out.println(url);
-			 */
-
 			String id = (String) session.getAttribute("login_id"); // 로그인 상태인 아이디값 가져오기
 			String pwd = (String) session.getAttribute("login_pwd");
 
 			if (session.getAttribute("login_id") == null) {
-				System.out.println("세션바보");
 				url += "login/login.jsp";
 			} else {
 				MemberVo vo2 = new MemberVo();
@@ -110,10 +106,6 @@ public class MemberServlet extends HttpServlet {
 		case "logout":
 			session.removeAttribute("login_id");
 			session.removeAttribute("login_pwd"); // 로그아웃 버튼 클릭시 session에 저장된 id, pwd 값을 삭제한다.
-			url += "member/register.jsp";
-			break;
-
-		case "cancle":
 			url += "login/login.jsp";
 			break;
 
@@ -135,6 +127,23 @@ public class MemberServlet extends HttpServlet {
 			req.setAttribute("vo", vo);
 
 			break;
+		case "register_chkid":    // 아이디 중복값 처리하기
+
+			MemberVo vo3 = new MemberVo();
+
+			vo3.setMid(req.getParameter("mid"));
+			
+			try {
+				vo = dao.select(vo3);
+				System.out.println(vo.getMid());
+			}catch(Exception ex) {
+				ex.printStackTrace();
+			}
+			break;
+			
+		case "pwd_update":
+			url += "member/register.jsp";
+		break;
 		}
 
 		rd = req.getRequestDispatcher(url);
