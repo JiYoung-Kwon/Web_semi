@@ -9,6 +9,8 @@
 		select count(serial) totList from review 
 		where 	subject 	like '%${_parameter}%'
 		or 		doc		 	like '%${_parameter}%'
+
+		
 	</select>
 	
 	<select id="rev_getSerial" resultType="Integer">
@@ -18,7 +20,7 @@
 	<select id="search" parameterType="pjh.Page" resultType="pjh.ReViewVo">
 		SELECT * FROM(
 			SELECT rownum rno, m.* FROM (
-				SELECT serial, pserial, lpad(' ', (LEVEL-1)*4, ' └ ') || subject subject, 
+				SELECT serial, pserial, subject, 
 					mid, hit, to_char(mdate, 'rrrr-mm-dd') mdate,
 					(SELECT count(serial) FROM reviewAtt WHERE b.serial = pserial) attCnt, gubun 
 			FROM review b
