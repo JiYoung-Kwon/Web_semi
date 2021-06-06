@@ -34,14 +34,11 @@ onDisplay = function(n,bName){
 
 //한줄평 작성 창
 function funcRegisterOL(bName, mid, nowPage){
-	var popupX = (document.body.offsetWidth / 2) - (200 / 2);
-	//만들 팝업창 좌우 크기의 1/2 만큼 보정값으로 빼주었음
+	var popupX = Math.ceil(( window.screen.width - 405 )/2);
 
-	var popupY= (window.screen.height / 2) - (300 / 2);
-	//만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
-
+	var popupY= Math.ceil(( window.screen.height - 280 )/2);
 	
-	var win = window.open('/Web_Semi/KJY/board/registerOL.jsp','win','width=500px, height=350px, left='+ popupX + ', top='+ popupY);	
+	var win = window.open('/Web_Semi/KJY/board/registerOL.jsp','win','width=405px, height=280px, left='+ popupX + ', top='+ popupY);	
 	win.onload = function(){
 		win.frm_ol.bName.value = bName;
 		win.frm_ol.mid.value = mid;

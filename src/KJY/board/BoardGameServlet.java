@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(urlPatterns = "/boardGame")
 public class BoardGameServlet extends HttpServlet {
@@ -35,6 +36,7 @@ public class BoardGameServlet extends HttpServlet {
 
 		String url = "./KJY/board/";
 		dao = new BoardGameDao();
+		
 		
 		Page page = new Page();
 		String tempNowPage = req.getParameter("nowPage");
@@ -108,6 +110,8 @@ public class BoardGameServlet extends HttpServlet {
 		switch(job) {
 		case "search":
 			url += "search.jsp";
+
+			
 			System.out.println(page.getStore());
 			List<BoardGameVo> list = dao.select(page);
 			System.out.println(page.getStore());

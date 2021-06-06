@@ -10,25 +10,84 @@
 <script src = '/Web_Semi/lib/jquery-3.6.0.min.js'></script>
 <style>
 	textarea{
-		width: 425px;
+		width: 450px;
     	height: 190px;
 	}
 	#attfile{
 		display:none;
 	}
+	
+	#board {
+    width: 800px;
+    margin: 0 auto;
+	}
+	.board_h2{
+		color: yellow;
+    	text-shadow: 3px 1px 11px white;
+	}
+	#frm_board{
+	margin-bottom: 5px;
+	margin: 25px auto;
+	color: white;
+	line-height: 2;	
+	width: 750px;
+    padding-left: 130px;
+    padding-top: 50px;
+    padding-bottom: 0px;
+    height: 920px;
+    border : 1px solid;
+	}
+	#frm_board>label{
+    width: 100px;
+    display: inline-block;
+    font-weight:bold;
+	font-size : 1.3em;
+	}
+	
+	.top_input{
+	border-radius: 3px;
+    width: 170px;
+    height: 25px;
+	}
+	.num_input{
+	border-radius: 3px;
+    width: 50px;
+    height: 25px;
+    text-align:right;
+	}
+	
+	#btn_zone{
+		width:500px;
+		text-align:center;
+	}
+	
+	#btn_zone> input{
+	border: 1px solid #ffffff87;
+    width: 75px;
+    height: 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    background: #ff000000;
+    color: #fff6a6;
+    text-shadow: 3px 1px 11px white;
+	}
+	
+	select{
+	height: 25px;
+	}
 </style>
 </head>
 <body>
 	<div id = 'board'>
-		<h1>Modify</h1>
+		<h2 class="board_h2">Modify</h2>
 		
 		<!-- 일반 정보 폼 -->
 		<form name='frm_board' id = 'frm_board' method='post' action=''>		
 			<label>보드게임</label>
-			<input type = 'text' name = 'gubun' value = '${vo.bName}'/>
-			<br/>
-			<input type ='text' name ='bName' placeholder = '한글명 입력' value = '${vo.bName }'/>
-			<input type ='text' name ='eName' placeholder = '영문명 입력' value = '${vo.eName }'/>
+			<input type = 'hidden' name = 'gubun' value = '${vo.bName}'/>
+			
+			<input type ='text' name ='bName' placeholder = '한글명 입력' value = '${vo.bName }' class="top_input"/>
+			<input type ='text' name ='eName' placeholder = '영문명 입력' value = '${vo.eName }' class="top_input"/>
 			<br/>
 			
 			<label>내용</label>
@@ -43,13 +102,13 @@
 			<br/>
 			
 			<label>인원</label>
-			<input type = 'number' name = 'minPerson' value = '${vo.minPerson }'/>명 -
-			<input type = 'number' name = 'maxPerson' value = '${vo.maxPerson }'/>명
+			<input type = 'number' name = 'minPerson' value = '${vo.minPerson }' class="num_input"/>명 -
+			<input type = 'number' name = 'maxPerson' value = '${vo.maxPerson }' class="num_input"/>명
 			<br/>
 			
 			<label>게임시간</label>
-			<input type = 'number' name = 'minTime' value = '${vo.minTime }'/>분 -
-			<input type = 'number' name = 'maxTime' value = '${vo.maxTime }'/>분
+			<input type = 'number' name = 'minTime' value = '${vo.minTime }' class="num_input"/>분 -
+			<input type = 'number' name = 'maxTime' value = '${vo.maxTime }' class="num_input"/>분
 			<br/>
 			
 			<label>보유 매장</label>
@@ -84,9 +143,9 @@
 			</div>
 			<br/>			
 						
-			<input type = 'text' name = 'nowPage' value = '${param.nowPage }'/>
-			<input type = 'text' name = 'serial' value = '${param.serial }'/>
-			<input type = 'text' name = 'findStr' value = '${param.findStr }'/>
+			<input type = 'hidden' name = 'nowPage' value = '${param.nowPage }'/>
+			<input type = 'hidden' name = 'serial' value = '${param.serial }'/>
+			<input type = 'hidden' name = 'findStr' value = '${param.findStr }'/>
 		</form>	
 
 			

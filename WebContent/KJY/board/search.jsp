@@ -12,7 +12,8 @@
 <script src = '/Web_Semi/KJY/board/board.js'></script>
 <style>
 	#board {
-		min-width: 1000px;
+		 width: 800px;
+		margin: 0 auto;
 	}
 	.item span{
 		display :block;
@@ -20,11 +21,14 @@
 	
 	.item {
 		display : inline-block;
+		margin: 0px 20px;
+		padding-top: 30px;
+    	padding-bottom: 30px;
 	}
 	
 	.detailPage{
 		display : none;
-		height: 300px;
+		height: 340px;
 		padding-bottom:65px;
 		margin-bottom:45px;
 	}
@@ -39,12 +43,79 @@
 	.oneLineReview{
 		padding-top:30px;
 	}
+	
+	.board_h2{
+		color: yellow;
+    	text-shadow: 1px 1px 6px white;
+	}
+	.board_hr{
+		border:0;
+	}
+	.bName{
+	color: #ffffff
+	}
+	.eName{
+	color: #ffffff
+	}
+	#btnRegister, #btnFind{
+	border: 1px solid #ffffff87;
+    width: 75px;
+    height: 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    background: #ff000000;
+    color: #fff6a6;
+    text-shadow: 3px 1px 11px white;
+	}
+	#btnRegister{
+	position: relative;
+    top: 40px;
+    left: 725px;
+	}
+	.find_zone>label{
+	color: white;
+	margin: 5px;
+	text-shadow: 2px 1px 5px #fbf229;
+	}
+	.btn_search{
+    margin: 0 auto;
+    width: 420px;
+	}
+	#frm_board{
+	margin-bottom: 5px;
+	width: 500px;
+	}
+	
+	.btn_move{ 
+	background: #00000000;
+    color: #e06700;
+    text-shadow: 2px 1px 3px #ffffff87;
+    border: 1px solid #ffffff;
+    width: 45px;
+    height: 25px;
+    border-radius: 7px;
+    font-weight: bold;}
+   
+   .btn_num{
+   	background: #00000000;
+    color: #e06700;
+    text-shadow: 0px 1px 7px #ffffff87;
+    border: 1px solid #ffffff;
+    width: 30px;
+    height: 25px;
+    border-radius: 7px;
+    font-weight: bold;}
+    
+    #btn_zone{
+		width : 750px;
+		text-align : center;
+	}
 
 </style>
 </head>
 <body>
 	<div id = 'board'>
-		<h2>Search</h2>
+		<h2 class="board_h2">보드게임 안내</h2>
 		<form name = 'frm_board' id = 'frm_board' method = 'post' action =''>	
 			<input type = 'button' value = '작성' id = 'btnRegister'/>
 			
@@ -75,13 +146,12 @@
 					<option value = "순발력">순발력</option>
 				</select>
 			</div>
-			<input type = 'text' name = 'oriAtt' value = '${oriAtt}'/>
-			<input type = 'text' name = 'sysAtt' value = '${sysAtt}'/>
-			<input type = 'text' name = 'nowPage' value = '${(empty param.nowPage) ? 1: param.nowPage }'/>
-			<%-- <input type = 'text' name = 'serial' value = '${(empty param.serial) ? 1: param.serial }'/> --%>
+			<input type = 'hidden' name = 'oriAtt' value = '${oriAtt}'/>
+			<input type = 'hidden' name = 'sysAtt' value = '${sysAtt}'/>
+			<input type = 'hidden' name = 'nowPage' value = '${(empty param.nowPage) ? 1: param.nowPage }'/>
 		</form>
 		
-		<hr>
+		<hr class="board_hr">
 		<div class = 'items'>
 			<c:forEach var="vo" items= "${list }" varStatus ="x">
 				<%-- ${x.index } --%>
@@ -97,11 +167,11 @@
 				<!-- 4줄 기준으로, 세부 정보 div -->
 				<c:set var ="size" value = "${fn:length(list)-1}"/>
 				<c:if test ="${((x.index+1)%4 eq 0) or (x.index eq size)}">		
-					<hr/>		
+					<hr class="board_hr">	
 					<div class = 'detailPage'>
 					</div>
 	
-					<hr/>
+					<hr class="board_hr">
 				</c:if>		
 			</c:forEach>
 		</div>
@@ -143,6 +213,13 @@
 				}
 			}
 		});
+		
+		var sessionId = "<%=(String)session.getAttribute("login_id") %>"
+		
+		if(sessionId != "master"){
+			$("#btnRegister").css('display',"none");
+		}
+		
 	</script>
 </body>
 </html>

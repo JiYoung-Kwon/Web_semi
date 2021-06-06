@@ -17,7 +17,18 @@
 	  cursor: pointer;
 	}
 	.starR.on{background-position:0 0;}
-
+	
+	h2, p, .starRev{
+		text-align : center;
+	}
+	
+	textarea{
+		width: 385px;
+	}
+	
+	#btn_zone{
+		text-align : right;
+	}
 </style>
 
 
@@ -25,10 +36,10 @@
 <body>
 	<form name = 'frm_ol' id = 'frm_ol' method ='post' action=''>
 		<h2>한줄평 작성</h2>
-		<input type = 'text' name= 'nowPage' id = 'nowPage'/>
-		<input type = 'text' name = 'bName'/>
-		<input type = 'text' name = 'mid'/>
-		<input type = 'text' name = 'star' id = 'star' value = '★☆☆☆☆'/>
+		<input type = 'hidden' name= 'nowPage' id = 'nowPage'/>
+		<input type = 'hidden' name = 'bName' />
+		<input type = 'hidden' name = 'mid'/>
+		<input type = 'hidden' name = 'star' id = 'star' value = '★☆☆☆☆'/>
 		
 		<p>해당 보드게임은 어떠셨나요?</p>
 		
@@ -45,7 +56,9 @@
 		
 
 		<br/>
-		<input type = 'button' value = '저장' id = 'btnInsertOL'/>
+		<div id = 'btn_zone'>
+			<input type = 'button' value = '작성' id = 'btnInsertOL'/>
+		</div>
 	</form>
 	
 	<script src = '/Web_Semi/KJY/board/board.js'></script>
