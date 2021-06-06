@@ -101,7 +101,6 @@ public class memberDao {
 		int r=0;
 	try { 
 		  r = sqlSession.update("member.update",vo);
-		  System.out.println("업데이트 r "+r);
 		  if(r>0) {
 				sqlSession.commit();
 				vo2 = sqlSession.selectOne("member.select",vo);
@@ -115,5 +114,34 @@ public class memberDao {
 		sqlSession.close();
 		return vo2;
 	}
+	
+	public void update_pwd(MemberVo vo) {
+		
+		try {
+			sqlSession.update("member.update_pwd",vo);
+			sqlSession.commit();
+		}
+		catch(Exception ex) {
+			ex.printStackTrace();
+			sqlSession.rollback();	
+		}
+		sqlSession.close();
+		
+	}
+	
+	public void delete(MemberVo vo) {
+		
+		try {
+			sqlSession.delete("member.delete",vo);
+			sqlSession.commit();
+		}
+		catch(Exception ex) {
+			ex.printStackTrace();
+			sqlSession.rollback();	
+		}
+		sqlSession.close();
+		
+	}
+	
 	
 }

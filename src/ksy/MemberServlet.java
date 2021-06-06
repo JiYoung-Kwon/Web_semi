@@ -31,7 +31,7 @@ public class MemberServlet extends HttpServlet {
 		req.setCharacterEncoding("utf-8");
 		resp.setContentType("text/html;charset=utf-8");
 
-		String url = "./KSY/"; // url 작성
+		String url = "./ksy/"; // url 작성
 		MemberVo vo = null; // Vo 객체 생성
 		dao = new memberDao(); // Dao 생성
 		HttpSession session = req.getSession(); // session 생성
@@ -70,20 +70,12 @@ public class MemberServlet extends HttpServlet {
 			break;
 
 		case "login_chk":
-			String chk_id = req.getParameter("mid"); // 처음 로그인시 check하기 위해 받는값
-			String chk_pwd = req.getParameter("pwd");
-
-			vo = new MemberVo();
-
-			vo.setMid(chk_id);
-			vo.setPwd(chk_pwd);
-
-			r = dao.login(vo);
-			if (r > 0) {
-				session.setAttribute("login_id", chk_id); // check 후 일치하면 session에 저장
-				session.setAttribute("login_pwd", chk_pwd);
+		
+			if(session.getAttribute("login_id") == null) {  // 세션에 아이디값 없을경우
+				url += "./login/login.jsp";   // 로그인 페이지로
+			}else {
+				url = "./main.jsp";    // 메인으로
 			}
-			url = "./main.jsp";
 			break;
 
 		case "login":
@@ -144,10 +136,41 @@ public class MemberServlet extends HttpServlet {
 			break;
 			
 		case "pwd_update":
-			url += "member/register.jsp";
+			url += "login/myPage.jsp";
+			
+			id = (String) session.getAttribute("login_id");
+			vo = new MemberVo();
+			vo.setPwd(req.getParameter("re_pwd"));
+			vo.setMid(id);
+			
+			dao.update_pwd(vo);
+			
+			session.removeAttribute("login_pwd");
+			session.setAttribute("login_pwd", req.getParameter("re_pwd"));
+
+			dao = new memberDao();
+			vo = dao.select(vo);
+			req.setAttribute("vo", vo);
+			
+		break;
+		
+		case "delete":
+			url = "./main.jsp";
+			id = (String) session.getAttribute("login_id");
+			pwd = (String) session.getAttribute("login_pwd");
+			
+			vo = new MemberVo();
+			
+			vo.setMid(id);
+			vo.setPwd(pwd);
+			
+			dao.delete(vo);			
+			
+			session.removeAttribute("login_id");
+			session.removeAttribute("login_pwd"); // 로그아웃 버튼 클릭시 session에 저장된 id, pwd 값을 삭제한다.
 		break;
 		}
-
+		System.out.println(url);
 		rd = req.getRequestDispatcher(url);
 		rd.include(req, resp);
 

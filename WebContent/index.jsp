@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>semi</title>
 <script src = '/Web_Semi/lib/jquery-3.6.0.min.js'></script>
-<script src="js/script.js" defer="defer"></script>
+<script src="js/script.js"></script>
     <style>
         * {padding: 0; margin: 0; box-sizing: border-box;}
         #page {width: 100%; height: 2551px; background-color: #332F2D;}
@@ -65,7 +65,7 @@
        <div id="header_footer">
             <header>
                 <div id="logo">
-                    <img alt="로고" src="https://redbutton.co.kr/wp-content/uploads/2021/03/GNB_logo.png" id="logo_img">
+                    <img alt="로고" src="https://redbutton.co.kr/wp-content/uploads/2021/03/GNB_logo.png" id="logo_img" onclick="logo()">
                 </div>
                 <div id="top">
                     <ul class="main-menu">
@@ -121,7 +121,7 @@
                     <a href="https://www.facebook.com/"><img src="img/png2.png" alt="" class="i_img"></a>
                     <a href="https://www.instagram.com/"><img src="img/png3.png" alt="" class="i_img"></a>
                     <a href="https://twitter.com/"><img src="img/png4.png" alt="" class="i_img" id="img_i"></a>
-                    <img src="img/png5.png" alt="" class="i_img" id="ii_img">
+                    <img src="img/png5.png" alt="" class="i_img" id="ii_img" onclick="login()">
                 </div>
             </header>
             <div class="clear"></div>

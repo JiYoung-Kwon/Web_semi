@@ -27,4 +27,12 @@
 		select count(mid) cnt from member where mid = #{mid }
 	</select>
 	
+	<update id="update_pwd" parameterType="ksy.MemberVo">
+		update member set pwd = #{pwd } WHERE mid = #{mid }
+	</update>
+	
+	<delete id="delete" parameterType="ksy.MemberVo">
+		DELETE FROM member WHERE mid=#{mid } AND pwd=#{pwd }
+	</delete>
+	
 </mapper>

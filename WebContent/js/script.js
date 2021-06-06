@@ -18,16 +18,11 @@ $( '#up' ).click( function() {
 
 
 // 로그인 아이콘 클릭시 로그인 페이지로 이동
-var loginpage = document.getElementById('ii_img');
-
-loginpage.onclick = function(){
+function login(){
 	$('#middle_main').load('./member.do?job=login');
 }
 
-
 // 메인 로고 아이콘 클릭시 메인 페이지로 이동
-var mainpage = document.getElementById('logo_img');
-
-mainpage.onclick = function(){
+function logo(){
 	$('#middle_main').load('./main.jsp');
 }

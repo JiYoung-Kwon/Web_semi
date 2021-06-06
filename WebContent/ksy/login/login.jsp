@@ -17,7 +17,7 @@
         .class_input {letter-spacing: 2px; border-radius: 15px; padding: 10px; width: 240px; height: 40px; margin-top: 10px; font-weight: 500; font-size: 15px; outline: none;}
         .class_input> placeholder {margin-left: 20px; }
         #input_btn {width: 240px; margin: 0 auto; margin-top: 16px;}
-        #btn_login {width: 240px; border-radius: 15px; position: relative; top: 25px; height: 35px; font-size: 15px; font-weight: 600;}
+        #btn_login {width: 240px; border-radius: 15px; position: relative; top: 25px; height: 35px; font-size: 15px; font-weight: 600; cursor: pointer;}
         
     </style>
 </head>
@@ -25,7 +25,7 @@
     <div id="header1">
     	
       <div id="header11">
-            <h3 id="h3_Lo">LOGIN <img alt="회원가입" src="./KSY/img/register.png" id="btn_member"> </h3>
+            <h3 id="h3_Lo">LOGIN <img alt="회원가입" src="./ksy/img/register.png" id="btn_member"> </h3>
             
             <form action="" method="post" id="login_frm">
                 <label><input type="text" name="mid" class="class_input" placeholder="아이디"></label><br>
@@ -36,6 +36,6 @@
             </div>
         </div>
     </div>
-<script type="text/javascript" src="./KSY/member/member.js"></script>
+<script type="text/javascript" src="./ksy/member/member.js"></script>
 </body>
 </html>

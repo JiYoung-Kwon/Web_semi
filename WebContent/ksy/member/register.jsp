@@ -32,7 +32,7 @@
         input[name=address], input[name=address2]{width:260px; }
         #chk_mid{ width: 118px; height: 30px; display: inline-block; position: absolute; right: 15px; top: 89px; font-family: serif; font-size: 12px; color: #ff0000; text-shadow: 1px 0px 4px #000000;}
         #chk_pwd{ width: 118px; height: 30px; display: inline-block; position: absolute; right: 15px; top: 166px; font-family: serif; font-size: 12px; color: #ff0000; text-shadow: 1px 0px 4px #000000;}
-        #chk_phone{ width: 130px; height: 30px; display: inline-block; position: absolute; right: 15px; top: 247px; font-family: serif; font-size: 12px; color: #ff0000; text-shadow: 1px 0px 4px #000000;}
+        #chk_phone{ width: 130px; height: 30px; display: inline-block; position: absolute; right: 7px; top: 247px; font-family: serif; font-size: 12px; color: #ff0000; text-shadow: 1px 0px 4px #000000;}
 </style>
 </head>
 <body>
@@ -46,10 +46,10 @@
 			<div id="chk_mid" value='${chk.mid }'></div>
 			<div id="chk_pwd"></div>
 			<div id="chk_phone"></div>
-            <label><span>비밀번호</span> <input type="password" class="input_class" name="pwd" id="pwd"></label><br>
-            <label><span>비밀번호 확인</span> <input type="password" class="input_class" name="chk_pwd" id="register_pwd"></label><br>
+            <label><span>비밀번호</span> <input type="password" class="input_class" name="pwd" id="pwd" onkeyup="password()"></label><br>
+            <label><span>비밀번호 확인</span> <input type="password" class="input_class" name="chk_pwd" id="register_pwd" onkeyup="password()"></label><br>
             <label><span>이름</span> <input type="text" class="input_class" name="irum" value='${vo.irum }' id="irum"></label><br>
-            <label><span>전화번호</span> <input type="text" class="input_class" name="phone" value='${vo.phone }' id="register_phone"></label><br>
+            <label><span>전화번호</span> <input type="text" class="input_class" name="phone" value='${vo.phone }' id="phone" ></label><br>
             <label><span>주소</span> <input type="text" class="input_class" name="post" id="post" value='${vo.post }' readonly></label><input type="button" value="우편번호" id="btn_Zip" onclick="funcZip()"><br>
             <label><span> </span> <input type="text" class="input_class" name="address" id="address" value='${vo.address }' readonly></label><br>
             <label><span>상세주소</span> <input type="text" class="input_class" name="address2" value='${vo.address2 }' id="address2"></label><br>
@@ -70,6 +70,6 @@
         <input type="button" value="취소" id="btn_cancle">
         </div>
      </div>
-<script type="text/javascript" src="./KSY/member/member.js"></script>
+<script type="text/javascript" src="./ksy/member/member.js"></script>
 </body>
 </html>
