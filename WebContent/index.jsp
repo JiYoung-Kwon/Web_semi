@@ -65,7 +65,7 @@
        <div id="header_footer">
             <header>
                 <div id="logo">
-                    <img alt="로고" src="https://redbutton.co.kr/wp-content/uploads/2021/03/GNB_logo.png" id="logo_img">
+                    <img alt="로고" src="https://redbutton.co.kr/wp-content/uploads/2021/03/GNB_logo.png" id="logo_img" onclick="logo()">
                 </div>
                 <div id="top">
                     <ul class="main-menu">

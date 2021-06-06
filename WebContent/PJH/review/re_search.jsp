@@ -12,12 +12,19 @@
 <title>ReView_Page</title>
 </head>
 <body>
+<%
+	String login_id = (String)session.getAttribute("login_id");
+	String login_pwd = (String)session.getAttribute("login_pwd");
+%>
 <div id='review'>
 	<h2>리뷰 서치 페이지입니다</h2>
 	
 	<form name='frm_review' id='frm_review' method='post' action=''>
-		<input type='button' id='btnInsert' value='작성'/>
-
+		
+		<c:if test='${not empty sessionScope.login_id}'>
+			<input type='button' id='btnInsert' value='작성'/>
+		</c:if>
+		
 		<div class='find_zone'>
 			<input type='search' name='findStr' value='${param.findStr }'/>
 			<input type='button' value='검색' id='btnFind'/>
@@ -28,8 +35,6 @@
 		<input type='hidden' name='serial' value='${param.serial }'/>
 		
 	</form>
-	
-	<hr/>
 	
 	<div class='title'>
 		<span class='no'>순번</span>

@@ -18,7 +18,7 @@
 	<form name='frm_review' id='frm_review' method='post' action=''>
 		
 		<label>작성자</label>
-			<input type='text' name='mid'  style='background-color:#332f2d; border: 2px solid #aaa;' value='${vo.mid }' readonly />
+			<input type='text' name='mid' value='${sessionScope.login_id }' style='background-color:#332f2d; border: 2px solid #aaa;' value='${vo.mid }' readonly />
 		<br/>
 		
 		<label>제목</label>
@@ -62,8 +62,8 @@
 			
 	<div id='revPasswordZone'>
 		<div id='textZone'>
-			<label>수정하시려면 암호를 입력해 주세요</label><br/>
-			<input type='password' id='pwd' name='pwd'  style='background-color:#332f2d; border: 2px solid #aaa;' />
+			<label>정말 수정하시겠습니까?</label><br/>
+			<input type='hidden' id='pwd' name='pwd' value='${sessionScope.login_pwd }' style='background-color:#332f2d; border: 2px solid #aaa;' />
 			<input type='button' value='확인' id='btnUpdate' />
 			<input type='button' value='취소' id='btnCancel' />
 		</div>

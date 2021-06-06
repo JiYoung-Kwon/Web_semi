@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @SuppressWarnings("serial")
 @WebServlet(urlPatterns = "/review.do")
@@ -31,7 +32,7 @@ public class ReviewServlet extends HttpServlet {
 		String url = "./PJH/review/";
 		
 		dao = new ReViewDao();
-		
+
 		int serial = 0;
 		Page page = new Page();
 		String tempNowPage = req.getParameter("nowPage");

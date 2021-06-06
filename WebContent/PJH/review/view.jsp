@@ -18,11 +18,11 @@
 	<form name='frm_review' id='frm_review' method='post' action=''>
 		
 		<label>작성자</label>
-			<input type='text' name='mid'  style='background-color:#332f2d; border: 2px solid #aaa;' value='${vo.mid }' />
+			<input type='text' name='mid' readonly style='background-color:#332f2d; border: 2px solid #aaa;' value='${vo.mid }' />
 		<br/>
 		
 		<label>제목</label>
-			<input type='text' name='subject'  style='background-color:#332f2d; border: 2px solid #aaa;' value='${vo.subject }' />
+			<input type='text' name='subject' readonly style='background-color:#332f2d; border: 2px solid #aaa;' value='${vo.subject }' />
 			
 		<label>지점</label>
 			<select name='gubun' id='gubun'>
@@ -32,7 +32,7 @@
 			</select>
 		<br/>
 		
-		<textarea name='doc'>${vo.doc }</textarea>
+		<textarea name='doc' readonly>${vo.doc }</textarea>
 		<br/>
 		
 		<div id='image_preview'>
@@ -44,9 +44,11 @@
 		</div>
 		
 		<div id='btn_zone'>
-			<input type='button' value='수정' id='btnModify'/>
-			<input type='button' value='삭제' id='btnDelete'/>
-			<input type='button' value='취소' id='btnSearch'/>
+			<c:if test='${sessionScope.login_id eq vo.mid}'>
+				<input type='button' value='수정' id='btnModify'/>
+				<input type='button' value='삭제' id='btnDelete'/>
+			</c:if>
+			<input type='button' value='뒤로가기' id='btnSearch'/>
 		</div>
 		
 		<!-- 데이터 확인용 -->
@@ -59,8 +61,8 @@
 	
 	<div id='revPasswordZone'>
 		<div id='textZone'>
-			<label>삭제하시려면 암호를 입력해 주세요</label><br/>
-			<input type='password' id='pwd' style='background-color:#332f2d; border: 2px solid #aaa;' />
+			<label>정말 삭제 하시겠습니까?</label><br/>
+			<input type='hidden' id='pwd' value='${sessionScope.login_pwd }' style='background-color:#332f2d; border: 2px solid #aaa;' />
 			<input type='button' value='확인' id='btnDeleteR' />
 			<input type='button' value='취소' id='btnCancel' />
 		</div>
