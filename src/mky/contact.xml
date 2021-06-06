@@ -21,13 +21,17 @@
 	   
 		  	 SELECT * from(
 		   		SELECT rownum rno, m.* from(	
-						select * from CONTACT WHERE store like '%${store }%'
-							<if test="choice == '제목'">
-							and subject LIKE '%${findStr }%'
-							</if>
-							<if test="choice == '이름'">
-							and irum LIKE '%${findStr }%'
-							</if>
+						select serial, pserial, subject, mid, hit, irum, phone, email, doc, 
+							choice, store, to_char(mdate, 'rrrr-mm-dd') mdate,
+							(SELECT count(serial) from contactAtt where c.serial = pserial) attCnt
+						from CONTACT c 
+						WHERE store like '%${store }%'
+						<if test="choice != '이름'">
+						and subject LIKE '%${findStr }%'
+						</if>
+						<if test="choice != '제목'">
+						and irum LIKE '%${findStr }%'
+						</if>
 						) m
 		  	) WHERE rno BETWEEN #{startNo} AND #{endNo}
 	  		
@@ -35,18 +39,55 @@
 	   
 	   <!-- 입력 -->
 	   <select id="contact_getSerial" resultType="Integer">
-	   	select seq_contact.nextval from dual
+	   		select seq_contact.nextval from dual
 	   </select>
 	   
 	   <insert id="contact_insert" parameterType="mky.ContactVo">
-	   	insert into contact(serial, irum, phone, email, subject, doc, mid, mdate, hit, store)
-	   	values(#{serial}, #{irum}, #{phone}, #{email}, #{subject}, #{doc}, #{mid}, sysdate, 0, #{store})
+		   	insert into contact(serial, irum, phone, email, subject, doc, mid, mdate, hit, store)
+		   	values(#{serial}, #{irum}, #{phone}, #{email}, #{subject}, #{doc}, #{mid}, sysdate, 0, #{store})
 	   </insert>
 	   
 	   <insert id="contactAtt_insert" parameterType="mky.ContactAttVo">
-	   	insert into contactAtt(serial, pserial, oriAtt, sysAtt)
-			values(seq_contactAtt.nextval, #{pSerial}, #{oriAtt}, #{sysAtt})
+		   	insert into contactAtt(serial, pserial, oriAtt, sysAtt)
+				values(seq_contactAtt.nextval, #{pSerial}, #{oriAtt}, #{sysAtt})
 	   </insert>
+	   		
+	   <!-- 조회수 증가 -->
+	   <update id="contact_hitUp" parameterType="Integer">
+	   		update contact set hit=hit+1 where serial = #{_parameter}
+	   </update>
+	   
+	   <!-- 상세보기 -->
+	   <select id="contact_view" parameterType="Integer" resultType="mky.ContactVo">
+	   		select * from contact where serial = #{_parameter}
+	   </select>
+	   
+	   <select id="contactAtt_view" parameterType="Integer" resultType="mky.ContactAttVo">
+	   		select * from contactAtt where pserial = #{_parameter}
+	   </select>
+	   
+	   <!-- 수정 -->
+	   <update id="contact_update" parameterType="mky.ContactVo">
+	   		UPDATE contact set phone=#{phone}, email=#{email}, subject=#{subject}, doc=#{doc}
+	   		where serial=#{serial} and irum=#{irum}
+	   </update>
+	   
+	   <delete id="contact_delete2" parameterType="String">
+	   		DELETE FROM contactAtt where sysAtt=#{_parameter}
+	   </delete>
+	   
+	   <!-- 삭제 -->
+	   <select id="contact_att_list" parameterType="Integer" resultType="mky.ContactAttVo">
+			SELECT sysAtt from contactAtt where pserial=#{_parameter}	   	
+	   </select>
+	   
+	   <delete id="contact_delete" parameterType="mky.ContactVo">
+	   		DELETE FROM contact where serial=#{serial} AND mid=#{mid} and pwd=#{pwd}
+	   </delete>
+	   
+	   <delete id="contactAtt_delete" parameterType="Integer">
+	   		DELETE FROM contactAtt WHERE pserial = #{_parameter}
+	   </delete>
 	   
 </mapper>
 

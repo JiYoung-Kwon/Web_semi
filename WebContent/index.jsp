@@ -1,269 +1,153 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<style>
-*{box-sizing: border-box;
-	padding: 0;
-	margin: 0;
-	}
-#top{border: 1px solid black;
-	 height: 140px;
-	 background: #272422;
-	 min-width: 754px;
-	 }
-#top>#wrapper_top, #top>#wrapper_bottom{
-	width:100%;
-	height: 15%;
-	border: 1px solid black;
-}
-#top>#wrapper_middle{
-	display : inline-flex;
-	width:100%;
-	height: 70%;
-	border: 1px solid black;
-}
-#top>#wrapper_middle>#wm_left, #wm_right{
-	flex:1;
-	height: 100%;
-	border: 1px solid black;
-}
-#top>#wrapper_middle>#wm_left>#logo{
-		border: 1px solid black;
-		width:90px;
-		height: 100%;
-		float: right;
-}
-#top>#wrapper_middle>#wm_left>#logo>#logo_img{
-		width:100%;
-		height: 100%;
-}
-#top>#wrapper_middle>#wm_mid{
-	flex:4;
-	height: 100%;
-	border: 1px solid black;
-}
-#top>#wrapper_middle>#wm_mid>div{
-	height: 39%;
-}
-#top>#wrapper_middle>#wm_mid>#top_nav{
-	width: 100%;
-	display:flex;
-}
-#top>#wrapper_middle>#wm_mid>#top_nav>span{
-	flex:1;
-	color: #ffffff;
-	text-align: center;
-	font-family: "ZingScriptRustSB", Sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-}
-#top>#wrapper_middle>#wm_mid>#top_nav>span:hover{
-	color: #c1c1c1;
-	cursor: pointer;
-}
+<title>semi</title>
+<script src = '/Web_Semi/lib/jquery-3.6.0.min.js'></script>
+<script src="js/script.js" defer="defer"></script>
+    <style>
+        * {padding: 0; margin: 0; box-sizing: border-box;}
+        #page {width: 100%; height: 2551px; background-color: #332F2D;}
+        header {width: 1194px; height: 100px; margin: 0 auto; position: relative; left: 50px;}
+        #header_footer {width: 100%; height: 100px; margin: 0 auto;}
+        #logo {float: left; margin: 10px 0 0 10px;}
+        #logo_img {width: 80px;}
+        #logo_img:hover {cursor: pointer;}
+        #main_menu {width: 600px;margin: 0 auto;}
+        #page>#header>#top > .main_menu {flex:1; color: #ffffff; text-align: center; font-size: 20px; font-weight: 600; margin-top: 30px;}
+        a {color: inherit; text-decoration: none;}
+        #top {float: left; margin: 20px 10px 0 30px; display: flex;}
+        .main-menu {width: 760px; height: 40px; margin-top: 10px; background-color: #332F2D; line-height: 40px; color: white; }
+        .main-menu li {float: left; width: 150px; text-align: center; list-style-type: none;}
+        .main-menu li:hover {background-color: white; color: #332F2D; cursor: pointer;}
+        .sub {display: none; position: relative; background-color: #332F2D; color: white; width: 150px; height: 200px; z-index: 1} 
+        .sub > li:hover {background-color: burlywood;}
+        #i_img {width: 20%; float: left;}
+        .i_img {width: 30px; margin: 25px 12px 0 0; cursor: pointer;}
+        .clear {clear: both;}
+        #section_img {width: 100%; height: 410px;}
+        .h2 {font-family: "Consolas"; color: cornflowerblue; margin: 20px 0 20px 0;}
+        .h2 {text-align: center;}
+        #id_h2 {margin-top: 80px; position: relative; top: 40px; margin-bottom: 70px;}
+        #f_img {margin-top: 30px;}
+        p {color: darkseagreen;}
+        #p {text-align: center; color: darkseagreen;}
+        #img_p {width: 440px; margin-top: 30px; position: relative; left: 60px; border-radius: 10px;}
+        .btn1 {background-color: cornflowerblue; color: white; border: 1px solid skyblue; padding: 8px; margin-top: 20px; border-radius: 10px; cursor:  pointer;}
+        #section_p {float: right; margin-right: 50px; margin-top: 60px;}
+        #section_a {position: relative; left: 80px;}
+        #img_pa {float: right; width: 460px; position: relative; right: 160px; top: 80px; border-radius: 10px;}
+        #section_bsection_b {width: 480px; float: left;}
+        #section_c_img {float: left; margin-top: 140px;}
+        #section_z {float: right; position: relative; right: 80px; top: 200px;}
+        #section_d {width: 1194px; height: 700px; text-align: center;}
+        #section_d_img1 {width: 460px; position: relative; right: 60px; top: 80px; border-radius: 10px;}
+        #section_d_img2 {width: 460px; position: relative; left: 60px; top: 80px; border-radius: 10px;}
+        #section_d_h2_p {position: relative; top: 90px;}
+        #section_h2 {font-size: 16px; float: left; position: relative; left: 90px;}
+        #section_d_p {position: relative; top: 20px; left: 120px; text-align: left;}
+        footer {width: 1194px; height: 100px; margin: 0 auto;}
+        #ftr_logo_img {width: 100px; float: left; position: relative; left: 40px;}
+        #ftr_moon {float: left; position: relative; left: 90px; color: white;}
+        #footer_mun {float: left; position: relative; left: 175px; color: white;}
+        #index_hr {margin: 120px 0 30px 0; width: 100%; position: relative; color: gray;}
+        #up {right: 220px; width: 50px; bottom: 140px; position: flex; cursor: pointer; position: fixed; float: right; z-index: 1233; display: none;}
+        #section_img_p {width: 1194px; height: 410px; margin: 0 auto;}
+        #ii_img {width: 20px; position: relative; bottom: 5px;}
+        #img_i {width: 40px; position: relative; top: 5px;}
 
-
-
-#top>#wrapper_middle>#wm_mid>#top_nav:hover>#sub_menu{
-	display: block;
-}
-#top>#wrapper_middle>#wm_mid>#top_nav>#sub_menu{
-	min-width: 754px;
-	display:none;
-	position:absolute; 
-	height: 200px;
-	width:100%;
-	left: 0;
-	top:86px;
-}
-#top>#wrapper_middle>#wm_mid>#top_nav>#sub_menu>#sub_top{
-	height: 53px;
-}
-#top>#wrapper_middle>#wm_mid>#top_nav>#sub_menu>#sub_bottom{
-	display: flex;
-	border: 1px solid black;
-	height: 174px;
-	background-color: #332F2D;
-}	
-#top>#wrapper_middle>#wm_mid>#top_nav>#sub_menu>#sub_bottom>div{
-	flex:1;
-	border: 1px solid black;
-}
-#top>#wrapper_middle>#wm_mid>#top_nav>#sub_menu>#sub_bottom>#sub_menu_nav{
-	flex:4;
-	border: 1px solid black;
-	display: inline-flex;
-}
-#top>#wrapper_middle>#wm_mid>#top_nav>#sub_menu>#sub_bottom>#sub_menu_nav>div{
-	flex:1;
-	color:#ffffff;
-	text-align: center;
-}
-#top>#wrapper_middle>#wm_mid>#top_nav>#sub_menu>#sub_bottom>#sub_menu_nav>div>div{
-	margin:10px;
-}
-
-
-
-#middle{min-width: 754px;
-}
-#middle>#main_middle>#main_image{
-			border: 1px solid black;
-			height: 550px;
-			width:100%;			background-image: url(./img/main.jpg);
-		    background-repeat: round;
-		    background-size: cover;}
-#middle>#main_middle>#main_image>#main_img>#middle1{
-	width:100%;
-	height: 100%
-}
-
-
-
-
-
-#main_testA{border: 1px solid black;
-			height: 200px;
-			display: flex;
-			}
-#main_testA>div{
-	flex:1;
-	text-align: center;
-	font-size: -webkit-xxx-large;
-	border: 1px solid black;
-}			
-#main_testB{border: 1px solid black;
-			height: 800px;}
-#main_testB>div{
-	text-align: center;
-	font-size: -webkit-xxx-large;
-	border: 1px solid black;
-	height: 400px;
-}			
-#footer{min-width: 754px;
-		border: 1px solid black;
-	 	height: 150px;}
-#footer>#footer_top, #footer_bottom{
-	width: 100%;
-	height: 15%;
-	border: 1px solid black;
-}	 	
-#footer>#footer_middle{
-	width: 100%;
-	height: 70%;
-	border: 1px solid black;
-}
-#footer>#footer_middle>div{
-	text-align: center;
-}
-
-#middle_wrapper{
-	width:100%;
-	height: 100%;
-    border: 1px solid black;
-    display: inline-flex;
-}
-#middle_wrapper>div{
-	flex:1;
-	border: 1px solid black;
-}
-#middle_wrapper>#middle_main{
-	flex:4;
-	height:100%;
-	border: 1px solid black;
-}
-
-
-
-
-</style>
+    </style>
 </head>
 <body>
-<div id="top">
-	<div id="wrapper_top"></div>
-	<div id="wrapper_middle">
-		<div id="wm_left">
-			<div id="logo"><img alt="로고" src="https://redbutton.co.kr/wp-content/uploads/2021/03/GNB_logo.png" id="logo_img"></div>
-		</div>
-		<div id="wm_mid">
-			<div></div>
-			<nav id='top_nav'>
-				<span>매장소개</span>
-				<span>보드게임</span>
-				<span>메뉴</span>
-				<span>예약</span>
-				<span>커뮤니티</span>
-				<div id="sub_menu">
-					<div id="sub_top"></div>
-					<div id="sub_bottom">
-						<div></div>
-						<div id="sub_menu_nav">
-							<div>
-								<div>오시는 길</div>
-								<div>서브메뉴 2</div>
-								<div>서브메뉴 3</div>
-								<div>서브메뉴 4</div>
-							</div>
-							<div>
-								<div>서브메뉴 1</div>
-								<div>서브메뉴 2</div>
-								<div>서브메뉴 3</div>
-								<div>서브메뉴 4</div>
-							</div>
-							<div>
-								<div>서브메뉴 1</div>
-								<div>서브메뉴 2</div>
-								<div>서브메뉴 3</div>
-								<div>서브메뉴 4</div>
-								<div>서브메뉴 5</div>
-							</div>
-							<div>
-								<div>서브메뉴 1</div>
-								<div>서브메뉴 2</div>
-								<div>서브메뉴 3</div>
-							</div>
-							<div>
-								<div>공지사항</div>
-								<div>이용 후기</div>
-								<div>고객 의견</div>
-								<div id='btn_contact'>자유게시판</div>
-							</div>
-						</div>
-						<div></div>
-					</div>
-				</div>
-			</nav>
-			<div></div>
-		</div>
-		<div id="wm_right"></div>
-	</div>
-	<div id="wrapper_bottom"></div>
-</div>
-
-<div id="middle">
-	<div id="middle_wrapper">
-		<div ></div>
-		<div id="middle_main">
-			<!-- 여기에 경로를 넣으세요~ -->
-			<%-- <jsp:include page="./KJY/board/search.jsp"/> --%>
-			<jsp:include page="./MKY/contact/contact_search.jsp"/>
-		</div>
-		<div ></div>
-	</div>
-</div>
-<div id="footer">
-	<div id="footer_top"></div>
-	<div id="footer_middle">
-		<div>문의전화 1644-0000</div>
-		<div>주소 : 서울특별시 중구 다동88 동아빌딩15층 보드게임카페 | 사업자번호 : 333-22-55555</div>
-		<div>대표자 : 김대표 | e-mail : kimboard@naver.com</div>
-	</div>
-	<div id="footer_bottom"></div>
-</div>
+    <div id="page">
+       <div id="header_footer">
+            <header>
+                <div id="logo">
+                    <img alt="로고" src="https://redbutton.co.kr/wp-content/uploads/2021/03/GNB_logo.png" id="logo_img">
+                </div>
+                <div id="top">
+                    <ul class="main-menu">
+                        <li>
+                            <a href="#">매장소개</a>
+                            <ul class="sub">
+                                <li><a href="#">오시는 길</a></li>
+                                <li><a href="#">서브메뉴 2</a></li>
+                                <li><a href="#">서브메뉴 3</a></li>
+                                <li><a href="#">서브메뉴 4</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">보드게임</a>
+                            <ul class="sub">
+                                <li><a href="#">서브메뉴 1</a></li>
+                                <li><a href="#">서브메뉴 2</a></li>
+                                <li><a href="#">서브메뉴 3</a></li>
+                                <li><a href="#">서브메뉴 4</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">메뉴</a>
+                            <ul class="sub">
+                                <li><a href="#">서브메뉴 1</a></li>
+                                <li><a href="#">서브메뉴 2</a></li>
+                                <li><a href="#">서브메뉴 3</a></li>
+                                <li><a href="#">서브메뉴 4</a></li>
+                                <li><a href="#">서브메뉴 5</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">예약</a>
+                            <ul class="sub">
+                                <li><a href="#">서브메뉴 1</a></li>
+                                <li><a href="#">서브메뉴 2</a></li>
+                                <li><a href="#">서브메뉴 3</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">커뮤니티</a>
+                            <ul class="sub">
+                                <li><a href="#">공지사항</a></li>
+                                <li><a href="#">이용 후기</a></li>
+                                <li><a href="#">고객 의견</a></li>
+                                <li><a id="btn_contact">자유게시판</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div id="i_img">
+                    <a href="https://www.youtube.com"><img src="img/png1.png" alt="" class="i_img"></a>
+                    <a href="https://www.facebook.com/"><img src="img/png2.png" alt="" class="i_img"></a>
+                    <a href="https://www.instagram.com/"><img src="img/png3.png" alt="" class="i_img"></a>
+                    <a href="https://twitter.com/"><img src="img/png4.png" alt="" class="i_img" id="img_i"></a>
+                    <img src="img/png5.png" alt="" class="i_img" id="ii_img">
+                </div>
+            </header>
+            <div class="clear"></div>
+            <section id="middle_main">
+            </section>
+        <div class="clear"></div>
+        <hr id="index_hr">
+        <footer>
+            <div id="footer_logo_img">
+                <img src="https://redbutton.co.kr/wp-content/uploads/2021/03/%ED%91%B8%ED%84%B0_%EB%A1%9C%EA%B3%A0.png" alt="" id="ftr_logo_img">
+            <div id="ftr_moon">
+                <div>문의전화 1644-0000</div>
+                <div>주소 : 서울특별시 중구 다동89 동아빌딩15층 보드게임카페 | 사업자번호 : 333-22-55555</div>
+                <div>대표자 : 김대표 | e-mail : kimboard@naver.com</div>
+            </div>
+            <div id="footer_mun">
+                <div>1644-0641</div>
+                <div>오전 9시~12시/오후 1시~6시</div>
+                <div>(주말, 공휴일 휴무)</div>
+            </div>
+            </div>
+        </footer>
+        </div>
+    </div>
+    
+<script>$('#middle_main').load('./main.jsp')</script>
 
 </body>
 </html>

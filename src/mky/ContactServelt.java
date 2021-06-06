@@ -66,6 +66,7 @@ public class ContactServelt extends HttpServlet{
 			
 			/* req.setAttribute("page", page); */
 			break;
+		
 		case "search" :
 			url += "contact_search.jsp";
 						
@@ -75,8 +76,34 @@ public class ContactServelt extends HttpServlet{
 			req.setAttribute("page", page);
 //			System.out.println(list.size());
 			break;
+			
+		case "view" :
+			url += "contact_view.jsp";
+			vo = dao.view(serial);
+			req.setAttribute("vo", vo);
+			break;
+			
+		case "modify" :
+			url += "contact_modify.jsp";
+			vo = dao.view(serial);
+			req.setAttribute("vo", vo);
+			break;
+			
+		case "delete" :
+			url += "contact_search.jsp";
+			vo = new ContactVo();
+			vo.setSerial(serial);
+			vo.setMid(req.getParameter("mid"));
+			vo.setPwd(req.getParameter("pwd"));
+			dao.delete(vo);
+			
+			list = dao.select(page);
+			req.setAttribute("list", list);
+			break;
+			
 	}
-
+	
+	req.setAttribute("page", page);
 	rd = req.getRequestDispatcher(url);
 	rd.include(req, resp); //jsp:include를 대신해서
 	

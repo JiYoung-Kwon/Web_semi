@@ -1,15 +1,28 @@
 @charset "UTF-8";
-#contact{
-	margin-top:15px;
-	padding:10px;
+#all_wrapper{
+	display: flex;
 }
+#contact{
+	flex: 3.5;
+	margin-top:15px;
+	padding: 10px;
+	background-color: #332f2d;
+	color: #fff;
+}
+#left{
+	flex: 1;
+}
+#right{
+	flex: 1;
+}
+
 #contact>h2{
 	color: #997a5e;
 	font-family: "Noto Sans KR", Sans-serif;
 	font-size: 28px;
 	font-weight: bold;
 	line-height: 38px;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 }
 
 #contact .column_name{
@@ -39,7 +52,7 @@
 
 #contact hr{
 border-top:none;
-border-bottom: 1px dotted black
+border-bottom: 1px dotted #ffffff;
 }
 
 #contact .column_name .no, #contact .item .no{
@@ -55,10 +68,10 @@ border-bottom: 1px dotted black
 	flex: 1;
 }
 #contact .column_name .mdate, #contact .item .mdate{
-	flex: 2;
+	flex: 1;
 }
 #contact .column_name .hit, #contact .item .hit{
-	flex: 1;
+	flex: 0.7;
 }
 
 #contact .find_zone{
@@ -67,11 +80,11 @@ border-bottom: 1px dotted black
 }
 
 #contact .find_zone #btnInsert{
-	margin-top: 20px;
+	margin-top: 10px;
 	padding: 10px 43px;
-   background-color: #fff;
-   border: 1px solid #000;
-   font-size: 12px;
+    background-color: #fff;
+    border: 1px solid #000;
+    font-size: 12px;
 }
 #contact .find_zone #btnInsert, #btnFind:hover{
 	cursor: pointer;
@@ -93,15 +106,22 @@ border-bottom: 1px dotted black
 	margin-top: 20px;
 	padding: 25px;
 	border: 0px;
-	background-color: #ffffff;
-	color: #000 !important;
-   font-size: inherit;
+	background-color: #332f2d;
+	color: #ffffff !important;
+   font-size: large;
 }
 
 #contact #btn_zone input[type=button]:hover{
 	cursor: pointer;
+	text-decoration: underline;
+	text-decoration-color: red;
 }
 
+#contact .item:hover{
+	cursor: pointer;
+	background-color: #dadada;
+	color: #000;
+}
 
 
 

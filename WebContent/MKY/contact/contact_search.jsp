@@ -9,11 +9,13 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
 <link rel='stylesheet' type='text/css' href='/Web_Semi/MKY/css/contact_search.css'>
 <script src='./lib/jquery-3.6.0.min.js'></script>
+<script type="text/javascript" src="/Web_Semi/MKY/js/contact.js"></script>
 <title>문의사항</title>
 </head>
 <body>
+<div id='all_wrapper'>
+<div id='left'></div>
 <div id='contact'>
-
 	<h2>문의사항</h2>
 		<div class='column_name'>
 			<span class='no'>번호</span>
@@ -81,7 +83,8 @@
 			</c:if>
 		</div>
 </div>
-<script type="text/javascript" src="/Web_Semi/MKY/js/contact.js"></script>
+<div id='right'></div>
+</div>
 <script type="text/javascript">contact.init()</script>
 </body>
 </html>

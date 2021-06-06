@@ -13,11 +13,13 @@ public class ContactVo {
 	String subject = "";
 	String irum = "";
 	String mdate = "";
-	String phone= "";
+	String phone = "";
 	String email = "";
 	String doc = "";
-	String choice= "";
-	String store= "";
+	String answer = "";
+	String pwd = "";
+	String choice = "";
+	String store = "";
 	
 	List<ContactAttVo> attList; // 첨부파일 목록
 	List<ContactAttVo> delList; // 삭제파일 목록
@@ -35,7 +37,6 @@ public class ContactVo {
 	public void setDelList(List<ContactAttVo> delList) {
 		this.delList = delList;
 	}
-	
 	public String getMid() {
 		return mid;
 	}
@@ -78,14 +79,12 @@ public class ContactVo {
 	public void setSubject(String subject) {
 		this.subject = subject;
 	}
-	
 	public String getIrum() {
 		return irum;
 	}
 	public void setIrum(String irum) {
 		this.irum = irum;
 	}
-	
 	public String getMdate() {
 		return mdate;
 	}
@@ -109,6 +108,18 @@ public class ContactVo {
 	}
 	public void setDoc(String doc) {
 		this.doc = doc;
+	}
+	public String getAnswer() {
+		return answer;
+	}
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
+	public String getPwd() {
+		return pwd;
+	}
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
 	}
 	public String getChoice() {
 		return choice;

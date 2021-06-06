@@ -1,7 +1,19 @@
 @charset "UTF-8";
+#all_wrapper{
+	display: flex;
+}
 #contact{
+	flex: 3.5;
 	margin-top:15px;
 	padding:10px;
+	background-color: #332f2d;
+	color: #fff;
+}
+#left{
+	flex: 1;
+}
+#right{
+	flex: 1;
 }
 
 #contact h1{
@@ -10,7 +22,7 @@
 	font-size: 28px;
 	font-weight: bold;
 	line-height: 38px;
-	letter-spacing: -1.4px;
+	margin-bottom: 20px;
 }
 #label{
 	display: inline-block;
@@ -21,7 +33,7 @@
    text-align: left;
 }
 .vertical{
-	border-bottom: 2px solid #5555558f !important;
+	border-bottom: 2px solid #ffffff !important;
 }
 
 #contact #insert .phone, .email{
@@ -72,7 +84,7 @@ textarea{
 }
 
 #contact #insert input{
-	height: 24px;
+	height: 30px;
 	color: rgb(136, 136, 136);
 	font-size: 12px;
 	padding: 4px 10px;
@@ -97,35 +109,70 @@ textarea{
 
 #contact hr{
 	border-top: none;
-	border-bottom: 1px dotted #aaa;
+	border-bottom: 1px dotted #ffffff;
 }
 
 #contact #btn_zone{
 	text-align: center;
-   margin: 40px 0;
+	margin: 40px 0;
 }
 
-#btnInsertR{
+#contact #btn_zone #btnUpdate{
 	font-size: 15px !important;
-   padding: 0;
-   line-height: 48px;
-   width: 200px;
-   background-color: #be9f7b;
-   border: 1px solid #000;
-   color: white;
-   border: none;
+	padding: 0;
+	line-height: 48px;
+	width: 200px;
+	background-color: #be9f7b;
+	border: 1px solid #000;
+	color: white;
+	border: none;
 }
-#btnSearch{
+#contact #btn_zone #btnCancel{
 	font-size: 15px !important;
-   padding: 0;
-   line-height: 48px;
-   width: 200px;
-   background-color: #fff;
-   border: 1px solid #000;
+	padding: 0;
+	line-height: 48px;
+	width: 200px;
+	background-color: #fff;
+	border: 1px solid #000;
 }
 
 #contact #btn_zone input[type=button]:hover{
 	cursor: pointer;
 }
 
+/* 이미지 미리보기 -------------------- */
+#image_preview{
+	position: relative;	
+	display: none;
+}
+#image_preview img {
+	width: 150px;
+	height: 180px;
+	padding: 8px;
+}
 
+#image_preview #attzone{
+	width: 100%;
+	min-height: 130px;
+	padding: 0;
+	background-color: rgba(240,240,240,0%);
+}
+#image_preview #attzone .item{
+	width: 130px;
+	height: 150px;
+	margin: 5px;
+	position: relative;
+	display: inline-block;
+}
+
+#attzone .del_btn{
+	position: absolute;
+	font-size: 20pt;
+	color: #be9f7b;
+	right: -7px;
+	bottom: -20px;
+	background-color: rgba(255,255,255,0%);
+	padding: 0;
+	border-width: 0;
+	cursor: pointer;
+}

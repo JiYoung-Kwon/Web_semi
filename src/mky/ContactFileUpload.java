@@ -54,21 +54,16 @@ public class ContactFileUpload extends HttpServlet{
 		List<ContactAttVo> attList = new ArrayList<ContactAttVo>();
 		List<ContactAttVo> delList = new ArrayList<ContactAttVo>();
 		boolean delFileFlag = true; // 삭제파일 처리 여부
-		System.out.println("확인");
-		System.out.println(req.getAttribute("mid"));
-		System.out.println(req.getAttribute("nowPage"));
-		System.out.println(req.getAttribute("findStr"));
-		System.out.println(req.getAttribute("serial"));
 
 		if (contentType != null &&  contentType.toLowerCase().startsWith("multipart/")) {
             // getParts()를 통해 Body에 넘어온 데이터들을 각각의  Part로 쪼개어 리턴
 		Collection<Part> parts = req.getParts();
-		System.out.println(parts.size());
 		for(Part p : parts) {
-			System.out.printf("파라미터 명 : %s, contentType :  %s,  size : %d bytes \n", p.getName(),
-					p.getContentType(), p.getSize());
+//			System.out.printf("파라미터 명 : %s, contentType :  %s,  size : %d bytes \n", p.getName(),
+//					p.getContentType(), p.getSize()); //test
 			if( p.getHeader("Content-Disposition").contains("filename=")) { // file tag
 				String fileName = p.getSubmittedFileName();
+//				System.out.println(fileName);
 				ContactAttVo attVo = new ContactAttVo();
 				
 				String date = sdf.format(new Date());
@@ -105,6 +100,12 @@ public class ContactFileUpload extends HttpServlet{
 					case "doc":
 						cVo.setDoc(value);
 						break;
+					case "phone":
+						cVo.setPhone(value);
+						break;
+					case "email":
+						cVo.setEmail(value);
+						break;
 					case "delFile":
 						if(delFileFlag) {
 							String[] delFiles = req.getParameterValues(tagName);
@@ -138,9 +139,9 @@ public class ContactFileUpload extends HttpServlet{
 			case "insert":
 				dao.insert(cVo);
 				break;
-//			case "update":
-//				dao.update(cVo);
-//				break;
+			case "update":
+				dao.update(cVo);
+				break;
 			}
 			
 			rd = req.getRequestDispatcher("./MKY/contact/contact_search.jsp");

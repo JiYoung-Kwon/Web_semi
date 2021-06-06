@@ -9,84 +9,82 @@
 <link rel='stylesheet' type='text/css'	href='/Web_Semi/MKY/css/contact_register.css'>
 <script src='./lib/jquery-3.6.0.min.js'></script>
 <script src='./js/contact.js'></script>
-<title>문의게시판</title>
+<title>문의사항 입력 게시판</title>
 </head>
 <body>
+<div id='all_wrapper'>
+<div id='left'></div>
 	<div id='contact'>
-		<h1>문의 게시판</h1>
+		<h1>Q&A</h1>
 		<form name='frm_contact' id='frm_contact' method='post' action=''>
 			<div id='insert'>
-						<hr class='vertical'>
-						<div id='label'>
-									<label>매장명</label>
-						</div>
-
-						<div id='input'>
-								<select name='store' id='store'>
-											<option >매장명을 선택해주세요</option>
-											<option value="강남">강남점</option>
-											<option value="홍대">홍대점</option>
-											<option value="부산">부산점</option>
-								</select>
-						</div>
-						<br />
-						<hr />
-
-						<div id='label'>
-								<label>이름</label>
-						</div>
-						<div id='input'>
-								<input type='text' name='irum' />
-						</div>
-						<br />
-						<hr />
-
-						<div id='label'>
-								<label>연락처</label>
-						</div>
-						<div id='input'>
-								<input type='text' class='phone' name='phone' />
-						</div>
-						<br />
-						<hr />
-
-						<div id='label'>
-								<label>이메일</label>
-						</div>
-						<div id='input'>
-								<input type='email' class='email' name='email' />
-						</div>
-						<br />
-						<hr />
-
-						<div id='label'>
-								<label>제목</label>
-						</div>
-						<div id='input'>
-								<input type='text' class='subject' name='subject' />
-						</div>
-						<br />
-						<hr />
+					<hr class='vertical'>
+					<div id='label'>
+								<label>매장명</label>
+					</div>
+	
+					<div id='input'>
+							<select name='store' id='store'>
+										<option >매장명을 선택해주세요</option>
+										<option value="강남점">강남점</option>
+										<option value="홍대점">홍대점</option>
+										<option value="부산점">부산점</option>
+							</select>
+					</div>
+					<br /><hr />
+	
+					<div id='label'>
+							<label>이름</label>
+					</div>
+					<div id='input'>
+							<input type='text' name='irum' />
+					</div>
+					<br /><hr />
+	
+					<div id='label'>
+							<label>연락처</label>
+					</div>
+					<div id='input'>
+							<input type='text' class='phone' name='phone' />
+					</div>
+					<br /><hr />
+	
+					<div id='label'>
+							<label>이메일</label>
+					</div>
+					<div id='input'>
+							<input type='email' class='email' name='email' />
+					</div>
+					<br /><hr />
+	
+					<div id='label'>
+							<label>제목</label>
+					</div>
+					<div id='input'>
+							<input type='text' class='subject' name='subject' />
+					</div>
+					<br /><hr />
 			</div>
 
 			<div id='block'>
-						<div id='space'>
-								<div></div>
-								<label>내용</label>
-								<div></div>
-						</div>
-						<div id='textarea_div'>
-									<textarea name='doc'></textarea>
-						</div>
+					<div id='space'>
+							<div></div>
+							<label>내용</label>
+							<div></div>
+					</div>
+					<div id='textarea_div'>
+								<textarea name='doc'></textarea>
+					</div>
 			</div>
-			<br />
-			<hr />
+			<br /><hr />
 
 			<div id='label'>
-						<label>첨부파일</label>
+				<label>첨부파일</label>
 			</div>
-			<input type='file' name='attfile' id='attfile' multiple /> <br />
-			<hr />
+			<div id='input'>
+				<input type='file' name='attfile' id='attfile' multiple /> 
+			</div>
+			<br /><hr />
 
 			<div id='image_preview'>
 						<div id='attzone'></div>
@@ -104,8 +102,11 @@
 			<input type='hidden' name='serial' value='${param.serial }' />
 		</form>
 	</div>
+<div id='right'></div>
+</div>
 <script>
 	contact.init();
+	imageView('attfile', 'attzone');
 </script>
 </body>
 </html>

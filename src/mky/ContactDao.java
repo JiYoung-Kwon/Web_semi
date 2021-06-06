@@ -48,17 +48,9 @@ public class ContactDao {
 		int r = 0;
 		int chkCnt = 0;
 		try {
-			
-			System.out.println("조회됨");
-			
 			int serial = sqlSession.selectOne("contact.contact_getSerial");
-			
 			vo.setSerial(serial);
-			
-			System.out.println("인설트됨");
 			r = sqlSession.insert("contact.contact_insert", vo);
-			
-			System.out.println("인설트 완료");
 			
 			if(r>0) {
 				chkCnt = 0; //첨부파일의 수만큼 실행된 쿼리의 수
@@ -93,53 +85,101 @@ public class ContactDao {
 
 	
 	
-	//	public ContactVo view(int serial) {
-//		ContactVo vo = new ContactVo();
-//		
-//		try {
-//			
-//			
-//		}catch(Exception ex) {
-//			ex.printStackTrace();
-//		}
-//		
-//		
-//		
-//	}
+	public ContactVo view(int serial) {
+	ContactVo vo = new ContactVo();
+	
+	try {
+		sqlSession.update("contact.contact_hitUp", serial);
+		sqlSession.commit();
+		
+		vo = sqlSession.selectOne("contact.contact_view", serial);
+		List<ContactAttVo> attList = sqlSession.selectList("contact.contactAtt_view", serial);
+		sqlSession.commit();
+		vo.setAttList(attList);
+		
+	}catch(Exception ex) {
+		ex.printStackTrace();
+	}
+	
+	sqlSession.close();
+	return vo;
+	
+	}
+	
+	public String update(ContactVo vo) {
+		String msg = "수정되었습니다.";
+		int r = 0;
+		int chkCnt = 0;
+		
+		try {
+			r = sqlSession.update("contact.contact_update", vo);
+			sqlSession.commit();
+			
+			if(r<1) throw new Exception();
+			if(vo.getAttList() != null) {
+				for(ContactAttVo v : vo.getAttList()) {
+					v.setpSerial(vo.getSerial());
+					chkCnt += sqlSession.insert("contact.contactAtt_insert", v);
+				}
+				
+				if(chkCnt == vo.getAttList().size()) {
+					for(ContactAttVo delVo : vo.getDelList()) {
+						sqlSession.delete("contact.contactAtt_delete2", delVo.getSysAtt());
+						sqlSession.commit();
+						File f = new File(ContactFileUpload.saveDir + delVo.getSysAtt());
+						if(f.exists()) f.delete();
+					}
+					sqlSession.close();
+				}else {
+					throw new Exception();
+				}
+				
+			} //첨부파일 유무로 수정
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			msg = ex.toString();
+			sqlSession.rollback();
+			for(ContactAttVo delVo : vo.getAttList()) {
+				File f = new File(ContactFileUpload.saveDir + delVo.getSysAtt());
+				if(f.exists()) f.delete();
+			}
+		}
+		sqlSession.close();
+		return msg;
+	}
+	
+	public String delete(ContactVo vo) {
+		String msg = "삭제가 완료되었습니다.";
+		List<ContactAttVo> delList = null;
+		
+		try {
+			delList = sqlSession.selectList("contact.contact_att_list" , vo.getSerial());
+			System.out.println("delList size = " + delList.size());
+			
+			int r = sqlSession.delete("contact.contact_delete", vo);
+			System.out.println("r = " + r);
+			if(r>0) {
+				r = sqlSession.delete("contact.contactAtt_delete", vo.getSerial());
+				if(vo.getAttList() == null || r == vo.getAttList().size()) {
+					sqlSession.commit();
+					for(ContactAttVo v : delList) {
+						File f = new File(ContactFileUpload.saveDir + v.getSysAtt());
+						if(f.exists()) f.delete();
+					}
+				}else {
+					throw new Exception();
+				}
+			}else {
+				throw new Exception();
+			}
+		}catch(Exception ex) {
+			sqlSession.rollback();
+			ex.printStackTrace();
+			msg = ex.toString();
+		}
+		return msg;
+	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-//	public List<ContactVo> select(Page page){
-//		List<ContactVo> list = null;
-//		
-//		try {
-//			int totList = sqlSession.selectOne("contact.totList", page.getFindStr());
-//			page.setTotList(totList);
-//			page.compute();
-//			
-//			list = sqlSession.selectList("contact.search", page);
-//			sqlSession.close();
-//		}catch(Exception ex) {
-//			ex.printStackTrace();
-//		}
-//		return list;
-//	}
-
-	// board, boardAtt 저장
-		// 오류 : 첨부 파일 삭제
 }
+	
