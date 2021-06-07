@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="boardGame">		
+	<select id = 'totList' parameterType ='kjy.board.Page' resultType = 'Integer'>
+		SELECT count(bName) totList FROM boardGame
+		WHERE (bName LIKE '%${findStr}%' 
+		OR eName LIKE '%${findStr}%')
+		AND store LIKE '%${store}%'
+		AND genre LIKE '%${genre}%'		
+	</select>
+	
+	
+	<!-- 조회 -->
+	<select id = 'search' parameterType = "kjy.board.Page" resultType = "kjy.board.BoardGameVo">
+		SELECT * FROM(		
+			SELECT rownum rno, m.* from(
+				SELECT * FROM boardGame 
+				WHERE (bName LIKE '%${findStr}%' 
+				OR eName LIKE '%${findStr}%')
+				AND store LIKE '%${store}%'
+				AND genre LIKE '%${genre}%')m
+		) WHERE rno BETWEEN ${startNo} AND ${endNo}
+	</select>
+	
+	<select id = 'detail' parameterType = "String" resultType = "kjy.board.BoardGameVo">
+		SELECT * FROM boardGame
+		WHERE bName = #{_parameter}
+	</select>
+	
+	
+	<select id = 'onelineList' parameterType ='kjy.board.Page' resultType = 'Integer'>
+		SELECT count(bName) totList FROM ONELINE
+		WHERE bName = '${bName}'
+	</select>
+	
+	
+	
+	<select id = 'oneline' parameterType = "kjy.board.Page" resultType = "kjy.board.OneLineVo">
+		SELECT * FROM(		
+			SELECT rownum rno, o.* 
+			FROM(
+				SELECT * FROM ONELINE
+				WHERE bName = '${bName}')o
+			) WHERE rno BETWEEN ${startNo} AND ${endNo}
+	</select>
+	
+	<!-- 입력 -->
+	<insert id = 'insert' parameterType = "kjy.board.BoardGameVo">
+		INSERT INTO BOARDGAME (bName, eName, expl, diff, minPerson, maxPerson, minTime, maxTime, store, genre, oriAtt, sysAtt, gubun) 
+		values('${bName}', '${eName}', '${expl}', '${diff}', ${minPerson}, ${maxPerson}, ${minTime}, ${maxTime}, '${store}', '${genre}', '${oriAtt}', '${sysAtt}', '${bName}')
+	</insert>
+	
+	<insert id= 'insertOL' parameterType = "kjy.board.OneLineVo">
+		INSERT INTO ONELINE (bName, mid, star, doc)
+		VALUES('${bName}', '${mid}', '${star}', '${doc}')
+	</insert>
+
+	<!-- 삭제 -->
+	<delete id = 'delete' parameterType = "String">
+		DELETE FROM BOARDGAME WHERE bName = '${_parameter}'
+	</delete>
+	
+	<delete id = 'deleteOL' parameterType = "kjy.board.OneLineVo">
+		DELETE FROM ONELINE WHERE bName = '${bName}' AND mid = '${mid}'
+	</delete>
+	<!-- 수정 -->
+	<update id = 'update' parameterType = "kjy.board.BoardGameVo">
+		UPDATE boardGame 
+		SET bName = '${bName}', eName = '${eName}' , expl = '${expl}', diff = '${diff}', minPerson = ${minPerson}, maxPerson =${maxPerson}, minTime =  ${minTime}, maxTime = ${maxTime}, store ='${store}', genre = '${genre}', oriAtt = '${oriAtt}', sysAtt = '${sysAtt}', gubun = '${bName}'
+		WHERE gubun = '${gubun}'
+
+	</update>
+</mapper>
