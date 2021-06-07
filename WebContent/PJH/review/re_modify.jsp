@@ -26,9 +26,9 @@
 			
 		<label>지점</label>
 			<select name='gubun' id='gubun'>
-				<option value='서울'>서울</option>
-				<option value='대전'>대전</option>
-				<option value='붓산'>붓산</option>
+				<option value='강남'>강남</option>
+				<option value='홍대'>홍대</option>
+				<option value='부산'>부산</option>
 			</select>
 		<br/>
 		
