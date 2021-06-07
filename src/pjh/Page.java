@@ -1,4 +1,4 @@
-package PJH;
+package pjh;
 
 public class Page {
 	int totList;

@@ -1,0 +1,160 @@
+/*	
+-------------------------
+	게시판과 관련한 스타일
+	작성자 : 박준화
+	작성일 : 2021.06
+-------------------------
+*/
+@charset "UTF-8";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: white;
+}
+
+#review{
+	border-top: 2px solid #888;
+    border-bottom: 2px solid #888;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-top: 2px;
+    background-color: #332f2d;
+    font-weight: bold;
+    width: 1194px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#review>h2{
+	font-size:16pt;
+	margin-bottom:20px;
+	margin-top:20px;
+	text-align: center;
+}
+
+
+#review #btn_zone{
+	text-align: center;
+	margin-top:10px;
+	padding-top:10px;
+	border-top:2px solid #888;
+	
+}
+
+#review form>label{
+	display:inline-block;
+	width:80px;
+	text-align:left;
+}
+#review form>textarea{
+	width:600px;
+	height:300px;
+	margin-top:3px;
+	background-color: #332f2d;
+}
+
+#review form>input[name=subject]{
+	width:314px;
+}
+
+/*----검색 (search)------------- */
+#review .find_zone{
+	display:inline-block;
+	float:right;
+}
+
+#review .title{
+	border-top:2px solid #888;
+	border-bottom:2px solid #888;
+	padding-top:2px;
+	padding-bottom:2px;
+	margin-top:2px;
+	background-color:#ccc;
+}
+
+#review .title>span, #review .item>span{
+	display:inline-block;
+}
+
+#review .item:hover{
+	background-color : #ccc;
+	cursor : pointer;
+}
+
+
+#review #image_preview #attzone{
+	width:100%;
+	height:160px;
+	padding:0;
+	border:2px solid #888;
+	background-color: #332f2d;
+}
+	
+#review #image_preview #attzone .item{
+	width:130px;
+	height:150px;
+	margin:5px;
+	position:relative;
+	display:inline-block;
+}
+
+#review #gubun{
+	background-color: #332f2d;
+}
+	
+#review #attzone .del_btn{
+	position:absolute;
+	font-size:24pt;
+	color:#ff0000;
+	right:3px;
+	bottom:3px;
+	background-color:#332f2d;
+	padding:0;
+	border-width:0;
+	cursor:pointer;
+	}
+	
+#review #attzone img{
+	width:100%;
+	height:100%;
+}
+
+#review #att_list .file_zone{
+	display: inline-block;
+	width:160px;
+	position: relative;
+}
+#review #att_list .del_file_chk{
+	background-color : #fff;
+	position: absolute;
+	bottom: 5px;
+	right: 15px;
+}
+
+	
+#review #revPasswordZone{
+	position: absolute;
+	top : 0;
+	left : 0;
+	background-color : #0009;
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+
+#review #textZone{
+	width: 350px;
+	height: 120px;
+	margin: 70px auto;
+	background-color : #332f2d;
+	text-align: center;
+	padding:26px;
+	border-radius : 10px;
+	line-height: 30px;
+}
+
+#review input[type=button]{
+	background-color: #332f2d;
+}

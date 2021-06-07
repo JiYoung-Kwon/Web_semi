@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="review">
+
+	<select id="totList" parameterType="String" resultType="Integer">
+		select count(serial) totList from review 
+		where 	subject 	like '%${_parameter}%'
+		or 		doc		 	like '%${_parameter}%'
+
+		
+	</select>
+	
+	<select id="rev_getSerial" resultType="Integer">
+		select seq_review.nextval from dual	
+	</select>
+	
+	<select id="search" parameterType="pjh.Page" resultType="pjh.ReViewVo">
+		SELECT * FROM(
+			SELECT rownum rno, m.* FROM (
+				SELECT serial, pserial, subject, 
+					mid, hit, to_char(mdate, 'rrrr-mm-dd') mdate,
+					(SELECT count(serial) FROM reviewAtt WHERE b.serial = pserial) attCnt, gubun 
+			FROM review b
+			WHERE subject LIKE '%${findStr}%'
+			OR doc LIKE '%${findStr}%'
+			START WITH pserial IS NULL
+			CONNECT BY PRIOR serial = pserial
+			ORDER siblings BY serial DESC)m
+		)WHERE rno BETWEEN #{startNo} AND #{endNo} 
+	</select>
+	
+	<!-- 상세보기 -->
+	<select id="rev_view" parameterType="Integer" resultType="pjh.ReViewVo">
+		select * from review where serial = #{_parameter}
+	</select>
+	
+	<select id="revAtt_view" parameterType="Integer" resultType="pjh.ReViewAttVo">
+		select * from reviewAtt where pserial = #{_parameter}
+	</select>
+	
+	<!-- 입력 -->
+	<insert id="rev_insert" parameterType="pjh.ReViewVo">
+			insert into review(serial, subject, doc, mid, pwd, mdate, hit, gubun)
+			values(#{serial}, #{subject}, #{doc}, #{mid}, #{pwd}, sysdate, 0, #{gubun})
+	</insert>
+	
+	<insert id="revAtt_insert" parameterType="pjh.ReViewAttVo">
+		insert into reviewAtt(serial, pserial, oriAtt, sysAtt)
+		values(seq_reviewAtt.nextval, #{pSerial}, #{oriAtt}, #{sysAtt})
+	</insert>
+
+	<!-- 조회수 증가-->
+	<update id="rev_hitUp" parameterType="Integer">
+			update review set hit=hit+1 where serial = #{_parameter}
+	</update>
+		
+	<!-- 수정 -->
+	<update id="rev_update" parameterType="pjh.ReViewVo">
+		UPDATE review SET subject = #{subject} , doc = #{doc},  gubun = #{gubun}
+		WHERE serial = #{serial} AND mid = #{mid} AND pwd = #{pwd}
+	</update>
+		
+	<delete id="revAtt_delete2" parameterType="String">
+		DELETE FROM reviewAtt WHERE sysAtt = #{_parameter}
+	</delete>
+	
+	<!-- 삭제 -->
+	<select id='rev_att_list' parameterType="Integer" resultType="pjh.ReViewAttVo">
+		select sysAtt from reviewAtt where pserial = #{_parameter}
+	</select>
+		
+	<delete id="rev_delete" parameterType="pjh.ReViewVo">
+		DELETE FROM review WHERE serial = #{serial} AND mid = #{mid} AND pwd = #{pwd}
+	</delete>
+
+	<delete id="revAtt_delete" parameterType="Integer">
+		DELETE FROM reviewAtt WHERE pserial=#{_parameter}
+	</delete>
+
+
+</mapper>

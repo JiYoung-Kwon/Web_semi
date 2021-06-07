@@ -1,0 +1,171 @@
+/*	
+-------------------------
+	게시판과 관련한 스타일
+	작성자 : 박준화
+	작성일 : 2021.06
+-------------------------
+*/
+@charset "UTF-8";
+
+* {padding: 0; margin: 0; box-sizing: border-box;}
+
+#review{
+	border-top: 2px solid #888;
+    border-bottom: 2px solid #888;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-top: 2px;
+    background-color: #332f2d;
+    font-weight: bold;
+    width: 1194px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#review>h2{
+	color: #bbb2a9;
+	font-family: "Noto Sans KR", Sans-serif;
+	font-size: 28px;
+	font-weight: bold;
+	line-height: 38px;
+	margin-bottom: 10px;
+	text-shadow: 3px 1px 4px black;
+}
+
+#review .title{
+	display: flex;
+}
+
+#review .item{
+	display: flex;
+}
+
+#review .title span{
+	text-align: center;
+	border: 1px solid #aaa;
+	border-left: none;
+	border-right: none;
+	padding: 20px 0 20px 0;
+}
+
+#review .items{
+	border-top: none;
+}
+
+#review .item span{
+	text-align: center;
+	padding: 20px 0 20px 0;
+}
+
+
+#review #btn_zone{
+	text-align: center;
+	margin-top:10px;
+	padding-top:10px;
+	border-top:2px solid #aaa;
+	
+}
+
+#review form>label{
+	display:inline-block;
+	width:80px;
+	text-align:left;
+}
+#review form>textarea{
+	width:600px;
+	height:300px;
+	margin-top:3px;
+}
+
+#review form>input[name=subject]{
+	width:314px;
+}
+
+#review #btn_zone{
+	margin: auto;
+	width: 100%;
+	text-align: center;
+	vertical-align: top;
+}
+
+#review #btn_zone input[type=button]{
+   padding: 18px;
+    border: 0px;
+    background-color: #332f2d;
+    color: #eee !important;
+    font-size: inherit;
+    border-radius: 25px;
+   
+}
+
+#review #btn_zone input[type=button]:hover{
+	cursor: pointer;
+
+}
+
+/*----검색 (search)------------- */
+#review .find_zone{
+	display:inline-block;
+	float:right;
+}
+
+#review .title{
+	border-top:2px solid #888;
+	border-bottom:2px solid #888;
+	padding-top:2px;
+	padding-bottom:2px;
+	margin-top:2px;
+	background-color:#332f2d;
+	font-weight: bold;
+	color: white;
+	
+}
+
+#review .title>span, #review .item>span{
+	color: white;
+	display:inline-block;
+}
+
+#review .item:hover{
+	background-color : #332f2d;
+	cursor : pointer;
+}
+
+#review .items{
+	border-top: none;
+}
+/* #review .title>.gubun, #review .item>.gubun{ width:60px;}
+#review .title>.no, #review .item>.no{ width:60px;}
+#review .title>.subject, #review .item>.subject{ width:450px;}
+#review .title>.date, #review .item>.date{ width:150px;}
+#review .title>.mid, #review .item>.mid{ width:150px;}
+ .title>.hit, .item>.hit{ width:100px;} */
+
+#review .title .no, #review .item .no{
+	flex: 0.5;
+}
+#review .title .gubun, #review .item .gubun{
+	flex: 1;
+}
+#review .title .subject, #review .item .subject{
+	flex: 4;
+}
+#review .title .mid, #review .item .mid{
+	flex: 1;
+}
+#review .title .date, #review .item .date{
+	flex: 2;
+}
+#review .title .hit, #review .item .hit{
+	flex: 1;
+}
+
+#review .find_zone #btnInsert{
+	margin-top: 20px;
+	padding: 10px 43px;
+   background-color: #fff;
+   border: 1px solid #000;
+   font-size: 12px;
+}
+
+
