@@ -25,7 +25,7 @@ public class BoardFileUpload extends HttpServlet {
 	BoardGameDao dao;
 	RequestDispatcher rd;
 
-	final static String saveDir = "C:\\Users\\JIYOUNG.DESKTOP-KDUS7M3\\eclipse\\workspace\\Web_Semi\\WebContent\\KJY\\upload\\";
+	final static String saveDir = "C:\\eclipse\\workspace\\Web_Semi\\WebContent\\KJY\\upload\\";
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

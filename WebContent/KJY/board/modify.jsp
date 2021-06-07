@@ -144,7 +144,6 @@
 			<br/>			
 						
 			<input type = 'hidden' name = 'nowPage' value = '${param.nowPage }'/>
-			<input type = 'hidden' name = 'serial' value = '${param.serial }'/>
 			<input type = 'hidden' name = 'findStr' value = '${param.findStr }'/>
 		</form>	
 

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="member">
+	
+	<insert id="insert" parameterType="ksy.MemberVo">
+		insert into member(mid, irum, pwd, phone, post, address, address2, email, host )
+		values( #{mid }, #{irum }, #{pwd }, #{phone }, #{post }, #{address }, #{address2 }, #{email }, #{host })
+	</insert>
+
+	<select id="login" parameterType="ksy.MemberVo" resultType="Integer">
+		select count(mid) cnt from member where mid = #{mid } and pwd = #{pwd }
+	</select>
+
+	<select id="select" parameterType="ksy.MemberVo" resultType="ksy.MemberVo">
+		select * from member where mid = #{mid }
+	</select>
+	
+	<update id="update" parameterType="ksy.MemberVo">
+		update member set phone = #{phone}, post = #{post}, Address = #{address}, Address2 = #{address2}, email = #{email}, host = #{host}
+		WHERE mid = #{mid }
+	</update>
+	
+	<select id="chk_id" parameterType="ksy.MemberVo" resultType="Integer">
+		select count(mid) cnt from member where mid = #{mid }
+	</select>
+	
+	<update id="update_pwd" parameterType="ksy.MemberVo">
+		update member set pwd = #{pwd } WHERE mid = #{mid }
+	</update>
+	
+	<delete id="delete" parameterType="ksy.MemberVo">
+		DELETE FROM member WHERE mid=#{mid } AND pwd=#{pwd }
+	</delete>
+	
+</mapper>

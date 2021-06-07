@@ -49,3 +49,11 @@ function login(){
 function logo(){
 	$('#middle_main').load('./main.jsp');
 }
+
+function boardGame(){
+	$('#middle_main').load("./boardGame", 'job=search');
+}
+
+function store(){
+	$('#middle_main').load("./KJY/map/storeMap.jsp");
+}

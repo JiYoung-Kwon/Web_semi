@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <script src = '/Web_Semi/lib/jquery-3.6.0.min.js'></script>
 <script src = '/Web_Semi/KJY/board/board.js'></script>
@@ -118,20 +118,20 @@
 				</a>
 			</span> 
 			<span class='TotalName'><a id = 'bName'>${vo.bName }</a> <a id = 'eName'>(${vo.eName})</a></span>
-			<input type = 'button' value = 'ºˆ¡§' id="btnModify" />
-			<input type = 'button' value = 'ªË¡¶' id="btnDelete"/>
+			<input type = 'button' value = 'ÏàòÏ†ï' id="btnModify" />
+			<input type = 'button' value = 'ÏÇ≠Ï†ú' id="btnDelete"/>
 			<hr class = 'normal'/>
 			<span class='expl'>${vo.expl }</span>
 			<hr class = 'normal'/>
-			<label>≥≠¿Ãµµ</label> <span class='diff'>${vo.diff }</span> 
-			<label>¿Œø¯</label> <span class='person'>${vo.minPerson }-${vo.maxPerson }¿Œ</span>
-			<label>∞‘¿”Ω√∞£</label> <span class='time'>${vo.minTime }-${vo.maxTime } ∫–</span> 
+			<label>ÎÇúÏù¥ÎèÑ</label> <span class='diff'>${vo.diff }</span> 
+			<label>Ïù∏Ïõê</label> <span class='person'>${vo.minPerson }-${vo.maxPerson }Ïù∏</span>
+			<label>Í≤åÏûÑÏãúÍ∞Ñ</label> <span class='time'>${vo.minTime }-${vo.maxTime } Î∂Ñ</span> 
 			
 			<hr class = 'normal'/>
 			<div class='oneLineReview'>
 				<div id = 'oneLine'>
 				<h2>
-					«—¡Ÿ∆Ú <input type='button' id = 'btnRegisterOL' value="¿€º∫" onclick="funcRegisterOL('${vo.bName}','<%=(String)session.getAttribute("login_id") %>', ${(empty param.nowPage) ? 1: param.nowPage })" />
+					ÌïúÏ§ÑÌèâ <input type='button' id = 'btnRegisterOL' value="ÏûëÏÑ±" onclick="funcRegisterOL('${vo.bName}','<%=(String)session.getAttribute("login_id") %>', ${(empty param.nowPage) ? 1: param.nowPage })" />
 				</h2>
 
 				<c:forEach var="ol" items = "${oList}">
@@ -139,7 +139,7 @@
 					<span class="star">${ol.star }</span>
 					<span class="doc"> ${ol.doc }</span>
 					<c:if test = "${ol.mid eq sessionId}">
-						<input type='button' value="ªË¡¶" class = 'btnDeleteOL' onclick="funcDeleteOL('${ol.bName}', '${ol.mid }')" />
+						<input type='button' value="ÏÇ≠Ï†ú" class = 'btnDeleteOL' onclick="funcDeleteOL('${ol.bName}', '${ol.mid }')" />
 					</c:if>
 					<br />
 				</c:forEach>
@@ -147,8 +147,8 @@
 				</div>
 				<div id = 'btn_zone'>
 					<c:if test="${page.startPage > 1 }">
-						<input type='button' value = '∏«√∑' onclick='brd.moveOL(1)'/>
-						<input type='button' value = '¿Ã¿¸' onclick='brd.moveOL(${page.startPage-1})'/>
+						<input type='button' value = 'Îß®Ï≤®' onclick='brd.moveOL(1)'/>
+						<input type='button' value = 'Ïù¥Ï†Ñ' onclick='brd.moveOL(${page.startPage-1})'/>
 					</c:if>
 					
 					<c:forEach var='p' begin='${page.startPage }' end='${page.endPage }'>
@@ -156,8 +156,8 @@
 					</c:forEach>
 					
 					<c:if test = "${page.endPage<page.totPage }">
-						<input type='button' value = '¥Ÿ¿Ω' onclick = 'brd.moveOL(${page.endPage+1 })'/>
-						<input type='button' value = '∏«≥°' onclick = 'brd.moveOL(${page.totPage })'/>
+						<input type='button' value = 'Îã§Ïùå' onclick = 'brd.moveOL(${page.endPage+1 })'/>
+						<input type='button' value = 'Îß®ÎÅù' onclick = 'brd.moveOL(${page.totPage })'/>
 					</c:if>			
 				</div>	
 			</div>
