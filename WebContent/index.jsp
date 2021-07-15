@@ -115,7 +115,7 @@
                                 <li><a href="#">공지사항</a></li>
                                 <li><a id="btn_review_search"> 이용 후기</a></li>
                                 <li><a href="#">고객 의견</a></li>
-                                <li><a href="#">자유게시판</a></li>
+                                <li><a id="btn_contact" >문의게시판</a></li>
                             </ul>
                         </li>
                     </ul>

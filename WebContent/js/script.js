@@ -57,3 +57,14 @@ function boardGame(){
 function store(){
 	$('#middle_main').load("./KJY/map/storeMap.jsp");
 }
+
+// 문의게시판 클릭시 문의게시판 페이지로 이동
+
+var btn_contact = document.getElementById('btn_contact');
+
+btn_contact.onclick = function(){
+
+	$('#middle_main').load('./contact.do?job=search');
+
+} 
+

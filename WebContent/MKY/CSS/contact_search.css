@@ -1,59 +1,142 @@
 @charset "UTF-8";
-#wrapper{
+#all_wrapper{
+	display: flex;
+}
+#contact{
+	flex: 3.5;
 	margin-top:15px;
-	padding:10px;
+	padding: 10px;
+	background-color: #332f2d;
+	color: #fff;
 }
-#wrapper>h2{
-	font-size:22pt;
-	color:#9999ff;
+#left{
+	flex: 1;
 }
-
-#wrapper .title{
-	display: flex;
-}
-#wrapper .item{
-	display: flex;
+#right{
+	flex: 1;
 }
 
-#wrapper .title span{
+#contact>h2{
+	color: #997a5e;
+	font-family: "Noto Sans KR", Sans-serif;
+	font-size: 28px;
+	font-weight: bold;
+	line-height: 38px;
+	margin-bottom: 20px;
+}
+
+#contact .column_name{
+	display: flex;
+}
+
+#contact .item{
+	display: flex;
+}
+
+#contact .column_name span{
 	text-align: center;
 	border: 1px solid #aaa;
 	border-left: none;
 	border-right: none;
 	padding: 20px 0 20px 0;
 }
-#wrapper .items{
+
+#contact .items{
 	border-top: none;
 }
-#wrapper .item span{
+
+#contact .item span{
 	text-align: center;
 	padding: 20px 0 20px 0;
 }
-#wrapper hr{
+
+#contact hr{
 border-top:none;
-border-bottom: 1px dotted black
+border-bottom: 1px dotted #ffffff;
 }
 
-#wrapper .title .no, #wrapper .item .no{
+#contact .column_name .no, #contact .item .no{
+	flex: 0.5;
+}
+#contact .column_name .store, #contact .item .store{
 	flex: 1;
 }
-#wrapper .title .pname, #wrapper .item .pname{
-	flex: 1;
-}
-#wrapper .title .wname, #wrapper .item .wname{
+#contact .column_name .subject, #contact .item .subject{
 	flex: 4;
 }
-#wrapper .title .irum, #wrapper .item .irum{
+#contact .column_name .irum, #contact .item .irum{
 	flex: 1;
 }
-#wrapper .title .nal, #wrapper .item .nal{
-	flex: 2;
-}
-#wrapper .title .hit, #wrapper .item .hit{
+#contact .column_name .mdate, #contact .item .mdate{
 	flex: 1;
+}
+#contact .column_name .hit, #contact .item .hit{
+	flex: 0.7;
 }
 
-#wrapper .find_zone{
+#contact .find_zone{
 	text-align: right;
 	margin-top: 20px;
 }
+
+#contact .find_zone #btnInsert{
+	margin-top: 10px;
+	padding: 10px 43px;
+    background-color: #fff;
+    border: 1px solid #000;
+    font-size: 12px;
+}
+#contact .find_zone #btnInsert, #btnFind:hover{
+	cursor: pointer;
+}
+
+#contact .find_zone #btnFind{
+	padding: 5px 10px;
+   background-color: #fff;
+   border: 1px solid #000;
+   font-size: 12px;
+}
+#contact #btn_zone{
+	margin: auto;
+	width: 100%;
+	text-align: center;
+	vertical-align: top;
+}
+#contact #btn_zone input[type=button]{
+	margin-top: 20px;
+	padding: 25px;
+	border: 0px;
+	background-color: #332f2d;
+	color: #ffffff !important;
+   font-size: large;
+}
+
+#contact #btn_zone input[type=button]:hover{
+	cursor: pointer;
+	text-decoration: underline;
+	text-decoration-color: red;
+}
+
+#contact .item:hover{
+	cursor: pointer;
+	background-color: #dadada;
+	color: #000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

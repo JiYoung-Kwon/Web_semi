@@ -43,7 +43,7 @@
 		}
 	</style>
 	
-	<script src = "http://maps.googleapis.com/maps/api/js?key=API키&callback=initMap&region=kr"async defer></script>
+	<script src = "http://maps.googleapis.com/maps/api/js?key=구글API키넣기&callback=initMap&region=kr"async defer></script>
 
 <body>
 	<div id="storeMap">
