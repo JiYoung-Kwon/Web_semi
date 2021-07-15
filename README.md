@@ -7,24 +7,25 @@
 
 👥 팀 구성
 
-팀장
-권지영 - github
-팀원
-김시영 - github
-문관영 - github
-박준화 - github
-서상현 - github
+팀장<br/>
+*  권지영 - [github](https://github.com/JiYoung-Kwon)
 
-📌 프로젝트 기간 : 2021-05-31 ~ 2021
+팀원<br/>
+*  김시영 - [github](https://github.com/SYoung-K)
+*  문관영 - [github](https://github.com/Moonlight775)
+*  박준화 - [github](https://github.com/mushroom7371)
+*  김상현
+
+📌 프로젝트 기간 : 2021-05-31 ~ 2021-06-07
 
 📌 프로젝트 주제
 * 보드게임 카페 웹사이트 제작
 * 상세 메뉴
-  * 매장 약도 페이지
-  * 커뮤니티 페이지
-  * 예약 페이지
-  * 공지사항 페이지
-  * 매장 소개 페이지
-  * 보드게임 
+  * 메인 페이지
+  * 회원가입·로그인
+  * 보드게임 소개 및 한줄평
+  * 매장 지도
+  * 문의 게시판
+  * 매장 리뷰 게시판
 
 📌 프로젝트 상세 내용 : pdf 참고
